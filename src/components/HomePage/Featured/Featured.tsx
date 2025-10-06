@@ -27,6 +27,7 @@ export default function Projects() {
               key={project.id}
               project={project}
               accentColor={accentColor}
+              style="short"
             />
           );
         })}
