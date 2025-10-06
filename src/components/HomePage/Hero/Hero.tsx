@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image'; 
 
 
-const PROFILE_IMAGE_PATH = "/me2.jpg"; 
+const PROFILE_IMAGE_PATH = "/images/me2.jpg"; 
 
 export default function Hero() {
 
