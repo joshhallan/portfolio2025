@@ -1,26 +1,58 @@
+/* globals.css */
+
 @import "tailwindcss";
 
+/* --- 1. CORE COLOR VARIABLES FOR NEON THEME (UNCHANGED) --- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* ... your color variables here ... */
+  --background: #3C4142; 
+  --foreground: #FAFAFA; 
+  --neon-pink: #d30cb8;
+  --neon-blue: #6df1d8;
+  --neon-yellow: #ffe700;
+  --neon-green: #74ee15;
+  --neon-red: #FF3131;
+  --neon-blend: linear-gradient(45deg, var(--neon-pink), var(--neon-blue));
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ... other global styles ... */
+
+/* --- 3. NEON GRADIENT UTILITY CLASS (For your name) --- */
+.gradient-text {
+  /* ... unchanged ... */
+  background-image: var(--neon-blend);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* --- 4. NEW: GLOBAL GRADIENT BORDER CLASS --- */
+/* This reliably overrides Tailwind's border-b class */
+.-border-bottom-gradient {
+    border-bottom: 2px solid transparent !important; /* Ensures our border width is respected */
+    background: linear-gradient(var(--background), var(--background)) padding-box, 
+                var(--neon-blend) border-box; /* Places the gradient ONLY on the bottom border area */
+    background-size: 100% 2px; /* Set the size of the gradient bar */
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+/* --- 5. NEW: GLOBAL NEON HOVER CLASS (for reliability) --- */
+.neon-hover-link {
+    transition: color 0.2s ease-in-out; 
+    color: #fff;
+    opacity: 0.7;
+}
+
+.neon-hover-link:hover,
+.neon-hover-link:focus {
+    background-image: var(--neon-blend);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent; 
+  opacity: 1;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--background);
 }

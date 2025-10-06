@@ -1,0 +1,97 @@
+[debug] [2025-10-06T10:38:35.279Z] ----------------------------------------------------------------------
+[debug] [2025-10-06T10:38:35.282Z] Command:       /Users/Joshua.Allan/.nvm/versions/node/v22.18.0/bin/node /Users/Joshua.Allan/.nvm/versions/node/v22.18.0/bin/firebase init
+[debug] [2025-10-06T10:38:35.282Z] CLI Version:   14.18.0
+[debug] [2025-10-06T10:38:35.283Z] Platform:      darwin
+[debug] [2025-10-06T10:38:35.283Z] Node Version:  v22.18.0
+[debug] [2025-10-06T10:38:35.283Z] Time:          Mon Oct 06 2025 11:38:35 GMT+0100 (British Summer Time)
+[debug] [2025-10-06T10:38:35.283Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-10-06T10:38:35.290Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-10-06T10:38:35.290Z] > authorizing via signed-in user (joshuastevenallan@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/Joshua.Allan/Documents/Personal/Code/portfolio/findJosh_2025/findjosh-portfolio
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2025-10-06T10:38:56.536Z] Checked if tokens are valid: false, expires at: 1725665057484
+[debug] [2025-10-06T10:38:56.537Z] Checked if tokens are valid: false, expires at: 1725665057484
+[debug] [2025-10-06T10:38:56.537Z] > refreshing access token with scopes: []
+[debug] [2025-10-06T10:38:56.539Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-10-06T10:38:56.539Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-06T10:39:01.939Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
+[debug] [2025-10-06T10:39:01.940Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-06T10:39:01.940Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2025-10-06T10:39:07.243Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 401
+[debug] [2025-10-06T10:39:07.243Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2025-10-06T10:39:07.243Z] Got a 401 Unauthenticated error for a call that required authentication. Refreshing tokens.
+[debug] [2025-10-06T10:39:07.243Z] Checked if tokens are valid: false, expires at: 1725665057484
+[debug] [2025-10-06T10:39:07.243Z] Checked if tokens are valid: false, expires at: 1725665057484
+[debug] [2025-10-06T10:39:07.243Z] > refreshing access token with scopes: []
+[debug] [2025-10-06T10:39:07.244Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-10-06T10:39:07.244Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-06T10:39:12.251Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
+[debug] [2025-10-06T10:39:12.251Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-06T10:39:12.253Z] Request to https://firebase.googleapis.com/v1beta1/projects?pageSize=100 had HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[debug] [2025-10-06T10:39:13.456Z] FirebaseError: Request to https://firebase.googleapis.com/v1beta1/projects?pageSize=100 had HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at responseToError (/Users/Joshua.Allan/.nvm/versions/node/v22.18.0/lib/node_modules/firebase-tools/lib/responseToError.js:52:12)
+    at RetryOperation._fn (/Users/Joshua.Allan/.nvm/versions/node/v22.18.0/lib/node_modules/firebase-tools/lib/apiv2.js:312:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+[error] 
+[error] Error: Failed to list Firebase projects. See firebase-debug.log for more info.
+[debug] [2025-10-06T10:41:48.726Z] ----------------------------------------------------------------------
+[debug] [2025-10-06T10:41:48.732Z] Command:       /Users/Joshua.Allan/.nvm/versions/node/v22.18.0/bin/node /Users/Joshua.Allan/.nvm/versions/node/v22.18.0/bin/firebase init
+[debug] [2025-10-06T10:41:48.732Z] CLI Version:   14.18.0
+[debug] [2025-10-06T10:41:48.733Z] Platform:      darwin
+[debug] [2025-10-06T10:41:48.733Z] Node Version:  v22.18.0
+[debug] [2025-10-06T10:41:48.733Z] Time:          Mon Oct 06 2025 11:41:48 GMT+0100 (British Summer Time)
+[debug] [2025-10-06T10:41:48.733Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-10-06T10:41:48.737Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-10-06T10:41:48.738Z] > authorizing via signed-in user (joshuastevenallan@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/Joshua.Allan/Documents/Personal/Code/portfolio/findJosh_2025/findjosh-portfolio
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2025-10-06T10:41:58.123Z] Checked if tokens are valid: false, expires at: 1725665057484
+[debug] [2025-10-06T10:41:58.123Z] Checked if tokens are valid: false, expires at: 1725665057484
+[debug] [2025-10-06T10:41:58.123Z] > refreshing access token with scopes: []
+[debug] [2025-10-06T10:41:58.126Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-10-06T10:41:58.126Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-06T10:42:04.522Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
+[debug] [2025-10-06T10:42:04.523Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-06T10:42:04.523Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2025-10-06T10:42:09.626Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 401
+[debug] [2025-10-06T10:42:09.626Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2025-10-06T10:42:09.626Z] Got a 401 Unauthenticated error for a call that required authentication. Refreshing tokens.
+[debug] [2025-10-06T10:42:09.626Z] Checked if tokens are valid: false, expires at: 1725665057484
+[debug] [2025-10-06T10:42:09.626Z] Checked if tokens are valid: false, expires at: 1725665057484
+[debug] [2025-10-06T10:42:09.626Z] > refreshing access token with scopes: []
+[debug] [2025-10-06T10:42:09.627Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-10-06T10:42:09.627Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
