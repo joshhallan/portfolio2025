@@ -86,7 +86,20 @@ export default function About() {
                   AWS Partner Accreditation (Technical)
                 </div>
 
-                <div className="flex items-center opacity-50 italic">
+                <div className="flex items-center">
+                  <span
+                    className="inline-block px-1 mr-2 text-xs font-bold"
+                    style={{
+                      color: "var(--neon-blue)",
+                      textShadow: "0 0 5px var(--neon-blue)",
+                    }}
+                  >
+                    —
+                  </span>
+                  Certified Scrum Master (CSM) (Formerly Accredited)
+                </div>
+
+                {/* <div className="flex items-center opacity-50 italic">
                   <span
                     className="inline-block px-1 mr-2 text-xs font-bold"
                     style={{
@@ -97,7 +110,7 @@ export default function About() {
                     —
                   </span>
                   Certified Scrum Master (CSM) (Lapsed)
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -122,9 +135,9 @@ export default function About() {
               Expert in <span style={neonAccentStyle}>React, Angular</span> &{" "}
               <span style={neonAccentStyle}>Next</span>
             </p>
-            <p className="text-white/80">
+            {/* <p className="text-white/80">
               Location: <span style={neonAccentStyle}>Sunderland</span>
-            </p>
+            </p> */}
           </div>
         </div>
       </div>

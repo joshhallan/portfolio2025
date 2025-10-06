@@ -6,7 +6,7 @@
 export const EXPERIENCE_DATA = [
   {
     id: 1,
-    title: "Technical Lead",
+    title: "Lead Frontend Engineer",
     company: "Leighton",
     duration: "Apr 2023 - Present",
     location: "Newcastle, UK",
