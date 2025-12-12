@@ -37,8 +37,7 @@ export default function ExperienceSummary() {
                 >
                     <div>
                         <h3 
-                            className="text-xl font-bold mb-1" 
-                            // style={{ color: cardColor, textShadow: `0 0 5px ${cardColor}` }}
+                            className="text-xl font-bold mb-1"
                             style={{ color: cardColor }}
                         >
                             {job.title}
