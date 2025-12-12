@@ -83,6 +83,18 @@ export default function About() {
                   >
                     —
                   </span>
+                  AWS Cloud Practitioner
+                </div>
+                <div className="flex items-center">
+                  <span
+                    className="inline-block px-1 mr-2 text-xs font-bold"
+                    style={{
+                      color: "var(--neon-blue)",
+                      textShadow: "0 0 5px var(--neon-blue)",
+                    }}
+                  >
+                    —
+                  </span>
                   AWS Partner Accreditation (Technical)
                 </div>
 
@@ -98,19 +110,6 @@ export default function About() {
                   </span>
                   Certified Scrum Master (CSM) (Formerly Accredited)
                 </div>
-
-                {/* <div className="flex items-center opacity-50 italic">
-                  <span
-                    className="inline-block px-1 mr-2 text-xs font-bold"
-                    style={{
-                      color: "var(--neon-red)",
-                      textShadow: "0 0 5px var(--neon-red)",
-                    }}
-                  >
-                    —
-                  </span>
-                  Certified Scrum Master (CSM) (Lapsed)
-                </div> */}
               </div>
             </div>
           </div>
