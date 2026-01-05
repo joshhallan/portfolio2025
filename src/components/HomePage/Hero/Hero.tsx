@@ -40,7 +40,7 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row md:justify-start justify-center space-y-4 sm:space-y-0 sm:space-x-6">         
            
             <a 
-              href="/documents/Joshua-Allan-CV.pdf" 
+              href="/documents/Joshua-Allan-CV_2026.pdf" 
               download 
               className={`${ctaClasses} border-2`}
               style={{ borderColor: 'var(--neon-blue)', color: 'var(--neon-blue)' }}

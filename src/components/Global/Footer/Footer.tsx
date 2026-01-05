@@ -83,7 +83,7 @@ export default function Footer() {
           <p>Built with NextJS and Tailwind</p>
         </div>
         <div className="text-center text-sm text-white/50">
-          <p>&copy; {currentYear} FindJosh. All rights reserved.</p>
+          <p>&copy; {currentYear} FindJosh. All rights reserved.</p> 
         </div>
       </div>
     </footer>
