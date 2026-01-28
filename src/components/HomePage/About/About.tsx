@@ -15,7 +15,7 @@ export default function About() {
         <div className="lg:col-span-2 text-lg text-white/90 space-y-6 leading-relaxed">
           <p>
             Hello! I&apos;m a highly motivated and solutions-driven{" "}
-            <span style={neonAccentStyle}>Lead Technical Developer</span> with{" "}
+            <span style={neonAccentStyle}>Lead Frontend Engineer</span> with{" "}
             <span style={neonAccentStyle}>
               over 10 years of professional experience
             </span>
