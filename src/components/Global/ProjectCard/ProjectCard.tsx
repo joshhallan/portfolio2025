@@ -197,6 +197,18 @@ export default function ProjectCard({
             >
               GitHub →
             </Link>
+
+            {project.link !== "" && (
+              <Link
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={neonLinkClasses}
+                style={{ color: "var(--neon-blue)" }}
+              >
+                Live Demo →
+              </Link>
+            )}
           </div>
         </div>
       </div>
