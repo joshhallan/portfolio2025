@@ -5,9 +5,7 @@ export default function About() {
 
   return (
     <section id="about" className="container mx-auto max-w-6xl px-8 py-16">
-      <h2
-        className="text-4xl font-bold mb-12 text-center text-white"
-      >
+      <h2 className="text-4xl font-bold mb-12 text-center text-white">
         About Me
       </h2>
 
@@ -85,6 +83,7 @@ export default function About() {
                   </span>
                   AWS Cloud Practitioner
                 </div>
+
                 <div className="flex items-center">
                   <span
                     className="inline-block px-1 mr-2 text-xs font-bold"
@@ -96,6 +95,32 @@ export default function About() {
                     —
                   </span>
                   AWS Partner Accreditation (Technical)
+                </div>
+
+                <div className="flex items-center">
+                  <span
+                    className="inline-block px-1 mr-2 text-xs font-bold"
+                    style={{
+                      color: "var(--neon-blue)",
+                      textShadow: "0 0 5px var(--neon-blue)",
+                    }}
+                  >
+                    —
+                  </span>
+                  IAAP - Digital Accessibility
+                </div>
+
+                <div className="flex items-center">
+                  <span
+                    className="inline-block px-1 mr-2 text-xs font-bold"
+                    style={{
+                      color: "var(--neon-blue)",
+                      textShadow: "0 0 5px var(--neon-blue)",
+                    }}
+                  >
+                    —
+                  </span>
+                  IAAP - Accessible Development
                 </div>
 
                 <div className="flex items-center">
