@@ -70,7 +70,7 @@ export default function Footer() {
             <a
               href={mailtoHref}
               target="_blank"
-              className="text-lg font-semibold neon-hover-link"
+              className="text-white text-lg font-semibold neon-hover-link"
             >
               {emailAddress}
             </a>
@@ -79,11 +79,11 @@ export default function Footer() {
 
         <hr className="border-white/10 my-6" />
 
-        <div className="text-center text-sm text-white/50">
+        <div className="text-center text-sm text-white">
           <p>Built with NextJS and Tailwind</p>
         </div>
-        <div className="text-center text-sm text-white/50">
-          <p>&copy; {currentYear} FindJosh. All rights reserved.</p> 
+        <div className="text-center text-sm text-white">
+          <p>&copy; {currentYear} FindJosh. All rights reserved.</p>
         </div>
       </div>
     </footer>
