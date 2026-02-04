@@ -33,9 +33,9 @@ export default function Hero() {
           <h1 className="text-5xl md:text-7xl font-extrabold leading-tight text-white mb-4">
             HI, I&apos;M <span className="gradient-text">JOSH</span>.
           </h1>
-          <p className="text-xl md:text-3xl text-white/90 mb-12">
+          <h2 className="text-xl md:text-3xl text-white/90 mb-12">
             I build beautiful digital experiences.
-          </p>
+          </h2>
 
           <div className="flex flex-col sm:flex-row md:justify-start justify-center space-y-4 sm:space-y-0 sm:space-x-6">         
            

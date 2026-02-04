@@ -7,7 +7,7 @@
   /* ... your color variables here ... */
   --background: #3C4142; 
   --foreground: #FAFAFA; 
-  --neon-pink: #d30cb8;
+  --neon-pink: #FF7AED;
   --neon-blue: #6df1d8;
   --neon-yellow: #ffe700;
   --neon-green: #74ee15;
@@ -17,7 +17,7 @@
 
 /* ... other global styles ... */
 
-/* --- 3. NEON GRADIENT UTILITY CLASS (For your name) --- */
+/* --- 3. NEON GRADIENT UTILITY CLASS --- */
 .gradient-text {
   /* ... unchanged ... */
   background-image: var(--neon-blend);

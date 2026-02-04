@@ -18,8 +18,8 @@ export default function About() {
               over 10 years of professional experience
             </span>
             , specializing in crafting responsive, high-performance user
-            interfaces. My passion lies in bridging the gap between design and
-            functionality, ensuring an exceptional user experience (UX) across
+            interfaces. My passion lies in bridging the gap between design,
+            functionality, and inclusive accessibility, ensuring an exceptional user experience (UX) across
             all platforms.
           </p>
 
@@ -52,11 +52,11 @@ export default function About() {
             className="w-full text-left space-y-3 p-4 rounded-lg"
             style={{
               border: "1px solid var(--neon-pink)",
-              boxShadow: "0 0 15px var(--neon-pink)30",
+              boxShadow: "0 0 15px var(--neon-pink) 30",
             }}
           >
             <p
-              className="text-white font-semibold uppercase tracking-wider text-sm mb-2 text-center"
+              className="font-semibold uppercase tracking-wider text-sm mb-2 text-center"
               style={{ color: "var(--neon-pink)" }}
             >
               Qualifications

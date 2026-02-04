@@ -39,13 +39,6 @@ export default function NavBar() {
         Linkedin
       </Link>
 
-      {/* <Link
-        href="/contact"
-        className={`${menuLinkClasses} neon-hover-link`}
-        onClick={() => setIsMenuOpen(false)}
-      >
-        Contact
-      </Link> */}
     </>
   );
 
@@ -70,6 +63,7 @@ export default function NavBar() {
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-expanded={isMenuOpen}
           aria-controls="mobile-menu"
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         >
           <div className="w-6 h-0.5 bg-white mb-1"></div>
           <div className="w-6 h-0.5 bg-white mb-1"></div>
