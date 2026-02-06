@@ -37,7 +37,7 @@ export default function About() {
             <span style={neonAccentStyle}>
               over 10 years of professional experience
             </span>
-            , specializing in crafting responsive, high-performance user
+            , specialising in crafting responsive, high-performance user
             interfaces. My passion lies in bridging the gap between design,
             functionality, and inclusive accessibility, ensuring an exceptional
             user experience (UX) across all platforms.
@@ -46,7 +46,7 @@ export default function About() {
           <p>
             Professionally, I excel in{" "}
             <span style={neonAccentStyle}>
-              organizational skills and decisiveness
+              organisational skills and decisiveness
             </span>
             . I appreciate the collaborative synergy of group work, leveraging
             collective knowledge and support, yet I thrive equally when highly{" "}
@@ -68,7 +68,7 @@ export default function About() {
         </div>
 
         <div className="lg:col-span-1 space-y-6">
-          {/* KEY FACTS BOX */}
+          {/* KEY FACTS */}
           <div className="p-6 rounded-lg text-center bg-black/40 border border-[var(--neon-blue)] shadow-[0_0_15px_rgba(0,255,255,0.1)]">
             <p
               className="font-semibold uppercase tracking-wider text-sm mb-2"
@@ -119,6 +119,14 @@ export default function About() {
                       <CertRow key={cert.id} cert={cert} />
                     ))}
                   </div>
+                  <a
+                    href="https://www.credly.com/users/your-profile-url"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-[var(--neon-pink)] hover:opacity-80 transition-opacity mt-4"
+                  >
+                    View on credly →
+                  </a>
                 </div>
               )}
             </div>
@@ -136,14 +144,14 @@ const CertRow = ({ cert }: { cert: Certification }) => (
         <Image
           src={cert.logo}
           alt={`${cert.title} badge`}
-          width={48} 
-          height={48} 
+          width={48}
+          height={48}
           className={`object-contain ${
             cert.status === "In progress" || cert.status === "Lapsed"
               ? "opacity-40 grayscale"
               : ""
           }`}
-          priority={cert.id <= 2} 
+          priority={cert.id <= 2}
         />
       ) : (
         <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center bg-white/5">
