@@ -1,7 +1,27 @@
 import React from "react";
+import { QUALIFICATIONS_DATA } from "../../../data/qualifications";
+import Image from "next/image";
+
+interface Certification {
+  id: number;
+  title: string;
+  institution: string;
+  shortName: string;
+  classification: "Degree" | "Certification";
+  grade: string;
+  status: "Active" | "In progress" | "Lapsed";
+  logo: string | null;
+}
 
 export default function About() {
   const neonAccentStyle = { color: "var(--neon-blue)", fontWeight: 700 };
+
+  const degrees = QUALIFICATIONS_DATA.filter(
+    (q) => q.classification === "Degree",
+  );
+  const certifications = QUALIFICATIONS_DATA.filter(
+    (q) => q.classification === "Certification",
+  );
 
   return (
     <section id="about" className="container mx-auto max-w-6xl px-8 py-16">
@@ -9,7 +29,7 @@ export default function About() {
         About Me
       </h2>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
         <div className="lg:col-span-2 text-lg text-white/90 space-y-6 leading-relaxed">
           <p>
             Hello! I&apos;m a highly motivated and solutions-driven{" "}
@@ -19,8 +39,8 @@ export default function About() {
             </span>
             , specializing in crafting responsive, high-performance user
             interfaces. My passion lies in bridging the gap between design,
-            functionality, and inclusive accessibility, ensuring an exceptional user experience (UX) across
-            all platforms.
+            functionality, and inclusive accessibility, ensuring an exceptional
+            user experience (UX) across all platforms.
           </p>
 
           <p>
@@ -47,124 +67,109 @@ export default function About() {
           </p>
         </div>
 
-        <div className="lg:col-span-1 flex flex-col items-center justify-start pt-4 space-y-6">
-          <div
-            className="w-full text-left space-y-3 p-4 rounded-lg"
-            style={{
-              border: "1px solid var(--neon-pink)",
-              boxShadow: "0 0 15px var(--neon-pink) 30",
-            }}
-          >
+        <div className="lg:col-span-1 space-y-6">
+          {/* KEY FACTS BOX */}
+          <div className="p-6 rounded-lg text-center bg-black/40 border border-[var(--neon-blue)] shadow-[0_0_15px_rgba(0,255,255,0.1)]">
             <p
-              className="font-semibold uppercase tracking-wider text-sm mb-2 text-center"
-              style={{ color: "var(--neon-pink)" }}
-            >
-              Qualifications
-            </p>
-            <div className="space-y-3 text-sm">
-              <p className="text-white/90">
-                <span style={neonAccentStyle}>Degree:</span> BSc Computing - 2:1
-              </p>
-
-              <p className="text-white/90 font-bold mt-4">
-                <span style={neonAccentStyle}>Certifications:</span>
-              </p>
-
-              <div className="text-white/90 space-y-2">
-                <div className="flex items-center">
-                  <span
-                    className="inline-block px-1 mr-2 text-xs font-bold"
-                    style={{
-                      color: "var(--neon-blue)",
-                      textShadow: "0 0 5px var(--neon-blue)",
-                    }}
-                  >
-                    —
-                  </span>
-                  AWS Cloud Practitioner
-                </div>
-
-                <div className="flex items-center">
-                  <span
-                    className="inline-block px-1 mr-2 text-xs font-bold"
-                    style={{
-                      color: "var(--neon-blue)",
-                      textShadow: "0 0 5px var(--neon-blue)",
-                    }}
-                  >
-                    —
-                  </span>
-                  AWS Partner Accreditation (Technical)
-                </div>
-
-                <div className="flex items-center">
-                  <span
-                    className="inline-block px-1 mr-2 text-xs font-bold"
-                    style={{
-                      color: "var(--neon-blue)",
-                      textShadow: "0 0 5px var(--neon-blue)",
-                    }}
-                  >
-                    —
-                  </span>
-                  IAAP - Digital Accessibility
-                </div>
-
-                <div className="flex items-center">
-                  <span
-                    className="inline-block px-1 mr-2 text-xs font-bold"
-                    style={{
-                      color: "var(--neon-blue)",
-                      textShadow: "0 0 5px var(--neon-blue)",
-                    }}
-                  >
-                    —
-                  </span>
-                  IAAP - Accessible Development
-                </div>
-
-                <div className="flex items-center">
-                  <span
-                    className="inline-block px-1 mr-2 text-xs font-bold"
-                    style={{
-                      color: "var(--neon-blue)",
-                      textShadow: "0 0 5px var(--neon-blue)",
-                    }}
-                  >
-                    —
-                  </span>
-                  Certified Scrum Master (CSM) (Formerly Accredited)
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div
-            className="w-full text-center space-y-3 p-4 rounded-lg"
-            style={{
-              border: "1px solid var(--neon-blue)",
-              boxShadow: "0 0 15px var(--neon-blue)30",
-            }}
-          >
-            <p
-              className="text-white font-semibold uppercase tracking-wider text-sm text-center"
+              className="font-semibold uppercase tracking-wider text-sm mb-2"
               style={{ color: "var(--neon-blue)" }}
             >
               Key Facts
             </p>
-            <p className="text-white/80">
+            <p className="text-white/80 text-sm">
               <span style={neonAccentStyle}>10+</span> Years Industry Experience
             </p>
-            <p className="text-white/80">
-              Expert in <span style={neonAccentStyle}>React, Angular</span> &{" "}
-              <span style={neonAccentStyle}>Next</span>
+            <p className="text-white/80 text-sm mt-2">
+              Expert in{" "}
+              <span style={neonAccentStyle}>React, Angular & Next</span>
             </p>
-            {/* <p className="text-white/80">
-              Location: <span style={neonAccentStyle}>Sunderland</span>
-            </p> */}
+          </div>
+
+          <div className="p-6 rounded-lg bg-black/40 backdrop-blur-md border border-[var(--neon-pink)] shadow-[0_0_15px_rgba(255,0,255,0.1)]">
+            <h3
+              className="font-semibold uppercase tracking-wider text-sm mb-6 text-center"
+              style={{ color: "var(--neon-pink)" }}
+            >
+              Education & Certifications
+            </h3>
+
+            <div className="space-y-8">
+              {/* DEGREE GROUP */}
+              {degrees.length > 0 && (
+                <div>
+                  <h4 className="text-[var(--neon-blue)] text-[10px] font-bold uppercase mb-4 tracking-[0.2em] opacity-80">
+                    Degree
+                  </h4>
+                  <div className="space-y-4">
+                    {degrees.map((cert) => (
+                      <CertRow key={cert.id} cert={cert} />
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* CERTIFICATION GROUP */}
+              {certifications.length > 0 && (
+                <div>
+                  <h4 className="text-[var(--neon-blue)] text-[10px] font-bold uppercase mb-4 tracking-[0.2em] opacity-80">
+                    Certifications
+                  </h4>
+                  <div className="space-y-4">
+                    {certifications.map((cert) => (
+                      <CertRow key={cert.id} cert={cert} />
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
     </section>
   );
 }
+
+const CertRow = ({ cert }: { cert: Certification }) => (
+  <div className="flex items-start group">
+    <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center mr-4 transition-transform group-hover:scale-110">
+      {cert.logo ? (
+        <Image
+          src={cert.logo}
+          alt={`${cert.title} badge`}
+          width={48} 
+          height={48} 
+          className={`object-contain ${
+            cert.status === "In progress" || cert.status === "Lapsed"
+              ? "opacity-40 grayscale"
+              : ""
+          }`}
+          priority={cert.id <= 2} 
+        />
+      ) : (
+        <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center bg-white/5">
+          <span className="text-[10px] font-bold text-white uppercase">
+            {cert.shortName}
+          </span>
+        </div>
+      )}
+    </div>
+    <div className="flex-grow min-w-0 pt-1">
+      <h5 className="text-sm font-bold text-white leading-tight">
+        {cert.title}
+      </h5>
+      <p className="text-xs text-white/50 mt-1 flex flex-wrap items-center">
+        {cert.institution}
+      </p>
+      {cert.status === "In progress" && (
+        <p className="text-[10px] text-[var(--neon-blue)] font-semibold mt-1">
+          In progress
+        </p>
+      )}
+      {cert.status === "Lapsed" && (
+        <p className="text-[10px] text-white/50 font-semibold mt-1">
+          Formerly Accredited
+        </p>
+      )}
+    </div>
+  </div>
+);

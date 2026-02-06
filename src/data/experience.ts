@@ -1,8 +1,3 @@
-/**
- * Work Experience Data for the Portfolio Timeline.
- * * NOTE: The long tenure at Leighton is split into three separate entries
- * (Software Developer, Senior, Technical Lead) to accurately reflect career progression.
- */
 export const EXPERIENCE_DATA = [
   {
     id: 1,
