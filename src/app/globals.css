@@ -1,10 +1,6 @@
-/* globals.css */
-
 @import "tailwindcss";
 
-/* --- 1. CORE COLOR VARIABLES FOR NEON THEME (UNCHANGED) --- */
 :root {
-  /* ... your color variables here ... */
   --background: #3C4142; 
   --foreground: #FAFAFA; 
   --neon-pink: #FF7AED;
@@ -15,37 +11,29 @@
   --neon-blend: linear-gradient(45deg, var(--neon-pink), var(--neon-blue));
 }
 
-/* ... other global styles ... */
-
-/* --- 3. NEON GRADIENT UTILITY CLASS --- */
 .gradient-text {
-  /* ... unchanged ... */
   background-image: var(--neon-blend);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
-/* --- 4. NEW: GLOBAL GRADIENT BORDER CLASS --- */
-/* This reliably overrides Tailwind's border-b class */
 .-border-bottom-gradient {
-    border-bottom: 2px solid transparent !important; /* Ensures our border width is respected */
+    border-bottom: 2px solid transparent !important; 
     background: linear-gradient(var(--background), var(--background)) padding-box, 
-                var(--neon-blend) border-box; /* Places the gradient ONLY on the bottom border area */
-    background-size: 100% 2px; /* Set the size of the gradient bar */
+                var(--neon-blend) border-box; 
+    background-size: 100% 2px;
     background-repeat: no-repeat;
     background-position: bottom;
 }
 
-/* --- 5. NEW: GLOBAL NEON HOVER CLASS (for reliability) --- */
 .neon-hover-link {
     transition: color 0.2s ease-in-out; 
     color: #fff;
     opacity: 0.7;
 }
 
-.neon-hover-link:hover,
-.neon-hover-link:focus {
+.neon-hover-link:hover {
     background-image: var(--neon-blend);
   -webkit-background-clip: text;
   background-clip: text;
