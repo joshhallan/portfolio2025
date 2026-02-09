@@ -178,7 +178,7 @@ export default function About() {
             href="https://www.credly.com/users/your-profile-url"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-[var(--neon-pink)] hover:opacity-80 transition-opacity"
+            className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-[var(--neon-blue)] hover:opacity-80 transition-opacity"
           >
             Verify on Credly →
           </a>
