@@ -41,7 +41,7 @@ export const QUALIFICATIONS_DATA = [
   },
   {
     id: 5,
-    title: "Digital Accessibility",
+    title: "Digital Accessibility Accreditation",
     institution: "IAAP",
     shortName: "IAAP",
     classification: "Certification",
@@ -51,7 +51,7 @@ export const QUALIFICATIONS_DATA = [
   },
   {
     id: 6,
-    title: "Accessible Development",
+    title: "Accessible Development Accreditation",
     institution: "IAAP",
     shortName: "IAAP",
     classification: "Certification",
