@@ -43,21 +43,33 @@ export default function About() {
             <span style={neonAccentStyle}>
               over 10 years of professional experience
             </span>
-            , specialising in crafting responsive, high-performance user
-            interfaces.
+            , specializing in crafting responsive, high-performance user
+            interfaces. My passion lies in bridging the gap between design,
+            functionality, and inclusive accessibility, ensuring an exceptional user experience (UX) across
+            all platforms.
           </p>
+
           <p>
             Professionally, I excel in{" "}
             <span style={neonAccentStyle}>
-              organisational skills and decisiveness
+              organizational skills and decisiveness
             </span>
-            . I appreciate the collaborative synergy of group work, yet I thrive
-            equally when highly{" "}
-            <span style={neonAccentStyle}>self-motivated</span>.
+            . I appreciate the collaborative synergy of group work, leveraging
+            collective knowledge and support, yet I thrive equally when highly{" "}
+            <span style={neonAccentStyle}>self-motivated</span> to independently
+            tackle complex problems. My enthusiasm for continuous learning fuels
+            my proactive approach to seeking new opportunities for growth within
+            any job role.
           </p>
+
           <p>
-            Outside of work, my focus is on my two young sons and playing video
-            games or <span style={neonAccentStyle}>Dungeons and Dragons</span>.
+            Outside of work, my primary focus is on quality time with my two
+            young sons. When I find free moments, I enjoy playing video games
+            with my wife. Additionally, I also play{" "}
+            <span style={neonAccentStyle}>Dungeons and Dragons</span> with old
+            school friends once a month, which is a great exercise in{" "}
+            <span style={neonAccentStyle}>creative problem-solving</span> and
+            teamwork!
           </p>
         </div>
 
@@ -111,7 +123,7 @@ export default function About() {
                   </div>
 
                   <div className="flex justify-center mt-3 md:hidden">
-                    <span className="text-[8px] text-white/40 uppercase tracking-[0.3em]">
+                    <span className="text-[8px] text-white uppercase tracking-[0.3em]">
                       Swipe to view more
                     </span>
                   </div>
