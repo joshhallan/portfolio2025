@@ -6,24 +6,33 @@ import Link from "next/link";
 export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const menuLinkClasses = `font-medium py-2 md:py-0`; // Added py-2 for better mobile touch targets
+  const menuLinkClasses = `font-medium py-2 md:py-0`; 
 
   const navLinks = (
     <>
       <Link
         href="/projects"
         className={`${menuLinkClasses} neon-hover-link text-white`}
-        onClick={() => setIsMenuOpen(false)} // Close menu after click
+        onClick={() => setIsMenuOpen(false)} 
         rel="noopener noreferrer"
       >
         Projects
+      </Link>
+
+      <Link
+        href="/career"
+        className={`${menuLinkClasses} neon-hover-link text-white`}
+        onClick={() => setIsMenuOpen(false)} 
+        rel="noopener noreferrer"
+      >
+        Career
       </Link>
       
       <Link
         href="https://github.com/joshhallan"
         className={`${menuLinkClasses} neon-hover-link text-white`}
-        onClick={() => setIsMenuOpen(false)} // Close menu after click
-        target="_blank" // Opens external links in a new tab
+        onClick={() => setIsMenuOpen(false)} 
+        target="_blank" 
         rel="noopener noreferrer"
       >
         Github

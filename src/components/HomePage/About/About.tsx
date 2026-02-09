@@ -92,7 +92,7 @@ export default function About() {
           </h3>
           <div className="grid grid-cols-1 gap-6">
             <div>
-              <p className="text-[10px] uppercase text-white/40 tracking-[0.2em] mb-1">
+              <p className="text-[10px] uppercase text-white/80 tracking-[0.2em] mb-1">
                 Experience
               </p>
               <p className="text-white/90 text-sm font-bold">
@@ -100,7 +100,7 @@ export default function About() {
               </p>
             </div>
             <div>
-              <p className="text-[10px] uppercase text-white/40 tracking-[0.2em] mb-1">
+              <p className="text-[10px] uppercase text-white/80 tracking-[0.2em] mb-1">
                 Primary Stack
               </p>
               <p className="text-white/90 text-sm">
@@ -108,7 +108,7 @@ export default function About() {
               </p>
             </div>
             <div>
-              <p className="text-[10px] uppercase text-white/40 tracking-[0.2em] mb-1">
+              <p className="text-[10px] uppercase text-white/80 tracking-[0.2em] mb-1">
                 Current learning focus
               </p>
               <p className="text-white/90 text-sm">
@@ -116,7 +116,7 @@ export default function About() {
               </p>
             </div>
             <div>
-              <p className="text-[10px] uppercase text-white/40 tracking-[0.2em] mb-1">
+              <p className="text-[10px] uppercase text-white/80 tracking-[0.2em] mb-1">
                 Leadership style
               </p>
               <p className="text-white/90 text-sm">
@@ -124,7 +124,7 @@ export default function About() {
               </p>
             </div>
             <div>
-              <p className="text-[10px] uppercase text-white/40 tracking-[0.2em] mb-1">
+              <p className="text-[10px] uppercase text-white/80 tracking-[0.2em] mb-1">
                 D&D Alignment
               </p>
               <p className="text-white/90 text-sm">Forever DM</p>
@@ -171,7 +171,7 @@ export default function About() {
         </div>
 
         <div className="mt-8 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <span className="text-[10px] text-white/40 uppercase tracking-[0.3em]">
+          <span className="text-[10px] text-white/80 uppercase tracking-[0.3em]">
             Scroll to explore →
           </span>
           <a
