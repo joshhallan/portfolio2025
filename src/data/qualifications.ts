@@ -7,7 +7,6 @@ export const QUALIFICATIONS_DATA = [
     classification: "Degree",
     grade: "2:1",
     status: "Active",
-    // logo: "images/certificates/TU.png",
     logo: null,
   },
   {

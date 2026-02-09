@@ -23,6 +23,12 @@ export default function About() {
     (q) => q.classification === "Certification",
   );
 
+  const scrollContainerClasses = `
+    flex flex-row overflow-x-auto gap-4 pb-4 snap-x scrollbar-hide
+    [mask-image:linear-gradient(to_right,white_85%,transparent_100%)]
+    md:pb-0 md:gap-8 md:[mask-image:none] md:flex-col md:overflow-visible
+  `;
+
   return (
     <section id="about" className="container mx-auto max-w-6xl px-8 py-16">
       <h2 className="text-4xl font-bold mb-12 text-center text-white">
@@ -38,32 +44,20 @@ export default function About() {
               over 10 years of professional experience
             </span>
             , specialising in crafting responsive, high-performance user
-            interfaces. My passion lies in bridging the gap between design,
-            functionality, and inclusive accessibility, ensuring an exceptional
-            user experience (UX) across all platforms.
+            interfaces.
           </p>
-
           <p>
             Professionally, I excel in{" "}
             <span style={neonAccentStyle}>
               organisational skills and decisiveness
             </span>
-            . I appreciate the collaborative synergy of group work, leveraging
-            collective knowledge and support, yet I thrive equally when highly{" "}
-            <span style={neonAccentStyle}>self-motivated</span> to independently
-            tackle complex problems. My enthusiasm for continuous learning fuels
-            my proactive approach to seeking new opportunities for growth within
-            any job role.
+            . I appreciate the collaborative synergy of group work, yet I thrive
+            equally when highly{" "}
+            <span style={neonAccentStyle}>self-motivated</span>.
           </p>
-
           <p>
-            Outside of work, my primary focus is on quality time with my two
-            young sons. When I find free moments, I enjoy playing video games
-            with my wife. Additionally, I also play{" "}
-            <span style={neonAccentStyle}>Dungeons and Dragons</span> with old
-            school friends once a month, which is a great exercise in{" "}
-            <span style={neonAccentStyle}>creative problem-solving</span> and
-            teamwork!
+            Outside of work, my focus is on my two young sons and playing video
+            games or <span style={neonAccentStyle}>Dungeons and Dragons</span>.
           </p>
         </div>
 
@@ -78,10 +72,6 @@ export default function About() {
             </p>
             <p className="text-white/80 text-sm">
               <span style={neonAccentStyle}>10+</span> Years Industry Experience
-            </p>
-            <p className="text-white/80 text-sm mt-2">
-              Expert in{" "}
-              <span style={neonAccentStyle}>React, Angular & Next</span>
             </p>
           </div>
 
@@ -100,7 +90,7 @@ export default function About() {
                   <h4 className="text-[var(--neon-blue)] text-[10px] font-bold uppercase mb-4 tracking-[0.2em] opacity-80">
                     Degree
                   </h4>
-                  <div className="space-y-4">
+                  <div className={scrollContainerClasses}>
                     {degrees.map((cert) => (
                       <CertRow key={cert.id} cert={cert} />
                     ))}
@@ -110,23 +100,32 @@ export default function About() {
 
               {/* CERTIFICATION GROUP */}
               {certifications.length > 0 && (
-                <div>
+                <div className="relative">
                   <h4 className="text-[var(--neon-blue)] text-[10px] font-bold uppercase mb-4 tracking-[0.2em] opacity-80">
                     Certifications
                   </h4>
-                  <div className="space-y-4">
+                  <div className={scrollContainerClasses}>
                     {certifications.map((cert) => (
                       <CertRow key={cert.id} cert={cert} />
                     ))}
                   </div>
-                  <a
-                    href="https://www.credly.com/users/your-profile-url"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-[var(--neon-pink)] hover:opacity-80 transition-opacity mt-4"
-                  >
-                    View on credly →
-                  </a>
+
+                  <div className="flex justify-center mt-3 md:hidden">
+                    <span className="text-[8px] text-white/40 uppercase tracking-[0.3em]">
+                      Swipe to view more
+                    </span>
+                  </div>
+
+                  <div className="mt-6 pt-4 border-t border-white/10 text-center lg:text-left">
+                    <a
+                      href="https://www.credly.com/users/your-profile-url"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-[var(--neon-pink)] hover:opacity-80 transition-opacity"
+                    >
+                      Verify on Credly →
+                    </a>
+                  </div>
                 </div>
               )}
             </div>
@@ -138,7 +137,7 @@ export default function About() {
 }
 
 const CertRow = ({ cert }: { cert: Certification }) => (
-  <div className="flex items-start group">
+  <div className="flex items-start group flex-shrink-0 w-[90%] snap-start md:w-full">
     <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center mr-4 transition-transform group-hover:scale-110">
       {cert.logo ? (
         <Image
@@ -147,11 +146,8 @@ const CertRow = ({ cert }: { cert: Certification }) => (
           width={48}
           height={48}
           className={`object-contain ${
-            cert.status === "In progress" || cert.status === "Lapsed"
-              ? "opacity-40 grayscale"
-              : ""
+            cert.status !== "Active" ? "opacity-40 grayscale" : ""
           }`}
-          priority={cert.id <= 2}
         />
       ) : (
         <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center bg-white/5">
@@ -162,22 +158,30 @@ const CertRow = ({ cert }: { cert: Certification }) => (
       )}
     </div>
     <div className="flex-grow min-w-0 pt-1">
-      <h5 className="text-sm font-bold text-white leading-tight">
+      <h5 className="text-sm font-bold text-white leading-tight line-clamp-2 md:line-clamp-none">
         {cert.title}
       </h5>
-      <p className="text-xs text-white/50 mt-1 flex flex-wrap items-center">
-        {cert.institution}
-      </p>
-      {cert.status === "In progress" && (
-        <p className="text-[10px] text-[var(--neon-blue)] font-semibold mt-1">
-          In progress
-        </p>
-      )}
-      {cert.status === "Lapsed" && (
-        <p className="text-[10px] text-white/50 font-semibold mt-1">
-          Formerly Accredited
-        </p>
-      )}
+      <p className="text-xs text-white/50 mt-1">{cert.institution}</p>
+
+      <div className="mt-1">
+        {cert.status === "Active" && (
+          <p className="text-[10px] text-[var(--neon-pink)] font-bold uppercase tracking-widest flex items-center gap-1">
+            
+            Active
+          </p>
+        )}
+        {cert.status === "In progress" && (
+          <p className="text-[10px] text-[var(--neon-blue)] font-bold uppercase tracking-widest flex items-center gap-1">
+            
+            In progress
+          </p>
+        )}
+        {cert.status === "Lapsed" && (
+          <p className="text-[10px] text-white/50 font-bold uppercase tracking-widest ">
+            Formerly Accredited
+          </p>
+        )}
+      </div>
     </div>
   </div>
 );
