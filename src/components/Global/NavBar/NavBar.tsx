@@ -10,7 +10,8 @@ export default function NavBar() {
 
   const menuLinkClasses = `font-medium py-2 md:py-0 transition-all duration-300`; 
 
-  const renderNavLink = (href, label, isExternal = false) => {
+  // Types restored for your .tsx environment
+  const renderNavLink = (href: string, label: string, isExternal: boolean = false) => {
     const active = pathname === href;
     
     return (
@@ -19,8 +20,10 @@ export default function NavBar() {
         onClick={() => setIsMenuOpen(false)} 
         target={isExternal ? "_blank" : undefined}
         rel="noopener noreferrer"
-        /* We remove 'text-white' here because your CSS '.active-neon' 
-           needs 'color: transparent' to show the gradient. 
+        /*
+          CRITICAL: We removed 'text-white' utility here.
+          Your globals.css handles the 'color: #fff' for the base state 
+          and 'color: transparent' for the active/hover states.
         */
         className={`${menuLinkClasses} neon-hover-link ${active ? 'active-neon' : ''}`}
       >
@@ -32,7 +35,7 @@ export default function NavBar() {
   return (
     <nav
       className="sticky top-0 z-50 py-4 -border-bottom-gradient"
-      style={{ backgroundColor: "#000" }} // Restored your explicit black background
+      style={{ backgroundColor: "#000" }} // Your background color preserved
     >
       <div className="container mx-auto max-w-6xl px-8 flex justify-between items-center">
         <Link
