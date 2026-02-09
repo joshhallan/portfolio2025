@@ -52,29 +52,41 @@ export default function About() {
           <p>
             Professionally, I excel in{" "}
             <span style={neonAccentStyle}>
-              organizational skills and decisiveness
+              architectural strategy and mentorship
             </span>
-            . I appreciate the collaborative synergy of group work, leveraging
+            . I act as a technical bridge between product and engineering,
+            liaising with
+            <span style={neonAccentStyle}>
+              {" "}
+              stakeholders, BAs, and Designers
+            </span>{" "}
+            to assess code feasibility and usability. I take a lead role in
+            partitioning complex requirements into actionable stories, ensuring
+            the backlog is technically sound and optimized for team delivery.
+          </p>
+
+          <p>
+            I appreciate the collaborative synergy of group work, leveraging
             collective knowledge and support, yet I thrive equally when highly{" "}
             <span style={neonAccentStyle}>self-motivated</span> to independently
             tackle complex problems. My enthusiasm for continuous learning fuels
-            my proactive approach to seeking new opportunities for growth within
-            any job role.
+            my proactive approach to seeking new opportunities for growth, such
+            as my current deep-dive into cloud architecture.
           </p>
 
           <p>
             Outside of work, my primary focus is on quality time with my two
             young sons. When I find free moments, I enjoy playing video games
             with my wife. Additionally, I also play{" "}
-            <span style={neonAccentStyle}>Dungeons and Dragons</span>
-            with old school friends once a month, which is a great exercise in{" "}
+            <span style={neonAccentStyle}>Dungeons and Dragons</span> with old
+            school friends once a month, which is a great exercise in{" "}
             <span style={neonAccentStyle}>creative problem-solving</span> and
             teamwork!
           </p>
         </div>
 
         {/* KEY FACTS */}
-        <div className="p-8 rounded-lg bg-black/40 border border-[var(--neon-blue)] shadow-[0_0_15px_rgba(0,255,255,0.1)] space-y-6">
+        <div className="h-fit p-8 rounded-lg bg-black/40 border border-[var(--neon-blue)] shadow-[0_0_15px_rgba(0,255,255,0.1)] space-y-6">
           <h3 className="font-semibold uppercase tracking-widest text-sm text-[var(--neon-blue)] text-center border-b border-white/10 pb-4">
             Key Facts
           </h3>
@@ -108,16 +120,14 @@ export default function About() {
                 Leadership style
               </p>
               <p className="text-white/90 text-sm">
-                Mentorship & Strategy
+                Architectural Strategy & Mentorship
               </p>
             </div>
             <div>
               <p className="text-[10px] uppercase text-white/40 tracking-[0.2em] mb-1">
                 D&D Alignment
               </p>
-              <p className="text-white/90 text-sm">
-                Forever DM
-              </p>
+              <p className="text-white/90 text-sm">Forever DM</p>
             </div>
           </div>
         </div>
