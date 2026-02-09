@@ -24,9 +24,8 @@ export default function About() {
   );
 
   const scrollContainerClasses = `
-    flex flex-row overflow-x-auto gap-4 pb-4 snap-x scrollbar-hide
+    flex flex-row overflow-x-auto gap-6 pb-6 snap-x scrollbar-hide
     [mask-image:linear-gradient(to_right,white_85%,transparent_100%)]
-    md:pb-0 md:gap-8 md:[mask-image:none] md:flex-col md:overflow-visible
   `;
 
   return (
@@ -35,7 +34,8 @@ export default function About() {
         About Me
       </h2>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-12">
+        {/* BIO SECTION */}
         <div className="lg:col-span-2 text-lg text-white/90 space-y-6 leading-relaxed">
           <p>
             Hello! I&apos;m a highly motivated and solutions-driven{" "}
@@ -45,8 +45,8 @@ export default function About() {
             </span>
             , specializing in crafting responsive, high-performance user
             interfaces. My passion lies in bridging the gap between design,
-            functionality, and inclusive accessibility, ensuring an exceptional user experience (UX) across
-            all platforms.
+            functionality, and inclusive accessibility, ensuring an exceptional
+            user experience (UX) across all platforms.
           </p>
 
           <p>
@@ -66,82 +66,112 @@ export default function About() {
             Outside of work, my primary focus is on quality time with my two
             young sons. When I find free moments, I enjoy playing video games
             with my wife. Additionally, I also play{" "}
-            <span style={neonAccentStyle}>Dungeons and Dragons</span> with old
-            school friends once a month, which is a great exercise in{" "}
+            <span style={neonAccentStyle}>Dungeons and Dragons</span>
+            with old school friends once a month, which is a great exercise in{" "}
             <span style={neonAccentStyle}>creative problem-solving</span> and
             teamwork!
           </p>
         </div>
 
-        <div className="lg:col-span-1 space-y-6">
-          {/* KEY FACTS */}
-          <div className="p-6 rounded-lg text-center bg-black/40 border border-[var(--neon-blue)] shadow-[0_0_15px_rgba(0,255,255,0.1)]">
-            <p
-              className="font-semibold uppercase tracking-wider text-sm mb-2"
-              style={{ color: "var(--neon-blue)" }}
-            >
-              Key Facts
-            </p>
-            <p className="text-white/80 text-sm">
-              <span style={neonAccentStyle}>10+</span> Years Industry Experience
-            </p>
-          </div>
-
-          <div className="p-6 rounded-lg bg-black/40 backdrop-blur-md border border-[var(--neon-pink)] shadow-[0_0_15px_rgba(255,0,255,0.1)]">
-            <h3
-              className="font-semibold uppercase tracking-wider text-sm mb-6 text-center"
-              style={{ color: "var(--neon-pink)" }}
-            >
-              Education & Certifications
-            </h3>
-
-            <div className="space-y-8">
-              {/* DEGREE GROUP */}
-              {degrees.length > 0 && (
-                <div>
-                  <h4 className="text-[var(--neon-blue)] text-[10px] font-bold uppercase mb-4 tracking-[0.2em] opacity-80">
-                    Degree
-                  </h4>
-                  <div className={scrollContainerClasses}>
-                    {degrees.map((cert) => (
-                      <CertRow key={cert.id} cert={cert} />
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* CERTIFICATION GROUP */}
-              {certifications.length > 0 && (
-                <div className="relative">
-                  <h4 className="text-[var(--neon-blue)] text-[10px] font-bold uppercase mb-4 tracking-[0.2em] opacity-80">
-                    Certifications
-                  </h4>
-                  <div className={scrollContainerClasses}>
-                    {certifications.map((cert) => (
-                      <CertRow key={cert.id} cert={cert} />
-                    ))}
-                  </div>
-
-                  <div className="flex justify-center mt-3 md:hidden">
-                    <span className="text-[8px] text-white uppercase tracking-[0.3em]">
-                      Swipe to view more
-                    </span>
-                  </div>
-
-                  <div className="mt-6 pt-4 border-t border-white/10 text-center lg:text-left">
-                    <a
-                      href="https://www.credly.com/users/your-profile-url"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-[var(--neon-pink)] hover:opacity-80 transition-opacity"
-                    >
-                      Verify on Credly →
-                    </a>
-                  </div>
-                </div>
-              )}
+        {/* KEY FACTS */}
+        <div className="p-8 rounded-lg bg-black/40 border border-[var(--neon-blue)] shadow-[0_0_15px_rgba(0,255,255,0.1)] space-y-6">
+          <h3 className="font-semibold uppercase tracking-widest text-sm text-[var(--neon-blue)] text-center border-b border-white/10 pb-4">
+            Key Facts
+          </h3>
+          <div className="grid grid-cols-1 gap-6">
+            <div>
+              <p className="text-[10px] uppercase text-white/40 tracking-[0.2em] mb-1">
+                Experience
+              </p>
+              <p className="text-white/90 text-sm font-bold">
+                <span style={{ color: "var(--neon-blue)" }}>10+</span> Years
+              </p>
+            </div>
+            <div>
+              <p className="text-[10px] uppercase text-white/40 tracking-[0.2em] mb-1">
+                Primary Stack
+              </p>
+              <p className="text-white/90 text-sm">
+                TypeScript, React, Next.js
+              </p>
+            </div>
+            <div>
+              <p className="text-[10px] uppercase text-white/40 tracking-[0.2em] mb-1">
+                Current learning focus
+              </p>
+              <p className="text-white/90 text-sm">
+                AWS Solutions Architect (SAA-C03)
+              </p>
+            </div>
+            <div>
+              <p className="text-[10px] uppercase text-white/40 tracking-[0.2em] mb-1">
+                Leadership style
+              </p>
+              <p className="text-white/90 text-sm">
+                Mentorship & Strategy
+              </p>
+            </div>
+            <div>
+              <p className="text-[10px] uppercase text-white/40 tracking-[0.2em] mb-1">
+                D&D Alignment
+              </p>
+              <p className="text-white/90 text-sm">
+                Forever DM
+              </p>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* BOTTOM SECTION*/}
+      <div className="p-8 rounded-lg bg-black/40 backdrop-blur-md border border-[var(--neon-pink)] shadow-[0_0_15px_rgba(255,0,255,0.1)]">
+        <h3
+          className="font-semibold uppercase tracking-wider text-sm mb-8 text-center"
+          style={{ color: "var(--neon-pink)" }}
+        >
+          Education & Certifications
+        </h3>
+
+        <div className="space-y-12">
+          {degrees.length > 0 && (
+            <div>
+              <h4 className="text-[var(--neon-blue)] text-[10px] font-bold uppercase mb-4 tracking-[0.2em] opacity-80">
+                Education
+              </h4>
+              <div className={scrollContainerClasses}>
+                {degrees.map((cert) => (
+                  <CertRow key={cert.id} cert={cert} />
+                ))}
+              </div>
+            </div>
+          )}
+
+          {certifications.length > 0 && (
+            <div>
+              <h4 className="text-[var(--neon-blue)] text-[10px] font-bold uppercase mb-4 tracking-[0.2em] opacity-80">
+                Certifications
+              </h4>
+              <div className={scrollContainerClasses}>
+                {certifications.map((cert) => (
+                  <CertRow key={cert.id} cert={cert} />
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+
+        <div className="mt-8 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+          <span className="text-[10px] text-white/40 uppercase tracking-[0.3em]">
+            Scroll to explore →
+          </span>
+          <a
+            href="https://www.credly.com/users/your-profile-url"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-[var(--neon-pink)] hover:opacity-80 transition-opacity"
+          >
+            Verify on Credly →
+          </a>
         </div>
       </div>
     </section>
@@ -149,7 +179,7 @@ export default function About() {
 }
 
 const CertRow = ({ cert }: { cert: Certification }) => (
-  <div className="flex items-start group flex-shrink-0 w-[90%] snap-start md:w-full">
+  <div className="flex items-start group flex-shrink-0 w-[85%] md:w-[320px] snap-start">
     <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center mr-4 transition-transform group-hover:scale-110">
       {cert.logo ? (
         <Image
@@ -157,9 +187,7 @@ const CertRow = ({ cert }: { cert: Certification }) => (
           alt={`${cert.title} badge`}
           width={48}
           height={48}
-          className={`object-contain ${
-            cert.status !== "Active" ? "opacity-40 grayscale" : ""
-          }`}
+          className={`object-contain ${cert.status !== "Active" ? "opacity-40 grayscale" : ""}`}
         />
       ) : (
         <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center bg-white/5">
@@ -170,30 +198,30 @@ const CertRow = ({ cert }: { cert: Certification }) => (
       )}
     </div>
     <div className="flex-grow min-w-0 pt-1">
-      <h5 className="text-sm font-bold text-white leading-tight line-clamp-2 md:line-clamp-none">
+      <h5 className="text-sm font-bold text-white leading-tight">
         {cert.title}
       </h5>
       <p className="text-xs text-white/50 mt-1">{cert.institution}</p>
 
-      <div className="mt-1">
-        {cert.status === "Active" && (
-          <p className="text-[10px] text-[var(--neon-pink)] font-bold uppercase tracking-widest flex items-center gap-1">
-            
-            Active
-          </p>
-        )}
-        {cert.status === "In progress" && (
-          <p className="text-[10px] text-[var(--neon-blue)] font-bold uppercase tracking-widest flex items-center gap-1">
-            
-            In progress
-          </p>
-        )}
-        {cert.status === "Lapsed" && (
-          <p className="text-[10px] text-white/50 font-bold uppercase tracking-widest ">
-            Formerly Accredited
-          </p>
-        )}
-      </div>
+      {cert.classification === "Certification" && (
+        <div className="mt-2">
+          {cert.status === "Active" && (
+            <p className="text-[10px] text-[var(--neon-pink)] font-bold uppercase tracking-widest flex items-center gap-1">
+              Active
+            </p>
+          )}
+          {cert.status === "In progress" && (
+            <p className="text-[10px] text-[var(--neon-blue)] font-bold uppercase tracking-widest flex items-center gap-1">
+              In progress
+            </p>
+          )}
+          {cert.status === "Lapsed" && (
+            <p className="text-[10px] text-white/50 font-bold uppercase tracking-widest">
+              Formerly Accredited
+            </p>
+          )}
+        </div>
+      )}
     </div>
   </div>
 );
