@@ -6,7 +6,8 @@ export const EXPERIENCE_DATA = [
     duration: "Apr 2023 - Present",
     location: "Newcastle, UK",
     responsibilities: [
-      "Act as the Technical Lead across two main development teams, driving the large-scale shift from XSLT technologies to modern Angular 13+.",
+      "Act as the Technical Lead across two main development teams, implementing a new design language",
+      "Worked with the team to implement new functionality to customers which generated over £500k in profits within the first month",
       "Oversaw high-level design discussions, translating complex customer usability goals into technical feasibility for the development team.",
       "Collaborated closely with Business Analysts (BAs) on story creation, functional requirements, and liaising with key business stakeholders on progress and requirements.",
       "Expanded leadership and mentoring skills by guiding developers on best practices in modern JavaScript frameworks.",
@@ -58,7 +59,7 @@ export const EXPERIENCE_DATA = [
     id: 4,
     title: "Software Developer (Frontend Focus)",
     company: "FNVi",
-    duration: "Jan 2015 – Jan 2017",
+    duration: "Jan 2015 - Jan 2017",
     location: "Middlesbrough, UK",
     responsibilities: [
       "Focused intensely on frontend web development, improving skills tenfold through commitment to best practices in web design.",
@@ -79,7 +80,7 @@ export const EXPERIENCE_DATA = [
     id: 5,
     title: "Developer (Entrepreneurial Focus)",
     company: "GigSource (Digital City Fellowship)",
-    duration: "Oct 2014 – Dec 2014",
+    duration: "Oct 2014 - Dec 2014",
     location: "Middlesbrough, UK",
     responsibilities: [
       "Operated own business under the Digital City Fellowship, gaining vital experience in the practical application of development skills.",
@@ -96,7 +97,7 @@ export const EXPERIENCE_DATA = [
     id: 6,
     title: "Intern (Web Development)",
     company: "Clicksco",
-    duration: "May 2014 – Sep 2014",
+    duration: "May 2014 - Sep 2014",
     location: "Middlesbrough, UK",
     responsibilities: [
       "Participated in a summer internship program, working in a team to develop a Minimum Viable Product (MVP).",
