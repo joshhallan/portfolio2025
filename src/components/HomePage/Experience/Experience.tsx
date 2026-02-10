@@ -87,7 +87,7 @@ export default function ExperienceSummary() {
       <div className="text-center mt-12">
         <Link
           href="/career"
-          className="text-lg font-bold transition-all hover:brightness-125"
+          className="text-lg font-bold transition-all"
           style={{ color: neonBlue }}
         >
           View All Roles →
