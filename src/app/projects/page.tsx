@@ -14,13 +14,10 @@ export default function ProjectsPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {PROJECTS_DATA.map((project, index) => {
-            const accentColor =
-              index % 2 === 0 ? "var(--neon-pink)" : "var(--neon-blue)";
             return (
               <ProjectCard
                 key={project.id}
                 project={project}
-                accentColor={accentColor}
                 style="long"
               />
             );

@@ -4,56 +4,34 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { PROJECTS_DATA } from "@/data/projects";
-import { FaCheckCircle, FaTools, FaTimes } from "react-icons/fa";
+import { FaGithub, FaExternalLinkAlt, FaTimes } from "react-icons/fa";
 
 type Project = (typeof PROJECTS_DATA)[number];
 
 interface ProjectCardProps {
   project: Project;
-  accentColor: string;
-  style: "short" | "long";
+  style?: "short" | "long";
 }
 
-const generateCardStyles = (color: string) => ({
-  border: "none",
-  boxShadow: `
-      0 0 4px #fff, 
-      0 0 15px ${color}a0, 
-      0 0 30px ${color}50
-    `,
-});
-
-// --- Modal Component ---
-interface ModalProps {
+const ProjectImageModal = ({
+  project,
+  onClose,
+}: {
   project: Project;
   onClose: () => void;
-}
-
-const ProjectImageModal: React.FC<ModalProps> = ({ project, onClose }) => {
-  const isComplete = project.status === "Complete";
-  const borderColor = isComplete ? "var(--neon-green)" : "var(--neon-blue)";
-
-  const modalStyles = {
-    boxShadow: `
-          0 0 8px #fff, 
-          0 0 25px ${borderColor}a0, 
-          0 0 50px ${borderColor}50
-        `,
-  };
-
+}) => {
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 transition-opacity duration-300"
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-4 transition-opacity duration-300"
       onClick={onClose}
     >
       <div
-        className="relative bg-[#0f1111] rounded-xl max-w-5xl w-full mx-auto p-2"
-        style={modalStyles}
+        className="relative bg-[#0f1111] rounded-xl max-w-5xl w-full mx-auto p-2 border border-white/20 shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-white/80 hover:text-white transition-colors p-2 z-50 rounded-full"
+          className="absolute top-4 right-4 text-white/80 hover:text-white transition-colors p-2 z-50 rounded-full bg-black/50"
           aria-label="Close modal"
         >
           <FaTimes className="w-6 h-6" />
@@ -63,28 +41,14 @@ const ProjectImageModal: React.FC<ModalProps> = ({ project, onClose }) => {
           <Image
             src={project.image}
             alt={`Enlarged view of ${project.title}`}
-            layout="fill"
-            objectFit="contain"
-            priority={true}
-            onError={(e) => {
-              const target = e.target as HTMLImageElement;
-              const parent = target.closest(".aspect-video");
-              if (parent) {
-                parent.innerHTML = `
-                                    <div class="absolute inset-0 flex items-center justify-center text-center text-red-500/80 bg-gray-900/50 p-4">
-                                        <p class="text-lg font-semibold">Could not load enlarged image.</p>
-                                    </div>
-                                `;
-              }
-            }}
+            fill
+            className="object-contain"
           />
         </div>
 
         <div className="text-center p-4">
           <h4 className="text-xl font-semibold text-white">{project.title}</h4>
-          <p className="text-white/70 text-sm mt-1">
-            Click anywhere outside or the X to close.
-          </p>
+          <p className="text-white/50 text-xs mt-1">Click outside to close</p>
         </div>
       </div>
     </div>
@@ -93,122 +57,102 @@ const ProjectImageModal: React.FC<ModalProps> = ({ project, onClose }) => {
 
 export default function ProjectCard({
   project,
-  accentColor,
-  style,
+  style = "short",
 }: ProjectCardProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const cardStyles = generateCardStyles(accentColor);
-  const neonLinkClasses =
-    "text-sm font-semibold transition-colors hover:scale-[1.03] duration-200";
-
-  const descriptionContent =
-    style === "short" ? project.description : project.fullDescription;
-
-  const isComplete = project.status === "Complete";
-  const statusColor = isComplete ? "var(--neon-green)" : "var(--neon-red)";
-  const StatusIcon = isComplete ? FaCheckCircle : FaTools;
+  const isAWS = project.tech.includes("AWS");
+  const themeColor = isAWS ? "var(--neon-blue)" : "var(--neon-pink)";
+  const displayDescription =
+    style === "long" ? project.fullDescription : project.description;
 
   return (
     <>
       <div
-        key={project.id}
-        className="bg-[#0f1111] rounded-xl overflow-hidden shadow-2xl transition-transform duration-300 hover:scale-[1.02] relative flex flex-col h-full"
-        style={cardStyles}
+        className={`relative group overflow-hidden rounded-xl border border-white/10 transition-all duration-300 hover:border-white/30 cursor-pointer bg-[#0f1111] ${
+          style === "long"
+            ? "min-h-[500px] md:min-h-[550px]"
+            : "h-[400px] md:h-[450px]"
+        }`}
+        onClick={() => setIsModalOpen(true)}
       >
-        <div
-          className="relative w-full aspect-video flex items-center justify-center text-white/50 text-lg cursor-pointer group"
-          onClick={() => setIsModalOpen(true)}
-          title={`Click to enlarge ${project.title}`}
-        >
-          <Image
-            src={project.image}
-            alt={`Preview of ${project.title}`}
-            width={800}
-            height={450}
-            className="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-80"
-            priority={project.id === 1}
-            onError={(e) => {
-              const target = e.target as HTMLImageElement;
-              const parent = target.closest(".aspect-video");
-              if (parent) {
-                parent.innerHTML = `
-                        <div class="absolute inset-0 flex items-center justify-center text-center text-red-500/80 bg-gray-900/50 p-4">
-                            <p class="text-sm font-semibold">Image not found: ${project.image}</p>
-                        </div>
-                    `;
-              }
-            }}
-          />
-        </div>
+        <Image
+          src={project.image}
+          alt={project.title}
+          fill
+          className="object-cover opacity-40 md:opacity-50 group-hover:opacity-70 transition-opacity duration-500"
+        />
 
-        <div className="p-6 flex flex-col flex-grow">
-          <span className="text-sm uppercase tracking-wider text-white/50 font-semibold mb-2 block">
-            {project.category}
-          </span>
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 md:via-black/70 to-transparent p-6 md:p-8 flex flex-col justify-end">
+          <div className="transform transition-transform duration-300 group-hover:translate-y-[-5px]">
+            <div className="flex justify-between items-start mb-2">
+              <p
+                className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold"
+                style={{ color: themeColor }}
+              >
+                {project.category}
+              </p>
+              {project.status === "WIP" && (
+                <span className="text-[8px] md:text-[9px] bg-yellow-500/10 text-yellow-500 border border-yellow-500/20 px-2 py-0.5 rounded">
+                  WIP
+                </span>
+              )}
+            </div>
 
-          <div className="flex justify-between items-center mb-3">
-            <h3
-              className="text-2xl font-bold text-white"
-              style={{ color: accentColor }}
-            >
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-2 md:mb-3 group-hover:text-[var(--neon-blue)] transition-colors">
               {project.title}
             </h3>
-            {style === "long" && (
-              <div
-                className="flex items-center text-xs font-semibold px-2 py-1 rounded-full whitespace-nowrap"
-                style={{
-                  color: statusColor,
-                  border: `1px solid ${statusColor}80`,
-                }}
-              >
-                <StatusIcon className="w-3 h-3 mr-1" />
-                {project.status}
-              </div>
-            )}
-          </div>
-
-          <p className="text-white/70 mb-4 text-base flex-grow">
-            {descriptionContent}
-          </p>
-
-          <div className="flex flex-wrap gap-2 mb-6 mt-auto">
-            {project.tech.map((tech) => (
-              <span
-                key={tech}
-                className="text-xs font-medium px-3 py-1 rounded-full bg-white/10 text-white/80"
-                style={{
-                  color: accentColor,
-                  border: `1px solid ${accentColor}40`,
-                }}
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-
-          <div className="flex space-x-4 pt-4 border-t border-white/10">
-            <Link
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={neonLinkClasses}
-              style={{ color: "var(--neon-pink)" }}
+            
+            <div
+              className={`overflow-y-auto pr-2 mb-4 custom-scrollbar ${
+                style === "short"
+                  ? "max-h-[60px]"
+                  : "max-h-[150px] md:max-h-none"
+              }`}
             >
-              GitHub →
-            </Link>
+              <p
+                className={`text-xs md:text-sm text-white/60 leading-relaxed ${style === "short" ? "line-clamp-2" : ""}`}
+              >
+                {displayDescription}
+              </p>
+            </div>
 
-            {project.link !== "" && (
+            <div className="flex flex-wrap gap-2 mb-6">
+              {project.tech.map((tech) => (
+                <span
+                  key={tech}
+                  className="text-[9px] md:text-[10px] px-2 py-0.5 md:py-1 rounded-md border border-white/10 bg-white/5 backdrop-blur-sm text-white/80"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+
+            <div
+              className="flex gap-4 md:gap-6 pt-4 border-t border-white/5"
+              onClick={(e) => e.stopPropagation()}
+            >
               <Link
-                href={project.link}
+                href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={neonLinkClasses}
-                style={{ color: "var(--neon-blue)" }}
+                className="text-[10px] md:text-xs uppercase tracking-widest text-white/40 hover:text-white transition-colors flex items-center gap-2"
               >
-                Live Demo →
+                <FaGithub className="text-sm" /> Source
               </Link>
-            )}
+
+              {project.link && (
+                <Link
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[10px] md:text-xs uppercase tracking-widest text-[var(--neon-blue)] hover:brightness-125 transition-all flex items-center gap-2"
+                >
+                  <FaExternalLinkAlt className="text-[8px] md:text-[10px]" />{" "}
+                  Live Site
+                </Link>
+              )}
+            </div>
           </div>
         </div>
       </div>

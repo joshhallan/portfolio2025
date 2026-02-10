@@ -15,21 +15,6 @@ export const PROJECTS_DATA = [
   },
   {
     id: 2,
-    title: "Meal Planner / Shopping List",
-    category: "Full Stack Development",
-    description:
-      "An application to create a meal plan and menu and transfer the ingredients into a shopping list",
-    fullDescription:
-      "I created this application to help my family plan the meals that we would have having throughout the week. This allows to carefully plan and budget for what we need and what we would like. It allows you to transfer the menu into a shopping list to that you can get all of the ingredients needed for the different meals.",
-    tech: ["NextJS", "Tailwind", "AWS"],
-    image: "/images/projects/shopping-list.jpg",
-    link: "",
-    githubUrl: "https://github.com/joshhallan/shopping-list",
-    name: "shopping-list",
-    status: "WIP",
-  },
-  {
-    id: 3,
     title: "Digital Ten Frames",
     category: "Frontend Development",
     description:
@@ -48,5 +33,20 @@ export const PROJECTS_DATA = [
     githubUrl: "https://github.com/joshhallan/number-frames",
     name: "ten-frames",
     status: "Complete",
+  },
+  {
+    id: 3,
+    title: "Meal Planner / Shopping List",
+    category: "Full Stack Development",
+    description:
+      "An application to create a meal plan and menu and transfer the ingredients into a shopping list",
+    fullDescription:
+      "I created this application to help my family plan the meals that we would have having throughout the week. This allows to carefully plan and budget for what we need and what we would like. It allows you to transfer the menu into a shopping list to that you can get all of the ingredients needed for the different meals.",
+    tech: ["NextJS", "Tailwind", "AWS"],
+    image: "/images/projects/shopping-list.jpg",
+    link: "",
+    githubUrl: "https://github.com/joshhallan/shopping-list",
+    name: "shopping-list",
+    status: "WIP",
   },
 ];

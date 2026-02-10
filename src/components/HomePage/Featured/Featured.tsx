@@ -21,12 +21,10 @@ export default function Projects() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
         {featuredProjects.map((project, index) => {
-          const accentColor = index % 2 === 0 ? neonPink : neonBlue;
           return (
             <ProjectCard
               key={project.id}
               project={project}
-              accentColor={accentColor}
               style="short"
             />
           );
