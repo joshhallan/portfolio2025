@@ -13,7 +13,7 @@ export default function ProjectsPage() {
         </h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {PROJECTS_DATA.map((project, index) => {
+          {PROJECTS_DATA.map((project) => {
             return (
               <ProjectCard
                 key={project.id}
