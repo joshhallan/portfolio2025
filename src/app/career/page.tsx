@@ -2,11 +2,7 @@
 
 import React, { useState } from "react";
 import { EXPERIENCE_DATA, Job } from "@/data/experience";
-import {
-  FaChevronDown,
-  FaChevronUp,
-  FaMapMarkerAlt
-} from "react-icons/fa";
+import { FaChevronDown, FaChevronUp, FaMapMarkerAlt } from "react-icons/fa";
 
 interface RoleAccordionProps {
   role: Job;
@@ -45,17 +41,6 @@ const RoleAccordion: React.FC<RoleAccordionProps> = ({
           isOpen ? "max-h-[1200px] opacity-100 pb-8" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="flex flex-wrap gap-2 mb-6">
-          {role.technologies.map((tech, index) => (
-            <span
-              key={index}
-              className="px-2 py-1 text-[9px] uppercase tracking-widest rounded border border-[var(--neon-pink)] text-[var(--neon-pink)] font-bold"
-            >
-              {tech}
-            </span>
-          ))}
-        </div>
-
         {/* Responsibilities */}
         <ul className="space-y-4">
           {role.responsibilities.map((res, index) => (
@@ -68,6 +53,17 @@ const RoleAccordion: React.FC<RoleAccordionProps> = ({
             </li>
           ))}
         </ul>
+
+        <div className="flex flex-wrap gap-2 mb-6 pt-10">
+          {role.technologies.map((tech, index) => (
+            <span
+              key={index}
+              className="px-2 py-1 text-[12px] uppercase tracking-widest rounded border border-[var(--neon-pink)] text-[var(--neon-pink)] font-bold"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   );
