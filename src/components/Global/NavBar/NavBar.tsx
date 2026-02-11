@@ -66,6 +66,7 @@ export default function NavBar() {
                    flex flex-col items-center justify-center space-y-8 text-2xl`}
         style={{ paddingTop: "5rem" }} 
       >
+        {renderNavLink("/", "Home")}
         {renderNavLink("/projects", "Projects")}
         {renderNavLink("/career", "Career")}
         {renderNavLink("https://github.com/joshhallan", "Github", true)}
