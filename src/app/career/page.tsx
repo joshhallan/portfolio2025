@@ -30,7 +30,7 @@ const RoleAccordion: React.FC<RoleAccordionProps> = ({
             {role.title}
           </h4>
           <div className="flex items-center gap-4">
-            <span className="text-[10px] uppercase tracking-widest text-white/40 font-bold flex items-center gap-2">
+            <span className="text-[10px] uppercase tracking-widest text-white font-bold flex items-center gap-2">
               {role.duration}
             </span>
           </div>
@@ -49,7 +49,7 @@ const RoleAccordion: React.FC<RoleAccordionProps> = ({
           {role.technologies.map((tech, index) => (
             <span
               key={index}
-              className="px-2 py-1 text-[9px] uppercase tracking-widest rounded border border-[var(--neon-pink)]/20 bg-[var(--neon-pink)]/5 text-[var(--neon-pink)] font-bold"
+              className="px-2 py-1 text-[9px] uppercase tracking-widest rounded border border-[var(--neon-pink)] text-[var(--neon-pink)] font-bold"
             >
               {tech}
             </span>
@@ -63,7 +63,7 @@ const RoleAccordion: React.FC<RoleAccordionProps> = ({
               key={index}
               className="text-sm md:text-base text-white/60 leading-relaxed flex gap-4 items-start"
             >
-              <span className="mt-2.5 h-1 w-4 shrink-0 rounded-full bg-[var(--neon-blue)] opacity-30"></span>
+              <span className="mt-2.5 h-1 w-4 shrink-0 rounded-full bg-[var(--neon-blue)]"></span>
               {res}
             </li>
           ))}
@@ -93,7 +93,7 @@ const CompanySection: React.FC<CompanySectionProps> = ({
           <h3 className="text-2xl md:text-4xl font-bold text-white tracking-tight">
             {company}
           </h3>
-          <div className="flex items-center gap-2 mt-2 text-white/40">
+          <div className="flex items-center gap-2 mt-2 text-white">
             <FaMapMarkerAlt className="text-[var(--neon-blue)] text-xs" />
             <span className="text-xs font-bold uppercase tracking-widest">
               {latestRole.location}
