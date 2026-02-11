@@ -113,3 +113,13 @@ export const EXPERIENCE_DATA = [
     ],
   },
 ];
+
+export interface Job {
+  id: number;
+  title: string;
+  company: string;
+  duration: string;
+  location: string;
+  responsibilities: string[];
+  technologies: string[];
+} 
