@@ -21,9 +21,9 @@ export default function Hero() {
             <Image 
               src={PROFILE_IMAGE_PATH} 
               alt="Josh's professional headshot" 
-              layout="fill" 
-              objectFit="cover" 
-              className="rounded-full" 
+              fill 
+              className="object-cover rounded-full" 
+              priority
             />
           </div>
         </div>
