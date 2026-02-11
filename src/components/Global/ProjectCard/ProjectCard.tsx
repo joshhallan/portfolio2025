@@ -99,9 +99,9 @@ export default function ProjectCard({
               )}
             </div>
 
-            <h3 className="text-xl md:text-2xl font-bold text-white mb-2 md:mb-3 group-hover:text-[var(--neon-blue)] transition-colors">
+            <h2 className="text-xl md:text-2xl font-bold text-white mb-2 md:mb-3 group-hover:text-[var(--neon-blue)] transition-colors">
               {project.title}
-            </h3>
+            </h2>
             
             <div
               className={`overflow-y-auto pr-2 mb-4 custom-scrollbar ${
