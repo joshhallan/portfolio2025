@@ -1,8 +1,5 @@
-'use client';
-
 import React from 'react';
-import Image from 'next/image';
-import { getAnalytics, logEvent } from "firebase/analytics";
+import Image from 'next/image'; 
 
 
 const PROFILE_IMAGE_PATH = "/images/me2.jpg"; 
@@ -10,19 +7,6 @@ const PROFILE_IMAGE_PATH = "/images/me2.jpg";
 export default function Hero() {
 
   const ctaClasses = "px-8 py-3 text-lg font-bold rounded-lg transition duration-300 transform hover:scale-[1.02] shadow-md";
-
-  const trackDownload = () => {
-    try {
-      const analytics = getAnalytics();
-      logEvent(analytics, 'file_download', {
-        file_name: 'Joshua-Allan-CV_2026.pdf',
-        file_extension: 'pdf',
-        link_text: 'DOWNLOAD CV'
-      });
-    } catch (error) {
-      console.error("Analytics error:", error);
-    }
-  };
 
   return (
     <section className="container mx-auto max-w-6xl px-8 pt-24 py-16">
@@ -57,8 +41,7 @@ export default function Hero() {
            
             <a 
               href="/documents/Joshua-Allan-CV_2026.pdf" 
-              download
-              onClick={trackDownload}
+              download 
               className={`${ctaClasses} border-2`}
               style={{ borderColor: 'var(--neon-blue)', color: 'var(--neon-blue)' }}
             >
