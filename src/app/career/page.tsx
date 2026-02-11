@@ -46,7 +46,7 @@ const RoleAccordion: React.FC<RoleAccordionProps> = ({
           {role.responsibilities.map((res, index) => (
             <li
               key={index}
-              className="text-sm md:text-base text-white/60 leading-relaxed flex gap-4 items-start"
+              className="text-sm md:text-base text-white leading-relaxed flex gap-4 items-start"
             >
               <span className="mt-2.5 h-1 w-4 shrink-0 rounded-full bg-[var(--neon-blue)]"></span>
               {res}
