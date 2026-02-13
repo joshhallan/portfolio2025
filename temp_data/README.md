@@ -1,0 +1,1 @@
+Note: these files we created to batch move all of the data from local to firestore
