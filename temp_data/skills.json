@@ -1,0 +1,24 @@
+[
+  { "name": "HTML", "category": "Languages & Markup" },
+  { "name": "CSS / SCSS", "category": "Languages & Markup" },
+  { "name": "JavaScript (ES5/ES6)", "category": "Languages & Markup" },
+  { "name": "Typescript", "category": "Languages & Markup" },
+  
+  { "name": "React", "category": "Frameworks & Libraries" },
+  { "name": "Angular", "category": "Frameworks & Libraries" },
+  { "name": "AngularJS", "category": "Frameworks & Libraries" },
+  { "name": "jQuery", "category": "Frameworks & Libraries" },
+  { "name": "Bootstrap", "category": "Frameworks & Libraries" },
+  { "name": "Foundation", "category": "Frameworks & Libraries" },
+
+  { "name": "Git", "category": "Tools & Version Control" },
+  { "name": "SVN", "category": "Tools & Version Control" },
+  { "name": "AWS", "category": "Tools & Version Control" },
+
+  { "name": "Unit Testing", "category": "Testing" },
+  { "name": "Automated Testing", "category": "Testing" },
+  { "name": "Manual Testing", "category": "Testing" },
+
+  { "name": "MongoDB", "category": "Databases" },
+  { "name": "Firebase", "category": "Databases" }
+]
