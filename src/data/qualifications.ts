@@ -69,4 +69,4 @@ export const QUALIFICATIONS_DATA = [
     status: "Lapsed",
     logo: null,
   },
-];
+] as const;
