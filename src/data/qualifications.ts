@@ -41,23 +41,23 @@ export const QUALIFICATIONS_DATA = [
   },
   {
     id: 5,
-    title: "Digital Accessibility Accreditation",
-    institution: "IAAP",
+    title: "A11Y Fundamentals Knowledge Badge",
+    institution: "International Association of Accessibility Professionals (IAAP)",
     shortName: "IAAP",
     classification: "Certification",
     grade: "Passed",
     status: "Active",
-    logo: null,
+    logo: "images/certificates/FK.png",
   },
   {
     id: 6,
-    title: "Accessible Development Accreditation",
-    institution: "IAAP",
+    title: "Accessible Development Knowledge Badge",
+    institution: "International Association of Accessibility Professionals (IAAP)",
     shortName: "IAAP",
     classification: "Certification",
     grade: "Passed",
     status: "Active",
-    logo: null,
+    logo: "images/certificates/DK.png",
   },
   {
     id: 7,
@@ -69,4 +69,4 @@ export const QUALIFICATIONS_DATA = [
     status: "Lapsed",
     logo: null,
   },
-] as const;
+];

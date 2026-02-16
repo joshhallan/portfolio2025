@@ -1,5 +1,5 @@
 import React from "react";
-import { QUALIFICATIONS_DATA } from "../../../data/qualifications";
+import { QUALIFICATIONS_DATA } from "@/data/qualifications";
 import Image from "next/image";
 
 interface Certification {
