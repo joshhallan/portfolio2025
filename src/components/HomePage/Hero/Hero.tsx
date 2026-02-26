@@ -30,7 +30,7 @@ export default function Hero() {
             </h1>
 
             <p className="text-xl md:text-2xl text-white/90 mb-10 font-sans leading-relaxed">
-              Frontend Technical Lead with{" "}
+              Frontend Technical Lead with over{" "}
               <span className="text-[var(--color-secondary)] font-bold">
                 10+ years
               </span>{" "}
