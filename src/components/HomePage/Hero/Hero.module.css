@@ -5,10 +5,6 @@
   transition: transform 0.3s ease;
 }
 
-.profileWrapper:hover {
-  transform: rotate(-2deg) scale(1.02);
-}
-
 .cvButton {
   border: 2px solid var(--color-secondary);
   color: var(--color-secondary);
