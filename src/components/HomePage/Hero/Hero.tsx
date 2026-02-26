@@ -16,7 +16,7 @@ export default function Hero() {
             >
               <Image
                 src={PROFILE_IMAGE_PATH}
-                alt="Josh's professional headshot"
+                alt="Josh's professional head shot"
                 fill
                 className="object-cover"
                 priority
