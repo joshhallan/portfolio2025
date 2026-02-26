@@ -1,0 +1,140 @@
+.pageHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.headerUnderline {
+  height: 4px;
+  width: 5rem;
+  background: var(--color-secondary);
+  margin: 1rem auto 0;
+  border-radius: 999px;
+  box-shadow: 0 0 10px var(--color-secondary);
+}
+
+.timelineContainer {
+  max-width: 56rem; /* max-w-4xl */
+  margin: 0 auto;
+}
+
+.companyCard {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.companyHeader {
+  margin-bottom: 2rem;
+}
+
+.locationWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.locationWrapper svg {
+  color: var(--color-secondary);
+}
+
+/* Accordion Styling */
+.roleWrapper {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.roleWrapper:first-child {
+  border-top: none;
+}
+
+.accordionToggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 1rem;
+  margin: 0 -1rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  transition: background 0.2s ease;
+}
+
+.accordionToggle:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.roleTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+  transition: color 0.2s ease;
+}
+
+.accordionToggle:hover .roleTitle {
+  color: var(--color-secondary);
+}
+
+.roleDuration {
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 700;
+}
+
+.collapsibleContent {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+}
+
+.collapsibleContent.open {
+  max-height: 1200px;
+  opacity: 1;
+  padding-bottom: 2rem;
+}
+
+.responsibilityItem {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.bullet {
+  margin-top: 0.6rem;
+  height: 4px;
+  width: 1rem;
+  flex-shrink: 0;
+  border-radius: 999px;
+  background: var(--color-secondary);
+  box-shadow: 0 0 8px var(--color-secondary);
+}
+
+.techBadge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  background: rgba(var(--color-primary-rgb), 0.05);
+  margin: 0.25rem;
+  border-radius: 0.25rem;
+}
