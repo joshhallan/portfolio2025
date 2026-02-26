@@ -1,7 +1,6 @@
 .navbar {
   background-color: rgba(13, 2, 33, 0.8);
   backdrop-filter: blur(12px);
-  /* The Synthwave Bottom Border */
   border-bottom: 1px solid transparent;
   border-image: linear-gradient(
       to right,
@@ -18,11 +17,6 @@
   letter-spacing: -1px;
   color: #fff;
   transition: var(--transition-base);
-}
-
-.logo:hover {
-  text-shadow: var(--glow-pink);
-  transform: skewX(-5deg);
 }
 
 .navLink {

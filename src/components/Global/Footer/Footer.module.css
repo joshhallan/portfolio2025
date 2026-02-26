@@ -1,0 +1,61 @@
+.footer {
+  background-color: rgba(0, 0, 0, 0.2);
+  margin-top: 5rem;
+  padding: 4rem 0 2rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.headingConnect {
+  color: var(--color-secondary);
+  /* text-shadow: var(--glow-cyan); */
+  font-family: var(--font-geist-mono);
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.headingTouch {
+  color: var(--color-primary);
+  /* text-shadow: var(--glow-pink); */
+  font-family: var(--font-geist-mono);
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.socialIcon {
+  color: var(--foreground);
+  font-size: 1.75rem;
+  transition: var(--transition-base);
+}
+
+.socialIcon:hover {
+  color: var(--color-secondary);
+}
+
+.emailLink {
+  font-family: var(--font-geist-mono);
+  color: white;
+  font-size: 1.125rem;
+  font-weight: 600;
+  transition: var(--transition-base);
+}
+
+.emailLink:hover {
+  color: var(--color-primary);
+  text-shadow: var(--glow-pink);
+}
+
+.bottomBar {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.bottomBar p {
+  margin: 0;
+}
