@@ -16,8 +16,18 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Josh Allan | Lead Technical Developer & Frontend Specialist",
-  description: "Josh Allan's professional portfolio showcasing 10+ years of expertise in React, Angular, NextJS and AWS developing high-performance solutions.",
-  keywords: ["Josh Allan", "Frontend Developer", "React", "Angular", "NextJS", "AWS", "Technical Lead", "Portfolio"]
+  description:
+    "Josh Allan's professional portfolio showcasing 10+ years of expertise in React, Angular, NextJS and AWS developing high-performance solutions.",
+  keywords: [
+    "Josh Allan",
+    "Frontend Developer",
+    "React",
+    "Angular",
+    "NextJS",
+    "AWS",
+    "Technical Lead",
+    "Portfolio",
+  ],
 };
 
 export default function RootLayout({
@@ -26,12 +36,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col bg-mesh`}
       >
         <NavBar />
-        {children}
+        <main className="flex-grow">{children}</main>
         <Footer />
       </body>
     </html>

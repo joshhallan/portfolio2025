@@ -1,46 +1,157 @@
 @import "tailwindcss";
 
-:root {
-  --background: #3C4142; 
-  --foreground: #FAFAFA; 
-  --neon-pink: #FF7AED;
-  --neon-blue: #6df1d8;
-  --neon-yellow: #ffe700;
-  --neon-green: #74ee15;
-  --neon-red: #FF3131;
-  --neon-blend: linear-gradient(45deg, var(--neon-pink), var(--neon-blue));
+@layer base {
+  :root {
+    /* --- Luca Davincci Palette --- */
+    --color-bg: #0d0221;
+    --color-surface: #1a0536;
+    --color-primary: #ee227d; /* Hot Pink */
+    --color-secondary: #30c0b7; /* Turquoise */
+    --color-accent: #fd8083; /* Peach */
+    --color-muted: #498099; /* Mid-Blue */
+
+    /* --- Typography Scale (Fluid) --- */
+    /* Formula: clamp(min, preferred, max) */
+    --fs-h1: clamp(2.5rem, 8vw, 4.5rem);
+    --fs-h2: clamp(2rem, 6vw, 3rem);
+    --fs-h3: clamp(1.5rem, 4vw, 2.25rem);
+    --fs-h4: clamp(1.25rem, 3vw, 1.75rem);
+    --fs-body: clamp(1rem, 1vw, 1.125rem);
+    --fs-small: 0.875rem;
+
+    /* --- Spacing & Identity Effects --- */
+    --glow-pink: 0 0 15px rgba(238, 34, 125, 0.5);
+    --glow-cyan: 0 0 15px rgba(48, 192, 183, 0.4);
+    --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* --- Global Reset & Scrollbar --- */
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--color-bg);
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: #ffffff;
+    font-family:
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  }
+
+  /* Custom Selection Color */
+  ::selection {
+    background-color: var(--color-primary);
+    color: white;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-bg);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-surface);
+    border-radius: 10px;
+    border: 2px solid var(--color-bg);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-muted);
+  }
+
+  /* --- Full Typography Scale --- */
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+    text-wrap: balance;
+    font-family: var(--font-geist-mono), monospace;
+  }
+
+  h1 {
+    font-size: var(--fs-h1);
+    color: var(--color-primary);
+    text-shadow: var(--glow-pink);
+    text-transform: uppercase;
+  }
+
+  h2 {
+    font-size: var(--fs-h2);
+    color: var(--color-secondary);
+  }
+
+  h3 {
+    font-size: var(--fs-h3);
+    color: var(--color-accent);
+  }
+
+  h4 {
+    font-size: var(--fs-h4);
+    color: white;
+  }
+
+  p {
+    font-size: var(--fs-body);
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1.25rem;
+    max-width: 70ch;
+  }
+
+  small {
+    font-size: var(--fs-small);
+    color: var(--color-muted);
+  }
+
+  code,
+  pre,
+  .tech-label {
+    font-family: var(--font-geist-mono), monospace;
+  }
+
+  /* --- Interactive Global States --- */
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition-base);
+  }
+
+  button {
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  /* Global Focus State for Accessibility */
+  :focus-visible {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: 4px;
+  }
 }
 
-.gradient-text {
-  background-image: var(--neon-blend);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
+/* --- Tailwind Utility Extensions --- */
+@layer utilities {
+  .text-glow-pink {
+    text-shadow: var(--glow-pink);
+  }
+  .text-glow-cyan {
+    text-shadow: var(--glow-cyan);
+  }
 
-.-border-bottom-gradient {
-    border-bottom: 2px solid transparent !important; 
-    background: linear-gradient(var(--background), var(--background)) padding-box, 
-                var(--neon-blend) border-box; 
-    background-size: 100% 2px;
-    background-repeat: no-repeat;
-    background-position: bottom;
-}
-
-.neon-hover-link {
-    transition: color 0.2s ease-in-out; 
-    color: #fff;
-    opacity: 0.7;
-}
-
-.neon-hover-link:hover {
-    background-image: var(--neon-blend);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent; 
-  opacity: 1;
-}
-
-body {
-  background-color: var(--background);
+  .bg-mesh {
+    background-image:
+      radial-gradient(at 0% 0%, rgba(238, 34, 125, 0.15) 0, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(48, 192, 183, 0.1) 0, transparent 50%);
+  }
 }

@@ -1,76 +1,104 @@
-'use client';
+"use client";
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import styles from "./NavBar.module.css";
 
 export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const pathname = usePathname();
-
-  const menuLinkClasses = `font-medium py-2 md:py-0 transition-all duration-300`; 
-
-  const renderNavLink = (href: string, label: string, isExternal: boolean = false) => {
-    const active = pathname === href;
-    
-    return (
-      <Link
-        href={href}
-        onClick={() => setIsMenuOpen(false)} 
-        target={isExternal ? "_blank" : undefined}
-        rel="noopener noreferrer"
-        className={`${menuLinkClasses} neon-hover-link ${active ? 'active-neon' : ''}`}
-      >
-        {label}
-      </Link>
-    );
-  };
 
   return (
-    <nav
-      className="sticky top-0 z-50 py-4 -border-bottom-gradient"
-      style={{ backgroundColor: "#000" }}
-    >
-      <div className="container mx-auto max-w-6xl px-8 flex justify-between items-center">
-        <Link
-          href="/"
-          className="text-xl font-bold tracking-wider uppercase cursor-pointer text-white z-10" 
-          style={{textShadow: '1px 1px 10px #fff'}}
-        >
-          <span>FindJosh</span>
+    <nav className={`w-full h-20 sticky top-0 z-50 ${styles.navbar}`}>
+      <div className="max-w-[1200px] mx-auto h-full px-8 flex justify-between items-center">
+        <Link href="/" className={`${styles.logo} text-2xl`}>
+          FIND<span className="text-[var(--color-primary)]">JOSH</span>
         </Link>
 
-        {/* Desktop Links */}
-        <div className="hidden md:flex space-x-6">
-          {renderNavLink("/projects", "Projects")}
-          {renderNavLink("/career", "Career")}
-          {renderNavLink("https://github.com/joshhallan", "Github", true)}
-          {renderNavLink("https://linkedin.com/in/joshuaallan", "Linkedin", true)}
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center gap-10">
+          <Link href="/projects" className={`${styles.navLink}`}>
+            Projects
+          </Link>
+          <Link href="/career" className={`${styles.navLink}`}>
+            Career
+          </Link>
+          <Link
+            href="https://github.com/joshhallan"
+            target="_blank"
+            className={styles.navLink}
+          >
+            Github
+          </Link>
+          <Link
+            href="https://linkedin.com/in/joshuaallan"
+            target="_blank"
+            className={styles.navLink}
+          >
+            LinkedIn
+          </Link>
         </div>
 
-        {/* Mobile Toggle */}
+        {/* Mobile Toggle Button */}
         <button
-          className="md:hidden p-2 rounded-md z-10 text-white"
+          className="md:hidden p-2 text-white z-50"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Toggle Menu"
         >
-          <div className="w-6 h-0.5 bg-white mb-1"></div>
-          <div className="w-6 h-0.5 bg-white mb-1"></div>
-          <div className="w-6 h-0.5 bg-white"></div>
+          <div className="space-y-1.5">
+            <span
+              className={`block w-6 h-0.5 bg-white transition-all ${isMenuOpen ? "rotate-45 translate-y-2" : ""}`}
+            ></span>
+            <span
+              className={`block w-6 h-0.5 bg-white ${isMenuOpen ? "opacity-0" : ""}`}
+            ></span>
+            <span
+              className={`block w-6 h-0.5 bg-white transition-all ${isMenuOpen ? "-rotate-45 -translate-y-2" : ""}`}
+            ></span>
+          </div>
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Overlay */}
       <div
-        className={`md:hidden absolute top-0 left-0 w-full h-screen bg-black/95 transition-transform duration-300 transform 
-                   ${isMenuOpen ? "translate-y-0" : "-translate-y-full"} 
-                   flex flex-col items-center justify-center space-y-8 text-2xl`}
-        style={{ paddingTop: "5rem" }} 
+        className={`fixed top-0 left-0 h-[100dvh] w-full bg-[var(--color-bg)] flex flex-col items-center justify-center gap-8 text-2xl z-40 md:hidden transition-transform duration-500 ease-in-out ${
+          isMenuOpen ? "translate-y-0" : "-translate-y-full"
+        }`}
       >
-        {renderNavLink("/", "Home")}
-        {renderNavLink("/projects", "Projects")}
-        {renderNavLink("/career", "Career")}
-        {renderNavLink("https://github.com/joshhallan", "Github", true)}
-        {renderNavLink("https://linkedin.com/in/joshuaallan", "Linkedin", true)}
+        <Link
+          href="/"
+          onClick={() => setIsMenuOpen(false)}
+          className={styles.navLink}
+        >
+          Home
+        </Link>
+        <Link
+          href="/career"
+          onClick={() => setIsMenuOpen(false)}
+          className={styles.navLink}
+        >
+          Career
+        </Link>
+        <Link
+          href="/projects"
+          onClick={() => setIsMenuOpen(false)}
+          className={styles.navLink}
+        >
+          Projects
+        </Link>
+        <Link
+          href="https://github.com/joshhallan"
+          target="_blank"
+          className={styles.navLink}
+        >
+          Github
+        </Link>
+        <Link
+          href="https://linkedin.com/in/joshuaallan"
+          target="_blank"
+          className={styles.navLink}
+        >
+          LinkedIn
+        </Link>
       </div>
     </nav>
   );
