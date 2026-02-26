@@ -1,0 +1,54 @@
+.aboutSection {
+  width: 100%;
+}
+
+.highlight {
+  color: var(--color-secondary);
+  font-weight: 700;
+}
+
+/* Fact list */
+.factList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Scroll */
+.scrollContainer {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  gap: 1.5rem;
+  padding-bottom: 1.5rem;
+  scrollbar-width: none;
+}
+
+.scrollContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.certItem {
+  display: flex;
+  align-items: start;
+  flex-shrink: 0;
+}
+
+.statusBadge {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 2px 8px;
+  font-family: var(--font-geist-mono);
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.verifyLink {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}

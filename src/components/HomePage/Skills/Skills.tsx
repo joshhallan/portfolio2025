@@ -4,84 +4,77 @@ import React, { useState } from "react";
 import { SKILLS_DATA, SKILL_CATEGORIES } from "@/data/skills";
 
 const COLOUR_MAP: { [key: string]: string } = {
-  "Languages & Markup": "var(--neon-red, #FF3333)",
-  "Frameworks & Libraries": "var(--neon-purple, #CC33FF)",
-  "Tools & Version Control": "var(--neon-green, #39FF14)",
-  Testing: "var(--neon-yellow, #FFFF33)",
-  Databases: "var(--neon-dark-blue, #2727F5)",
-  All: "var(--foreground)",
-};
-
-const getCategoryColour = (category: string) => {
-  return COLOUR_MAP[category] || "var(--foreground)";
+  "Languages & Markup": "#FF3333",
+  "Frameworks & Libraries": "#CC33FF",
+  "Tools & Version Control": "#39FF14",
+  Testing: "#FFFF33",
+  Databases: "#2727F5",
+  All: "#FFFFFF",
 };
 
 export default function SkillsSection() {
   const [activeCategory, setActiveCategory] = useState("All");
 
   return (
-    <section id="skills" className="container mx-auto max-w-6xl px-8 py-16">
-      <div className="flex flex-col items-center mb-8">
-        <h2 className="text-4xl font-bold text-white mb-6 text-center">
-          Technical Skills
-        </h2>
+    <section id="skills" className="w-full py-16">
+      <div className="max-w-[1200px] mx-auto px-8">
+        <div className="flex flex-col items-center mb-12">
+          <h2 className="section-title text-center">Technical Skills</h2>
 
-        <div className="flex flex-wrap justify-center gap-3 w-full mb-4">
-          {SKILL_CATEGORIES.map((category) => {
-            const categoryColour = getCategoryColour(category);
-            const isActive = activeCategory === category;
+          {/* CATEGORY FILTERS */}
+          <div className="flex flex-wrap justify-center gap-4 w-full mb-8">
+            {SKILL_CATEGORIES.map((category) => {
+              const color = COLOUR_MAP[category] || "#FFFFFF";
+              const isActive = activeCategory === category;
+
+              return (
+                <button
+                  key={category}
+                  onClick={() => setActiveCategory(category)}
+                  className="px-5 py-2 text-xs font-bold uppercase tracking-widest rounded-full border-2 transition-all duration-300 bg-transparent cursor-pointer"
+                  style={{
+                    borderColor: color,
+                    color: "white",
+                    boxShadow: isActive
+                      ? `0 0 15px ${color}, inset 0 0 5px ${color}`
+                      : "none",
+                    opacity: isActive ? 1 : 0.4,
+                  }}
+                >
+                  {category}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* SKILLS GRID */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+          {SKILLS_DATA.map((skill) => {
+            const skillColor = COLOUR_MAP[skill.category] || "#FFFFFF";
+            const isHighlighted =
+              activeCategory === "All" || activeCategory === skill.category;
 
             return (
-              <button
-                key={category}
-                onClick={() => setActiveCategory(category)}
-                className={`
-                  px-4 py-2 text-sm rounded-full border-2 
-                  transition-all duration-200 bg-transparent text-white cursor-pointer
-                  ${isActive ? "font-semibold" : "opacity-70"}
-                `}
+              <div
+                key={skill.name}
+                className="p-6 text-center rounded-xl border-2 transition-opacity duration-500 ease-in-out"
                 style={{
-                  borderColor: categoryColour,
-                  color: "var(--foreground)",
-                  boxShadow: isActive
-                    ? `1px 1px 10px ${categoryColour}, 1px 1px 10px ${categoryColour}`
+                  borderColor: skillColor,
+                  color: "white",
+                  boxShadow: isHighlighted
+                    ? `0 0 12px ${skillColor}, inset 0 0 4px ${skillColor}`
                     : "none",
+                  opacity: isHighlighted ? 1 : 0.15, // Smooth dimming
                 }}
               >
-                {category}
-              </button>
+                <span className="text-sm font-bold tracking-wider uppercase">
+                  {skill.name}
+                </span>
+              </div>
             );
           })}
         </div>
-      </div>
-
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-        {SKILLS_DATA.map((skill) => {
-          const skillBorderColour = getCategoryColour(skill.category);
-
-          const shouldGlow =
-            activeCategory === "All" || activeCategory === skill.category;
-
-          const opacityClass = shouldGlow ? "opacity-100" : "opacity-30";
-
-          const skillBoxShadow = shouldGlow
-            ? `1px 1px 10px ${skillBorderColour}, 1px 1px 10px ${skillBorderColour}`
-            : "none";
-
-          return (
-            <div
-              key={skill.name}
-              className={`p-4 text-center rounded-lg border-2 text-white/90 shadow-md transition-opacity duration-300 ${opacityClass}`}
-              style={{
-                borderColor: skillBorderColour,
-                color: "var(--foreground)",
-                boxShadow: skillBoxShadow,
-              }}
-            >
-              {skill.name}
-            </div>
-          );
-        })}
       </div>
     </section>
   );

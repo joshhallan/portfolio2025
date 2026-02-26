@@ -3,63 +3,47 @@
 import React, { useState } from "react";
 import { EXPERIENCE_DATA, Job } from "@/data/experience";
 import { FaChevronDown, FaChevronUp, FaMapMarkerAlt } from "react-icons/fa";
+import styles from "./Career.module.css";
 
-interface RoleAccordionProps {
-  role: Job;
-  isDefaultOpen: boolean;
-}
-
-const RoleAccordion: React.FC<RoleAccordionProps> = ({
+const RoleAccordion = ({
   role,
   isDefaultOpen,
+}: {
+  role: Job;
+  isDefaultOpen: boolean;
 }) => {
   const [isOpen, setIsOpen] = useState(isDefaultOpen);
 
   return (
-    <div className="border-t border-white/5 first:border-t-0">
+    <div className={styles.roleWrapper}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between py-6 text-left transition-all hover:bg-white/[0.02] px-4 -mx-4 rounded-lg group"
+        className={styles.accordionToggle}
       >
-        <div className="space-y-1">
-          <h4 className="text-xl font-bold text-white group-hover:text-[var(--neon-blue)] transition-colors">
-            {role.title}
-          </h4>
-          <div className="flex items-center gap-4">
-            <span className="text-[10px] uppercase tracking-widest text-white font-bold flex items-center gap-2">
-              {role.duration}
-            </span>
-          </div>
+        <div className={styles.roleInfo}>
+          <h4 className={styles.roleTitle}>{role.title}</h4>
+          <span className={styles.roleDuration}>{role.duration}</span>
         </div>
-        <span className="text-[var(--neon-blue)] opacity-50 group-hover:opacity-100 transition-opacity">
+        <span className={styles.chevron}>
           {isOpen ? <FaChevronUp /> : <FaChevronDown />}
         </span>
       </button>
 
       <div
-        className={`transition-all duration-500 ease-in-out overflow-hidden ${
-          isOpen ? "max-h-[1200px] opacity-100 pb-8" : "max-h-0 opacity-0"
-        }`}
+        className={`${styles.collapsibleContent} ${isOpen ? styles.open : ""}`}
       >
-        {/* Responsibilities */}
-        <ul className="space-y-4">
+        <ul className={styles.responsibilityList}>
           {role.responsibilities.map((res, index) => (
-            <li
-              key={index}
-              className="text-sm md:text-base text-white leading-relaxed flex gap-4 items-start"
-            >
-              <span className="mt-2.5 h-1 w-4 shrink-0 rounded-full bg-[var(--neon-blue)]"></span>
+            <li key={index} className={styles.responsibilityItem}>
+              <span className={styles.bullet}></span>
               {res}
             </li>
           ))}
         </ul>
 
-        <div className="flex flex-wrap gap-2 mb-6 pt-10">
+        <div className={styles.techStack}>
           {role.technologies.map((tech, index) => (
-            <span
-              key={index}
-              className="px-2 py-1 text-[12px] uppercase tracking-widest rounded border border-[var(--neon-pink)] text-[var(--neon-pink)] font-bold"
-            >
+            <span key={index} className={styles.techBadge}>
               {tech}
             </span>
           ))}
@@ -69,36 +53,28 @@ const RoleAccordion: React.FC<RoleAccordionProps> = ({
   );
 };
 
-interface CompanySectionProps {
-  company: string;
-  roles: Job[];
-  isFirstCompany: boolean;
-}
-
-const CompanySection: React.FC<CompanySectionProps> = ({
+const CompanySection = ({
   company,
   roles,
   isFirstCompany,
+}: {
+  company: string;
+  roles: Job[];
+  isFirstCompany: boolean;
 }) => {
   const latestRole = roles[0];
 
   return (
-    <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 md:p-10 mb-12 shadow-2xl">
-      <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-10 gap-4">
-        <div>
-          <h3 className="text-2xl md:text-4xl font-bold text-white tracking-tight">
-            {company}
-          </h3>
-          <div className="flex items-center gap-2 mt-2 text-white">
-            <FaMapMarkerAlt className="text-[var(--neon-blue)] text-xs" />
-            <span className="text-xs font-bold uppercase tracking-widest">
-              {latestRole.location}
-            </span>
-          </div>
+    <div className={styles.companyCard}>
+      <div className={styles.companyHeader}>
+        <h3 className="section-title">{company}</h3>
+        <div className={styles.locationWrapper}>
+          <FaMapMarkerAlt />
+          <span>{latestRole.location}</span>
         </div>
       </div>
 
-      <div className="space-y-2">
+      <div className={styles.rolesList}>
         {roles.map((role, index) => (
           <RoleAccordion
             key={role.id}
@@ -114,9 +90,7 @@ const CompanySection: React.FC<CompanySectionProps> = ({
 export default function FullCareerTimeline() {
   const groupedExperience = EXPERIENCE_DATA.reduce<Record<string, Job[]>>(
     (acc, job) => {
-      if (!acc[job.company]) {
-        acc[job.company] = [];
-      }
+      if (!acc[job.company]) acc[job.company] = [];
       acc[job.company].push(job);
       return acc;
     },
@@ -124,16 +98,14 @@ export default function FullCareerTimeline() {
   );
 
   return (
-    <div className="min-h-screen pt-24 pb-16">
-      <section id="full-career" className="container mx-auto max-w-5xl px-8">
-        <div className="mb-20 text-center">
-          <h1 className="text-5xl md:text-7xl font-extrabold mb-4 text-white tracking-tighter">
-            CAREER
-          </h1>
-          <div className="h-1 w-20 bg-[var(--neon-blue)] mx-auto rounded-full"></div>
-        </div>
+    <div className="min-h-screen pt-32 pb-24">
+      <section className="max-w-[1200px] mx-auto px-8">
+        <header className={styles.pageHeader}>
+          <h2 className="section-title">Career History</h2>
+          <div className={styles.headerUnderline}></div>
+        </header>
 
-        <div className="flex flex-col">
+        <div className={styles.timelineContainer}>
           {Object.entries(groupedExperience).map(([company, roles], index) => (
             <CompanySection
               key={company}

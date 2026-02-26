@@ -1,0 +1,35 @@
+.btn {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  font-family: var(--font-geist-mono);
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-align: center;
+}
+
+.primary {
+  border: 2px solid var(--color-secondary);
+  color: var(--color-secondary);
+}
+
+.primary:hover {
+  background: rgba(48, 192, 183, 0.1);
+  box-shadow: var(--glow-cyan);
+  color: white;
+}
+
+.secondary {
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+}
+
+.secondary:hover {
+  background: rgba(238, 34, 125, 0.1);
+  box-shadow: var(--glow-pink);
+  color: white;
+}
