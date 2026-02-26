@@ -1,0 +1,58 @@
+.filterBtn {
+  padding: 0.6rem 1.5rem;
+  font-size: 0.8rem;
+  border-radius: 9999px;
+  border: 2px solid var(--accent-color);
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: var(--font-geist-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.filterBtn.active {
+  background: var(--accent-color);
+  color: #000;
+  box-shadow:
+    0 0 15px var(--accent-color),
+    0 0 30px var(--accent-color);
+  font-weight: 800;
+}
+
+.skillCard {
+  padding: 1.5rem 1rem;
+  background: rgba(15, 17, 17, 0.8);
+  border: 2px solid var(--skill-color);
+  border-radius: 0.75rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.skillCard.glow {
+  opacity: 1;
+  box-shadow:
+    0 0 10px var(--skill-color),
+    inset 0 0 5px var(--skill-color);
+  transform: scale(1);
+}
+
+.skillCard.dimmed {
+  opacity: 0.15;
+  filter: grayscale(1) blur(1px);
+  transform: scale(0.95);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.skillCard.glow:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow:
+    0 0 20px var(--skill-color),
+    0 0 40px var(--skill-color);
+  z-index: 10;
+}
