@@ -123,7 +123,7 @@
 
   /* --- Interactive Global States --- */
   a {
-    color: inherit;
+    color: var(--color-secondary);
     text-decoration: none;
     transition: var(--transition-base);
   }
