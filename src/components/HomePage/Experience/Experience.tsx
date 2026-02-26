@@ -18,7 +18,6 @@ export default function ExperienceSummary() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {summaryData.map((job, index) => {
-            // Alternating neon blue and pink for that cyber-dashboard aesthetic
             const variant = index % 2 === 0 ? "cyan" : "pink";
             const accentColor =
               variant === "cyan"
