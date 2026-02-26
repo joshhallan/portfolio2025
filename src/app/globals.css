@@ -93,6 +93,10 @@
     color: var(--color-secondary);
   }
 
+  h2.section-title {
+    color: white;
+  }
+
   h3 {
     font-size: var(--fs-h3);
     color: var(--color-accent);

@@ -12,9 +12,7 @@ export default function Projects() {
   return (
     <section id="projects" className="w-full py-16">
       <div className="max-w-[1200px] mx-auto px-8">
-        <h2 className="text-4xl font-bold mb-12 text-center text-white">
-          Featured Projects
-        </h2>
+        <h2 className="section-title text-center">Featured Projects</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           {featuredProjects.map((project) => (

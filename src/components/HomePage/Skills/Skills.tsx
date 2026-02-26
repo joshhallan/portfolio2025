@@ -19,9 +19,7 @@ export default function SkillsSection() {
     <section id="skills" className="w-full py-16">
       <div className="max-w-[1200px] mx-auto px-8">
         <div className="flex flex-col items-center mb-12">
-          <h2 className="text-4xl font-bold text-white mb-10 text-center">
-            Technical Skills
-          </h2>
+          <h2 className="section-title text-center">Technical Skills</h2>
 
           {/* CATEGORY FILTERS */}
           <div className="flex flex-wrap justify-center gap-4 w-full mb-8">

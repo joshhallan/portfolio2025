@@ -26,9 +26,7 @@ export default function About() {
   return (
     <section id="about" className="w-full py-16">
       <div className="max-w-[1200px] mx-auto px-8">
-        <h2 className="text-4xl font-bold mb-12 text-center text-white">
-          About Me
-        </h2>
+        <h2 className="section-title text-center">About Me</h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-12 items-start">
           <div className="lg:col-span-8 space-y-6 text-lg text-white/90 leading-relaxed">
