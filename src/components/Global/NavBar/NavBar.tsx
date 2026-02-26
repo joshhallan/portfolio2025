@@ -11,7 +11,7 @@ export default function NavBar() {
     <nav className={`w-full h-20 sticky top-0 z-50 ${styles.navbar}`}>
       <div className="max-w-[1200px] mx-auto h-full px-8 flex justify-between items-center">
         <Link href="/" className={`${styles.logo} text-2xl`}>
-          FIND<span className="text-[var(--color-primary)]">JOSH</span>
+          FIND<span className="gradient-text">JOSH</span>
         </Link>
 
         {/* Desktop Navigation */}

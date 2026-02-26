@@ -1,0 +1,25 @@
+.profileWrapper {
+  position: relative;
+  border: 2px solid var(--color-secondary);
+  box-shadow: var(--glow-cyan);
+  transition: transform 0.3s ease;
+}
+
+.profileWrapper:hover {
+  transform: rotate(-2deg) scale(1.02);
+}
+
+.cvButton {
+  border: 2px solid var(--color-secondary);
+  color: var(--color-secondary);
+  font-family: var(--font-geist-mono);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.cvButton:hover {
+  background: rgba(48, 192, 183, 0.1);
+  box-shadow: var(--glow-cyan);
+  color: white;
+}

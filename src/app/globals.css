@@ -154,4 +154,17 @@
       radial-gradient(at 0% 0%, rgba(238, 34, 125, 0.15) 0, transparent 50%),
       radial-gradient(at 100% 100%, rgba(48, 192, 183, 0.1) 0, transparent 50%);
   }
+
+  .gradient-text {
+    color: var(--color-primary);
+    text-shadow: var(--glow-pink);
+    background: linear-gradient(
+      to right,
+      var(--color-primary),
+      var(--color-accent)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 2px 10px rgba(238, 34, 125, 0.2));
+  }
 }
