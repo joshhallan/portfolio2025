@@ -1,5 +1,6 @@
 import { initializeApp, getApps, getApp } from "firebase/app";
 import { getAnalytics, isSupported } from "firebase/analytics";
+import { getFirestore } from "firebase/firestore"; // 1. Import Firestore
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -11,10 +12,10 @@ const firebaseConfig = {
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
-// Initialize Firebase
 const app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
 
-// Initialize Analytics safely
+const db = getFirestore(app);
+
 export const initAnalytics = async () => {
   if (typeof window !== "undefined") {
     const supported = await isSupported();
@@ -25,4 +26,4 @@ export const initAnalytics = async () => {
   return null;
 };
 
-export { app };
+export { app, db };
