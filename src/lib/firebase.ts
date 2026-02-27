@@ -1,8 +1,7 @@
-import { initializeApp, getApps, getApp, FirebaseOptions } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
-import { getAnalytics, isSupported, Analytics } from "firebase/analytics";
+import { initializeApp, getApps, getApp } from "firebase/app";
+import { getAnalytics, isSupported } from "firebase/analytics";
 
-const firebaseConfig: FirebaseOptions = {
+const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
   projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
@@ -12,21 +11,18 @@ const firebaseConfig: FirebaseOptions = {
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
-console.log(
-  "Firebase Init Check - Project ID:",
-  process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-);
+// Initialize Firebase
+const app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
 
-const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
-
-export const db = getFirestore(app);
-
-export const initAnalytics = async (): Promise<Analytics | null> => {
-  const supported = await isSupported();
-  if (supported) {
-    return getAnalytics(app);
+// Initialize Analytics safely
+export const initAnalytics = async () => {
+  if (typeof window !== "undefined") {
+    const supported = await isSupported();
+    if (supported) {
+      return getAnalytics(app);
+    }
   }
   return null;
 };
 
-export default app;
+export { app };
