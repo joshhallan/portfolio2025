@@ -8,15 +8,19 @@ interface CardProps {
 }
 
 const Card = ({ children, variant = "cyan", className = "" }: CardProps) => {
-  const variantClass = variant === "pink" ? styles.pink : styles.cyan;
+  const hashedVariant = styles[`card--${variant}`];
+
+  const globalVariant = `card--${variant}`;
+
   return (
-    <div className={`${styles.card} ${variantClass} ${className}`}>
+    <div
+      className={`${styles.card} ${hashedVariant} ${globalVariant} ${className}`}
+    >
       {children}
     </div>
   );
 };
 
-// Header Sub-component
 const CardHeader = ({
   children,
   className = "",
@@ -25,7 +29,6 @@ const CardHeader = ({
   className?: string;
 }) => <div className={`${styles.cardHeader} ${className}`}>{children}</div>;
 
-// Body Sub-component
 const CardBody = ({
   children,
   className = "",
@@ -34,7 +37,6 @@ const CardBody = ({
   className?: string;
 }) => <div className={`${styles.cardBody} ${className}`}>{children}</div>;
 
-// Footer Sub-component
 const CardFooter = ({
   children,
   className = "",
@@ -43,7 +45,6 @@ const CardFooter = ({
   className?: string;
 }) => <div className={`${styles.cardFooter} ${className}`}>{children}</div>;
 
-// Attach sub-components to the main Card object
 Card.Header = CardHeader;
 Card.Body = CardBody;
 Card.Footer = CardFooter;

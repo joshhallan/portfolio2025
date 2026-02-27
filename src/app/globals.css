@@ -45,6 +45,17 @@
     min-height: 100vh;
     overflow-x: hidden;
     font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  .main-content {
+    flex-grow: 1;
+    width: 100%;
   }
 
   /* Custom Selection Color */
@@ -138,10 +149,83 @@
     font-family: inherit;
   }
 
+  /* --- Global Section Headers --- */
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  /* 1. Base Class */
+  .section-title,
+  .section-title--underline {
+    color: white !important;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-family: var(--font-geist-mono), monospace;
+    position: relative;
+    text-align: center;
+  }
+
+  .section-title--underline::after {
+    content: "";
+    display: block;
+    height: 4px;
+    width: 5rem;
+    background: var(--color-secondary);
+    margin: 1rem auto 0;
+    border-radius: 999px;
+    box-shadow: 0 0 12px var(--color-secondary);
+  }
+
+  .section-header--left {
+    text-align: left;
+  }
+
+  .section-header--left .section-title::after {
+    margin-left: 0;
+  }
+
   /* Global Focus State for Accessibility */
   :focus-visible {
     outline: 2px solid var(--color-secondary);
     outline-offset: 4px;
+  }
+
+  .container {
+    max-width: var(--container-max, 1200px);
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .page-wrapper {
+    width: 100%;
+    padding: 4rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .viewAllLink {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-secondary);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transition-base);
+  }
+
+  .viewAllLink:hover {
+    filter: brightness(1.25);
+  }
+
+  .arrow {
+    transition: transform 0.3s ease;
+  }
+
+  .viewAllLink:hover .arrow {
+    transform: translateX(4px);
   }
 }
 
@@ -155,9 +239,12 @@
   }
 
   .bg-mesh {
+    background-color: var(--color-bg);
     background-image:
       radial-gradient(at 0% 0%, rgba(238, 34, 125, 0.15) 0, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(253, 128, 131, 0.1) 0, transparent 40%),
       radial-gradient(at 100% 100%, rgba(48, 192, 183, 0.1) 0, transparent 50%);
+    background-attachment: fixed;
   }
 
   .gradient-text {

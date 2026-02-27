@@ -36,7 +36,7 @@ export default function ProjectCard({
   return (
     <>
       <div
-        className={`${styles.card} ${style === "long" ? styles.long : styles.short}`}
+        className={`${styles.card} ${styles[style]}`}
         onClick={() => setIsModalOpen(true)}
       >
         <Image
@@ -58,7 +58,7 @@ export default function ProjectCard({
           <h3 className={styles.title}>{project.title}</h3>
 
           <p
-            className={`${styles.description} ${style === "short" ? "line-clamp-2" : ""}`}
+            className={`${styles.description} ${style === "short" ? styles.clamp : ""}`}
           >
             {displayDescription}
           </p>

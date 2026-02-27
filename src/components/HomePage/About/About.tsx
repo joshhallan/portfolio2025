@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import { QUALIFICATIONS_DATA } from "@/data/qualifications";
@@ -24,19 +26,21 @@ export default function About() {
   ) as Certification[];
 
   return (
-    <section id="about" className="w-full py-16">
-      <div className="max-w-[1200px] mx-auto px-8">
-        <h2 className="section-title text-center">About Me</h2>
+    <section id="about" className="page-wrapper">
+      <div className="container">
+        {/* Using our standardized section title */}
+        <h2 className="section-title --underline">About Me</h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-12 items-start">
-          <div className="lg:col-span-8 space-y-6 text-lg text-white/90 leading-relaxed">
+        <div className={styles.topGrid}>
+          {/* Main Bio Text */}
+          <div className={styles.bioText}>
             <p>
               Hello! I&apos;m a highly motivated and solutions-driven{" "}
-              <span className="text-[var(--color-secondary)] font-bold">
+              <span className={styles.accentHighlight}>
                 Lead Frontend Engineer
               </span>{" "}
               with{" "}
-              <span className="text-[var(--color-secondary)] font-bold">
+              <span className={styles.accentHighlight}>
                 over 10 years of professional experience
               </span>
               , specializing in crafting responsive, high-performance user
@@ -47,12 +51,12 @@ export default function About() {
 
             <p>
               Professionally, I excel in{" "}
-              <span className="text-[var(--color-secondary)] font-bold">
+              <span className={styles.accentHighlight}>
                 architectural strategy and mentorship
               </span>
               . I act as a technical bridge between product and engineering,
               liaising with
-              <span className="text-[var(--color-secondary)] font-bold">
+              <span className={styles.accentHighlight}>
                 {" "}
                 stakeholders, BAs, and Designers
               </span>{" "}
@@ -65,10 +69,8 @@ export default function About() {
             <p>
               I appreciate the collaborative synergy of group work, leveraging
               collective knowledge and support, yet I thrive equally when highly{" "}
-              <span className="text-[var(--color-secondary)] font-bold">
-                self-motivated
-              </span>{" "}
-              to independently tackle complex problems. My enthusiasm for
+              <span className={styles.accentHighlight}>self-motivated</span> to
+              independently tackle complex problems. My enthusiasm for
               continuous learning fuels my proactive approach to seeking new
               opportunities for growth, such as my current deep-dive into cloud
               architecture.
@@ -79,11 +81,11 @@ export default function About() {
               Caitlyn, and our two young sons, Max (5) and Oscar (2). When I
               find free moments, I enjoy playing video games with my wife.
               Additionally, I also play{" "}
-              <span className="text-[var(--color-secondary)] font-bold">
+              <span className={styles.accentHighlight}>
                 Dungeons and Dragons
               </span>{" "}
               with old school friends once a month, which is a great exercise in{" "}
-              <span className="text-[var(--color-secondary)] font-bold">
+              <span className={styles.accentHighlight}>
                 creative problem-solving
               </span>{" "}
               and teamwork!
@@ -91,12 +93,10 @@ export default function About() {
           </div>
 
           {/* KEY FACTS COLUMN */}
-          <div className="lg:col-span-4">
+          <div className={styles.factsColumn}>
             <Card variant="cyan">
               <Card.Header>
-                <h3 className="font-semibold uppercase tracking-widest text-sm text-[var(--color-secondary)] text-center">
-                  Key Facts
-                </h3>
+                <h3 className={styles.cardHeadingSecondary}>Key Facts</h3>
               </Card.Header>
               <Card.Body>
                 <div className={styles.factList}>
@@ -123,13 +123,13 @@ export default function About() {
         {/* EDUCATION & CERTS */}
         <Card variant="pink">
           <Card.Header>
-            <h3 className="font-semibold uppercase tracking-wider text-sm text-center text-[var(--color-primary)]">
+            <h3 className={styles.cardHeadingPrimary}>
               Education & Certifications
             </h3>
           </Card.Header>
 
           <Card.Body>
-            <div className="space-y-12">
+            <div className={styles.educationLayout}>
               {degrees.length > 0 && (
                 <div>
                   <h4 className={styles.educationHeading}>Education</h4>
@@ -155,10 +155,8 @@ export default function About() {
           </Card.Body>
 
           <Card.Footer>
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <span className="text-[10px] text-white/50 uppercase tracking-[0.3em]">
-                Scroll to explore →
-              </span>
+            <div className={styles.footerFlex}>
+              <span className={styles.scrollHint}>Scroll to explore →</span>
               <a
                 href="https://www.credly.com/users/joshua-allan.01d3e079"
                 target="_blank"
@@ -175,39 +173,35 @@ export default function About() {
   );
 }
 
+/* Internal Sub-Components */
+
 const FactItem = ({ label, value }: { label: string; value: string }) => (
-  <div>
-    <p className="text-[10px] uppercase text-white/40 tracking-[0.2em] mb-1 font-mono">
-      {label}
-    </p>
-    <p className="text-sm font-bold text-white/90">{value}</p>
+  <div className={styles.factItem}>
+    <p className={styles.factLabel}>{label}</p>
+    <p className={styles.factValue}>{value}</p>
   </div>
 );
 
 const CertRow = ({ cert }: { cert: Certification }) => (
   <div className={styles.certItem}>
-    <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center mr-4">
+    <div className={styles.certLogoWrapper}>
       {cert.logo ? (
         <Image
           src={cert.logo}
           alt={`${cert.title} badge`}
           width={48}
           height={48}
-          className={`object-contain ${cert.status !== "Active" ? "opacity-40 grayscale" : ""}`}
+          className={`${styles.certLogo} ${cert.status !== "Active" ? styles.inactive : ""}`}
         />
       ) : (
-        <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center bg-white/5">
-          <span className="text-[10px] font-bold text-white uppercase">
-            {cert.shortName}
-          </span>
+        <div className={styles.certLogoPlaceholder}>
+          <span>{cert.shortName}</span>
         </div>
       )}
     </div>
-    <div className="flex-grow min-w-0 pt-1">
-      <h5 className="text-sm font-bold text-white leading-tight">
-        {cert.title}
-      </h5>
-      <p className="text-xs text-white/50 mt-1">{cert.institution}</p>
+    <div className={styles.certInfo}>
+      <h5 className={styles.certTitle}>{cert.title}</h5>
+      <p className={styles.certInstitution}>{cert.institution}</p>
       {cert.status !== "Active" && (
         <span className={styles.statusBadge}>{cert.status}</span>
       )}

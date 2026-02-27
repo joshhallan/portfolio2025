@@ -1,0 +1,33 @@
+.divider {
+  width: 100%;
+  height: 2px;
+  margin: 4rem 0;
+  border: none;
+  opacity: 0.6;
+  border-radius: 999px;
+  background: transparent;
+}
+
+/* Primary variant (Hot Pink) */
+.divider--primary {
+  background-color: var(--color-primary);
+  box-shadow:
+    0 0 10px var(--color-primary),
+    0 0 20px color-mix(in srgb, var(--color-primary), transparent 60%);
+}
+
+/* Secondary variant (Turquoise) */
+.divider--secondary {
+  background-color: var(--color-secondary);
+  box-shadow:
+    0 0 10px var(--color-secondary),
+    0 0 20px color-mix(in srgb, var(--color-secondary), transparent 60%);
+}
+
+/* Accent variant (Peach) */
+.divider--accent {
+  background-color: var(--color-accent);
+  box-shadow:
+    0 0 10px var(--color-accent),
+    0 0 20px color-mix(in srgb, var(--color-accent), transparent 60%);
+}

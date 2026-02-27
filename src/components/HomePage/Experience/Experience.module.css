@@ -1,0 +1,125 @@
+/* Layout & Grid */
+.jobGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .jobGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .jobGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.summaryCard {
+  height: 100%;
+  min-height: 280px;
+}
+
+/* Header & Identity */
+.headerFlex {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.jobTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: white;
+  margin: 0;
+}
+
+/* Pulse Indicator */
+.pulseIndicator {
+  display: block; /* Essential for visibility of empty spans */
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-top: 0.4rem;
+  animation: pulse 2s infinite;
+}
+
+:global(.card--cyan) .pulseIndicator {
+  background-color: var(--color-secondary);
+  box-shadow: 0 0 8px var(--color-secondary);
+}
+
+:global(.card--pink) .pulseIndicator {
+  background-color: var(--color-primary);
+  box-shadow: 0 0 8px var(--color-primary);
+}
+
+/* Body Content */
+.companyName {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+.duration {
+  font-size: 0.75rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 0.25rem;
+}
+
+/* Tech Pills Section */
+.techPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.techPill {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 10px;
+  font-weight: 500;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  transition: var(--transition-base);
+}
+
+/* Contextual Colors for Tech Pills */
+:global(.card--cyan) .techPill {
+  color: var(--color-secondary);
+  border-color: color-mix(in srgb, var(--color-secondary), transparent 70%);
+  background: color-mix(in srgb, var(--color-secondary), transparent 90%);
+}
+
+:global(.card--pink) .techPill {
+  color: var(--color-primary);
+  border-color: color-mix(in srgb, var(--color-primary), transparent 70%);
+  background: color-mix(in srgb, var(--color-primary), transparent 90%);
+}
+
+/* Footer & Actions */
+.actionWrapper {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+/* Animations */
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.7;
+  }
+}

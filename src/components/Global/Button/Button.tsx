@@ -18,20 +18,24 @@ export default function Button({
   variant = "primary",
   className = "",
 }: ButtonProps) {
-  const variantClass =
-    variant === "primary" ? styles.primary : styles.secondary;
-  const combinedClasses = `${styles.btn} ${variantClass} ${className}`;
+  const variantClass = styles[`btn--${variant}`];
+  const combinedClasses = `${styles.btn} ${variantClass} ${className}`.trim();
+
+  const commonProps = {
+    className: combinedClasses,
+    onClick,
+  };
 
   if (href) {
     return (
-      <a href={href} download={download} className={combinedClasses}>
+      <a href={href} download={download} {...commonProps}>
         {children}
       </a>
     );
   }
 
   return (
-    <button onClick={onClick} className={combinedClasses}>
+    <button type="button" {...commonProps}>
       {children}
     </button>
   );

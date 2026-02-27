@@ -20,10 +20,10 @@ export default function Footer() {
 
   return (
     <footer className={styles.footer}>
-      <div className="max-w-[1200px] mx-auto px-8">
-        <div className="flex flex-col md:flex-row justify-between items-center md:items-start space-y-8 md:space-y-0">
+      <div className="container">
+        <div className="flex flex-col md:flex-row justify-between items-center md:items-start">
           {/* Connect Section */}
-          <div className="flex flex-col items-center md:items-start">
+          <div className={styles.sectionConnect}>
             <h3 className={styles.headingConnect}>Connect</h3>
             <div className="flex space-x-6">
               {socialLinks.map((link) => (
@@ -42,7 +42,7 @@ export default function Footer() {
           </div>
 
           {/* Contact Section */}
-          <div className="text-center md:text-right">
+          <div className={styles.sectionContact}>
             <h3 className={styles.headingTouch}>Get In Touch</h3>
             <a href={mailtoHref} className={styles.emailLink}>
               {emailAddress}
@@ -51,8 +51,8 @@ export default function Footer() {
         </div>
 
         <div className={styles.bottomBar}>
-          <p className="text-sm mb-1">Built with Next.js and Tailwind</p>
-          <p className="text-sm">
+          <p className={styles.techStackNote}>Built with &lt;3</p>
+          <p className={styles.copyright}>
             &copy; {currentYear} FINDJOSH. All rights reserved.
           </p>
         </div>

@@ -98,11 +98,10 @@ export default function FullCareerTimeline() {
   );
 
   return (
-    <div className="min-h-screen pt-32 pb-24">
-      <section className="max-w-[1200px] mx-auto px-8">
+    <main className="page-wrapper">
+      <section className="container">
         <header className={styles.pageHeader}>
-          <h2 className="section-title">Career History</h2>
-          <div className={styles.headerUnderline}></div>
+          <h2 className="section-title--underline">Career History</h2>
         </header>
 
         <div className={styles.timelineContainer}>
@@ -116,6 +115,6 @@ export default function FullCareerTimeline() {
           ))}
         </div>
       </section>
-    </div>
+    </main>
   );
 }

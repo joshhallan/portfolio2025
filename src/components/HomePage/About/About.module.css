@@ -1,20 +1,101 @@
+/* Layout & Wrappers */
 .aboutSection {
   width: 100%;
 }
 
-.highlight {
-  color: var(--color-secondary);
-  font-weight: 700;
+.topGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  align-items: start;
 }
 
-/* Fact list */
+@media (min-width: 1024px) {
+  .topGrid {
+    grid-template-columns: repeat(12, 1fr);
+  }
+  .bioText {
+    grid-column: span 8;
+  }
+  .factsColumn {
+    grid-column: span 4;
+  }
+}
+
+/* Typography & Highlights */
+.bioText {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.8;
+}
+
+.accentHighlight {
+  color: var(--color-accent);
+  font-weight: 700;
+  text-shadow: 0 0 8px color-mix(in srgb, var(--color-accent), transparent 60%);
+}
+
+/* Card Content (Key Facts) */
+.cardHeadingSecondary {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.875rem;
+  text-align: center;
+  color: var(--color-secondary);
+}
+
+.cardHeadingPrimary {
+  composes: cardHeadingSecondary;
+  color: var(--color-primary);
+}
+
 .factList {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
 
-/* Scroll */
+.factItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.factLabel {
+  font-size: 10px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.2em;
+  margin-bottom: 0.25rem;
+  font-family: var(--font-geist-mono);
+}
+
+.factValue {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Education & Certifications Layout */
+.educationLayout {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.educationHeading {
+  font-family: var(--font-geist-mono);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: white;
+  margin-bottom: 1.5rem;
+  opacity: 0.8;
+}
+
 .scrollContainer {
   display: flex;
   flex-direction: row;
@@ -28,10 +109,21 @@
   display: none;
 }
 
+/* Cert Items */
 .certItem {
   display: flex;
   align-items: start;
   flex-shrink: 0;
+}
+
+.certLogoWrapper {
+  flex-shrink: 0;
+  margin-right: 1rem;
+}
+
+.inactive {
+  opacity: 0.4;
+  filter: grayscale(1);
 }
 
 .statusBadge {
@@ -46,9 +138,36 @@
   border-radius: 4px;
 }
 
+/* Footer & Links */
+.footerFlex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .footerFlex {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.scrollHint {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+}
+
 .verifyLink {
   font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
   color: var(--color-secondary);
+  transition: var(--transition-base);
+}
+
+.verifyLink:hover {
+  text-shadow: var(--glow-cyan);
 }

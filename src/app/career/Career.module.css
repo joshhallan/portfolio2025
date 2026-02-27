@@ -1,19 +1,5 @@
-.pageHeader {
-  text-align: center;
-  margin-bottom: 4rem;
-}
-
-.headerUnderline {
-  height: 4px;
-  width: 5rem;
-  background: var(--color-secondary);
-  margin: 1rem auto 0;
-  border-radius: 999px;
-  box-shadow: 0 0 10px var(--color-secondary);
-}
-
 .timelineContainer {
-  max-width: 56rem; /* max-w-4xl */
+  max-width: 56rem;
   margin: 0 auto;
 }
 
@@ -47,7 +33,8 @@
   color: var(--color-secondary);
 }
 
-/* Accordion Styling */
+/* --- Accordion Styling --- */
+
 .roleWrapper {
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -74,11 +61,20 @@
   background: rgba(255, 255, 255, 0.02);
 }
 
+.roleInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  flex: 1;
+}
+
 .roleTitle {
   font-size: 1.25rem;
   font-weight: 700;
   color: white;
   transition: color 0.2s ease;
+  line-height: 1.2;
 }
 
 .accordionToggle:hover .roleTitle {
@@ -86,24 +82,45 @@
 }
 
 .roleDuration {
-  font-size: 0.625rem;
+  display: block;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: rgba(255, 255, 255, 0.5);
   font-weight: 700;
+  margin-top: 0.25rem;
 }
+
+.chevron {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 0.8rem;
+  margin-left: 1rem;
+  transition: color 0.2s ease;
+}
+
+.accordionToggle:hover .chevron {
+  color: var(--color-secondary);
+}
+
+/* --- Content Section --- */
 
 .collapsibleContent {
   max-height: 0;
   opacity: 0;
   overflow: hidden;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .collapsibleContent.open {
-  max-height: 1200px;
+  max-height: 2000px;
   opacity: 1;
   padding-bottom: 2rem;
+}
+
+.responsibilityList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
 }
 
 .responsibilityItem {
@@ -118,23 +135,31 @@
 .bullet {
   margin-top: 0.6rem;
   height: 4px;
-  width: 1rem;
+  width: 12px;
   flex-shrink: 0;
   border-radius: 999px;
   background: var(--color-secondary);
   box-shadow: 0 0 8px var(--color-secondary);
 }
 
+.techStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-top: 1rem;
+}
+
 .techBadge {
   display: inline-block;
-  padding: 0.25rem 0.5rem;
+  padding: 0.25rem 0.6rem;
   font-size: 0.625rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   border: 1px solid var(--color-primary);
   color: var(--color-primary);
-  background: rgba(var(--color-primary-rgb), 0.05);
-  margin: 0.25rem;
+  background: color-mix(in srgb, var(--color-primary), transparent 90%);
   border-radius: 0.25rem;
+  box-shadow: inset 0 0 5px
+    color-mix(in srgb, var(--color-primary), transparent 80%);
 }

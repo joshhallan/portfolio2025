@@ -4,6 +4,7 @@ import SkillsSection from "@/components/HomePage/Skills/Skills";
 import About from "@/components/HomePage/About/About";
 import ExperienceSummary from "@/components/HomePage/Experience/Experience";
 import Analytics from "@/components/Global/Analytics/Analytics";
+import Divider from "@/components/Global/Divider/Divider";
 
 export default function Home() {
   return (
@@ -11,17 +12,14 @@ export default function Home() {
       <Analytics />
 
       <Hero />
-
+      <Divider variant="accent" />
       <About />
-
+      <Divider variant="accent" />
       <SkillsSection />
-
+      <Divider variant="accent" />
       <Featured />
-
+      <Divider variant="accent" />
       <ExperienceSummary />
-
-      {/* You might want a final divider here before the footer/contact section */}
-      {/* <NeonDivider colourVariable="var(--neon-pink)" /> */}
     </>
   );
 }
