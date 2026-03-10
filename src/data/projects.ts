@@ -10,7 +10,7 @@ export const PROJECTS_DATA = [
     fullDescription:
       "Born out of a need to reclaim architectural control from utility-first frameworks, FJ-Elements is a bespoke design system built on Atomic Design principles. It leverages CSS Modules for strict style scoping and Storybook for isolated development and living documentation. The project features a full CI/CD pipeline via GitHub Actions, ensuring that the documentation and library remain the single source of truth across all consuming applications.",
     tech: ["React", "TypeScript", "CSS Modules", "Storybook", "Atomic Design"],
-    image: "fj-elements.png",
+    image: "/images/projects/fj-elements.png",
     link: "https://elements.findjosh.dev",
     githubUrl: "https://github.com/joshhallan/fj-elements",
   },
