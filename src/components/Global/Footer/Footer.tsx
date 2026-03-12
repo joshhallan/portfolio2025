@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaMedium } from "react-icons/fa";
 import styles from "./Footer.module.css";
 
 export default function Footer() {
@@ -12,6 +12,11 @@ export default function Footer() {
       name: "LinkedIn",
       href: "https://www.linkedin.com/in/joshuaallan/",
       Icon: FaLinkedin,
+    },
+    {
+      name: "Medium",
+      href: "https://medium.com/@joshuaallan_73828",
+      Icon: FaMedium,
     },
   ];
 
