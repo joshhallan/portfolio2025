@@ -10,7 +10,6 @@ export default function Home() {
   return (
     <>
       <Analytics />
-
       <Hero />
       <Divider variant="accent" />
       <About />

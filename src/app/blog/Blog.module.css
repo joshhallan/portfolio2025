@@ -1,0 +1,53 @@
+.headerFlex {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.postTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: white;
+  margin: 0;
+}
+
+.date {
+  font-size: 0.75rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 0.25rem;
+}
+
+.postCopy {
+  color: white;
+  margin-top: 16px;
+}
+
+.techPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.techPill {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 10px;
+  font-weight: 500;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  transition: var(--transition-base);
+}
+
+:global(.card--cyan) .techPill {
+  color: var(--color-secondary);
+  border-color: color-mix(in srgb, var(--color-secondary), transparent 70%);
+  background: color-mix(in srgb, var(--color-secondary), transparent 90%);
+}
+
+:global(.card--pink) .techPill {
+  color: var(--color-primary);
+  border-color: color-mix(in srgb, var(--color-primary), transparent 70%);
+  background: color-mix(in srgb, var(--color-primary), transparent 90%);
+}

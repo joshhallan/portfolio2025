@@ -27,14 +27,13 @@ export default function ExperienceSummary() {
               >
                 <Card.Header>
                   <div className={styles.headerFlex}>
-                    <h3 className={styles.jobTitle}>{job.title}</h3>{" "}
-                    {job.id === 1 && <span className={styles.pulseIndicator} />}
+                    <h3 className={styles.jobTitle}>{job.title}</h3>
                   </div>
                 </Card.Header>
 
                 <Card.Body className={styles.cardBody}>
-                  <p className={styles.companyName}>{job.company}</p>
                   <p className={styles.duration}>{job.duration}</p>
+                  <p className={styles.companyName}>{job.company}</p>
                 </Card.Body>
 
                 <Card.Footer className={styles.cardFooter}>

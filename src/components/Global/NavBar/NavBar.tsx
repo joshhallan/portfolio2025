@@ -25,6 +25,9 @@ export default function NavBar() {
           <Link href="/career" className={styles.navLink}>
             Career
           </Link>
+          <Link href="/blog" className={styles.navLink}>
+            Blog
+          </Link>
           <Link
             href="https://github.com/joshhallan"
             target="_blank"
@@ -64,11 +67,14 @@ export default function NavBar() {
         <Link href="/" onClick={closeMenu} className={styles.navLink}>
           Home
         </Link>
+        <Link href="/projects" onClick={closeMenu} className={styles.navLink}>
+          Projects
+        </Link>
         <Link href="/career" onClick={closeMenu} className={styles.navLink}>
           Career
         </Link>
-        <Link href="/projects" onClick={closeMenu} className={styles.navLink}>
-          Projects
+        <Link href="/blog" onClick={closeMenu} className={styles.navLink}>
+          Blog
         </Link>
         <Link
           href="https://github.com/joshhallan"
