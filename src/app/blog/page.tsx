@@ -17,9 +17,7 @@ type MediumItem = Parser.Item & {
 
 async function getMediumPosts() {
   const parser: Parser<string, MediumItem> = new Parser();
-  const feed = await parser.parseURL(
-    "https://medium.com/feed/@joshuaallan_73828",
-  );
+  const feed = await parser.parseURL("https://medium.com/feed/@joshhallan");
 
   return feed.items.map((item: MediumItem) => {
     const rawSnippet =
@@ -85,10 +83,6 @@ export default async function BlogPage() {
                 <Card.Footer
                   className={`${styles.cardFooter} mt-8 pt-6 border-t border-white/5`}
                 >
-                  {/* flex-col: Stack them vertically by default (mobile)
-      sm:flex-row: Side-by-side on small screens (640px+) and up
-      gap-6: Adds space between the pills and the link when stacked
-  */}
                   <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center w-full gap-6">
                     <div className={`${styles.techPills} w-full sm:w-auto`}>
                       {post.categories.map((tag, i) => (
