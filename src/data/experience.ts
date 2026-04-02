@@ -20,14 +20,14 @@ export const EXPERIENCE_DATA = [
       "State Management",
       "Leadership",
       "Stakeholder Management",
-      "Mentorship"
+      "Mentorship",
     ],
   },
   {
     id: 2,
     title: "Senior Software Developer",
     company: "Leighton",
-    duration: "Dec 2021 - Apr 2023",
+    duration: "Feb 2021 - Apr 2023",
     location: "Newcastle, UK",
     responsibilities: [
       "Spearheaded key development projects for major clients, including Home Group and British Airways, expanding expertise in large-scale system integration.",
@@ -104,13 +104,7 @@ export const EXPERIENCE_DATA = [
       "Gained practical development experience creating a functional website that utilized a MySQL database, jQuery, HTML, and CSS.",
       "Successfully delivered the MVP within the summer timeframe, demonstrating strong collaborative and technical skills.",
     ],
-    technologies: [
-      "MySQL",
-      "jQuery",
-      "HTML",
-      "CSS",
-      "Teamwork"
-    ],
+    technologies: ["MySQL", "jQuery", "HTML", "CSS", "Teamwork"],
   },
 ];
 
@@ -122,4 +116,4 @@ export interface Job {
   location: string;
   responsibilities: string[];
   technologies: string[];
-} 
+}
