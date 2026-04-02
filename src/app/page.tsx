@@ -9,7 +9,7 @@ import Divider from "@/components/Global/Divider/Divider";
 export default function Home() {
   return (
     <>
-      <Analytics />
+      {/* <Analytics /> */}
       <Hero />
       <Divider variant="accent" />
       <About />
