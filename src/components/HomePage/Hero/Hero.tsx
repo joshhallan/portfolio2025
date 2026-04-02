@@ -12,7 +12,6 @@ export default function Hero() {
     <section id="hero" className="page-wrapper">
       <div className="container">
         <div className={styles.heroLayout}>
-          {/* Profile Image Container */}
           <div className={styles.imageContainer}>
             <div className={styles.profileWrapper}>
               <Image
@@ -25,21 +24,20 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Text Content */}
           <div className={styles.textContent}>
             <h1 className={styles.title}>
               HI, I&apos;M <span className="gradient-text">JOSH</span>.
             </h1>
 
             <p className={styles.subtitle}>
-              Frontend Technical Lead with over{" "}
+              Lead Frontend Engineer with over{" "}
               <span className={styles.peachHighlight}>10+ years</span> of
               experience specializing in React, Next.js, and AWS.
             </p>
 
             <div className={styles.buttonGroup}>
               <Button
-                href="/documents/Joshua-Allan-CV_2026.pdf"
+                href="/documents/Joshua-Allan-CV_2026_2.pdf"
                 download
                 variant="primary"
               >
