@@ -11,6 +11,7 @@ export const EXPERIENCE_DATA = [
       "Oversaw high-level design discussions, translating complex customer usability goals into technical feasibility for the development team.",
       "Collaborated closely with Business Analysts (BAs) on story creation, functional requirements, and liaising with key business stakeholders on progress and requirements.",
       "Expanded leadership and mentoring skills by guiding developers on best practices in modern JavaScript frameworks.",
+      "Implemented WCAG 2.2 accessibility standards across development teams, ensuring 100% compliance",
     ],
     technologies: [
       "NextJS",
@@ -25,7 +26,7 @@ export const EXPERIENCE_DATA = [
   },
   {
     id: 2,
-    title: "Senior Software Developer",
+    title: "Senior Software Engineer",
     company: "Leighton",
     duration: "Feb 2021 - Apr 2023",
     location: "Newcastle, UK",
@@ -33,6 +34,7 @@ export const EXPERIENCE_DATA = [
       "Spearheaded key development projects for major clients, including Home Group and British Airways, expanding expertise in large-scale system integration.",
       "Focused on architecting robust and scalable frontend solutions using emerging frameworks like Angular and React.",
       "Contributed significantly to team code standards, quality assurance, and providing technical guidance to junior team members.",
+      "Successfully launched internal beta to British Airways staff for Manage My Booking to start gathering feedback for further iterations",
     ],
     technologies: [
       "Angular",
@@ -52,6 +54,7 @@ export const EXPERIENCE_DATA = [
     responsibilities: [
       "Began tenure focusing on delivering client projects, gaining initial exposure to professional development workflows.",
       "Rapidly learned and applied new frontend technologies and best practices, laying the groundwork for subsequent promotions.",
+      "Deepened expertise in Angular and React through hands-on client delivery and mentorship from senior engineers",
     ],
     technologies: ["XSLT", "HTML", "CSS", "jQuery", "Git", "Version Control"],
   },

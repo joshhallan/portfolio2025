@@ -1,9 +1,12 @@
-"use client";
-
 import React from "react";
 import { PROJECTS_DATA } from "@/data/projects";
 import ProjectCard from "@/components/Global/ProjectCard/ProjectCard";
 import styles from "./Projects.module.css";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Projects",
+};
 
 export default function ProjectsPage() {
   return (

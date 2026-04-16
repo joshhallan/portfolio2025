@@ -1,57 +1,9 @@
-"use client";
-
-import React, { useState } from "react";
+import React from "react";
 import { EXPERIENCE_DATA, Job } from "@/data/experience";
-import { FaChevronDown, FaChevronUp, FaMapMarkerAlt } from "react-icons/fa";
+import { FaMapMarkerAlt } from "react-icons/fa";
 import styles from "./Career.module.css";
-
-const RoleAccordion = ({
-  role,
-  isDefaultOpen,
-}: {
-  role: Job;
-  isDefaultOpen: boolean;
-}) => {
-  const [isOpen, setIsOpen] = useState(isDefaultOpen);
-
-  return (
-    <div className={styles.roleWrapper}>
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className={styles.accordionToggle}
-      >
-        <div className={styles.roleInfo}>
-          <h4 className={styles.roleTitle}>{role.title}</h4>
-          <span className={styles.roleDuration}>{role.duration}</span>
-        </div>
-        <span className={styles.chevron}>
-          {isOpen ? <FaChevronUp /> : <FaChevronDown />}
-        </span>
-      </button>
-
-      <div
-        className={`${styles.collapsibleContent} ${isOpen ? styles.open : ""}`}
-      >
-        <ul className={styles.responsibilityList}>
-          {role.responsibilities.map((res, index) => (
-            <li key={index} className={styles.responsibilityItem}>
-              <span className={styles.bullet}></span>
-              {res}
-            </li>
-          ))}
-        </ul>
-
-        <div className={styles.techStack}>
-          {role.technologies.map((tech, index) => (
-            <span key={index} className={styles.techBadge}>
-              {tech}
-            </span>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};
+import { Metadata } from "next";
+import { RoleAccordion } from "./RoleAccordion";
 
 const CompanySection = ({
   company,
@@ -118,3 +70,7 @@ export default function FullCareerTimeline() {
     </main>
   );
 }
+
+export const metadata: Metadata = {
+  title: "Career History",
+};

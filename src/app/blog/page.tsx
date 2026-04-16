@@ -2,6 +2,7 @@ import React from "react";
 import Parser from "rss-parser";
 import Card from "@/components/Global/Card/Card";
 import styles from "./Blog.module.css";
+import { Metadata } from "next";
 
 type MediumPost = {
   title: string;
@@ -111,3 +112,7 @@ export default async function BlogPage() {
     </main>
   );
 }
+
+export const metadata: Metadata = {
+  title: "Blog",
+};
