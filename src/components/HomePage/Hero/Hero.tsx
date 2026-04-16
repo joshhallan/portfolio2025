@@ -32,7 +32,7 @@ export default function Hero() {
             <p className={styles.subtitle}>
               Lead Frontend Engineer with over{" "}
               <span className={styles.peachHighlight}>10+ years</span> of
-              experience specializing in React, Next.js, and AWS.
+              experience | React, Next.js & Accessibility Specialist
             </p>
 
             <div className={styles.buttonGroup}>
