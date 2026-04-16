@@ -30,9 +30,10 @@ export default function Hero() {
             </h1>
 
             <p className={styles.subtitle}>
-              Lead Frontend Engineer with over{" "}
-              <span className={styles.peachHighlight}>10+ years</span> of
-              experience | React, Next.js & Accessibility Specialist
+              <span className={styles.peachHighlight}>
+                Lead Frontend Engineer
+              </span>{" "}
+              | React, Next.js & Accessibility Specialist
             </p>
 
             <div className={styles.buttonGroup}>
