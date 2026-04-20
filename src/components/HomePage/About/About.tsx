@@ -35,60 +35,60 @@ export default function About() {
           {/* Main Bio Text */}
           <div className={styles.bioText}>
             <p>
-              Hello! I&apos;m a highly motivated and solutions-driven{" "}
+              I&apos;m a{" "}
               <span className={styles.accentHighlight}>
                 Lead Frontend Engineer
               </span>{" "}
-              with{" "}
-              <span className={styles.accentHighlight}>
-                over 10 years of professional experience
-              </span>
-              , specializing in crafting responsive, high-performance user
-              interfaces. My passion lies in bridging the gap between design,
-              functionality, and inclusive accessibility, ensuring an
-              exceptional user experience (UX) across all platforms.
+              with over 10 years of experience - and honestly, what keeps me
+              here is the{" "}
+              <span className={styles.accentHighlight}>artistry</span> of it.
+              Bringing together components, code, and creativity to build
+              something that looks genuinely great and that I&apos;m proud to
+              show off.
             </p>
 
             <p>
-              Professionally, I excel in{" "}
+              Day to day, I sit between the people who want things done and the
+              people can do those things. I communicate with{" "}
               <span className={styles.accentHighlight}>
-                architectural strategy and mentorship
+                design on technical feasibility
               </span>
-              . I act as a technical bridge between product and engineering,
-              liaising with
+              ; I talk to{" "}
               <span className={styles.accentHighlight}>
-                {" "}
-                stakeholders, BAs, and Designers
+                product owners and business analysts
               </span>{" "}
-              to assess code feasibility and usability. I take a lead role in
-              partitioning complex requirements into actionable stories,
-              ensuring the backlog is technically sound and optimized for team
-              delivery.
+              on how to shape the backlog for upcoming sprints; I mentor
+              developers and make sure that the team ships work they&apos;re
+              actually proud of - including features that generated{" "}
+              <span className={styles.accentHighlight}>
+                over £500k in revenue
+              </span>{" "}
+              within the first month of launch.
             </p>
 
             <p>
-              I appreciate the collaborative synergy of group work, leveraging
-              collective knowledge and support, yet I thrive equally when highly{" "}
-              <span className={styles.accentHighlight}>self-motivated</span> to
-              independently tackle complex problems. My enthusiasm for
-              continuous learning fuels my proactive approach to seeking new
-              opportunities for growth, such as my current deep-dive into cloud
-              architecture.
+              Outside of building interfaces, I&apos;m currently deep in{" "}
+              <span className={styles.accentHighlight}>
+                AWS cloud architecture
+              </span>{" "}
+              - working toward my Solutions Architect certification to become a
+              more rounded engineer, even if my heart will always be in the
+              frontend.
             </p>
 
             <p>
-              Outside of work, my primary focus is on quality time with my wife,
-              Caitlyn, and our two young sons, Max (5) and Oscar (2). When I
-              find free moments, I enjoy playing video games with my wife.
-              Additionally, I also play{" "}
+              When I&apos;m not coding, I&apos;m with my wife and our two boys.
+              Me and my wife love playing video games together, whether
+              that&apos;s trying to get best lap times on{" "}
+              <span className={styles.accentHighlight}>Mario Kart</span> or
+              teaming up in{" "}
+              <span className={styles.accentHighlight}>Fortnite</span>. Once a
+              month I sit down with old school friends for some{" "}
               <span className={styles.accentHighlight}>
                 Dungeons and Dragons
               </span>{" "}
-              with old school friends once a month, which is a great exercise in{" "}
-              <span className={styles.accentHighlight}>
-                creative problem-solving
-              </span>{" "}
-              and teamwork!
+              - which can be great managerial practice, as playing with them is
+              like trying to herd cats.
             </p>
           </div>
 
