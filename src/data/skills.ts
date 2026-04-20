@@ -1,10 +1,4 @@
 export const SKILLS_DATA = [
-  // Languages & Markup
-  { name: "HTML", category: "Languages & Markup" },
-  { name: "CSS / SCSS", category: "Languages & Markup" },
-  { name: "JavaScript (ES5/ES6)", category: "Languages & Markup" },
-  { name: "Typescript", category: "Languages & Markup" },
-
   // Frameworks & Libraries
   { name: "React", category: "Frameworks & Libraries" },
   { name: "Angular", category: "Frameworks & Libraries" },
@@ -12,6 +6,12 @@ export const SKILLS_DATA = [
   { name: "jQuery", category: "Frameworks & Libraries" },
   { name: "Bootstrap", category: "Frameworks & Libraries" },
   { name: "Foundation", category: "Frameworks & Libraries" },
+
+  // Languages & Markup
+  { name: "HTML", category: "Languages & Markup" },
+  { name: "CSS / SCSS", category: "Languages & Markup" },
+  { name: "JavaScript (ES5/ES6)", category: "Languages & Markup" },
+  { name: "Typescript", category: "Languages & Markup" },
 
   // Tools & Version Control
   { name: "Git", category: "Tools & Version Control" },
