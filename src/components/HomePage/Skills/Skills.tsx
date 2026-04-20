@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { SKILLS_DATA, SKILL_CATEGORIES } from "@/data/skills";
 import styles from "./Skills.module.css";
+import { SkillsAccordion } from "./SkillsAccordion";
 
 const COLOUR_MAP: { [key: string]: string } = {
   "Languages & Markup": "var(--color-primary)",
@@ -10,6 +11,7 @@ const COLOUR_MAP: { [key: string]: string } = {
   "Tools & Version Control": "var(--color-accent)",
   Testing: "#FFD700",
   Databases: "#00FFD1",
+  "Cloud & Infrastructure": "#FF9900",
   All: "#FFFFFF",
 };
 
@@ -20,45 +22,50 @@ export default function SkillsSection() {
     <section id="skills" className="page-wrapper">
       <div className="container">
         <h2 className="section-title --underline">Technical Skills</h2>
-
-        {/* CATEGORY FILTERS */}
-        <div className={styles.filterContainer}>
-          {SKILL_CATEGORIES.map((category) => {
-            const categoryColor = COLOUR_MAP[category] || "#FFFFFF";
-            const isActive = activeCategory === category;
-
-            return (
-              <button
-                key={category}
-                onClick={() => setActiveCategory(category)}
-                className={`${styles.filterBtn} ${isActive ? styles.active : ""}`}
-                style={
-                  { "--accent-color": categoryColor } as React.CSSProperties
-                }
-              >
-                {category}
-              </button>
-            );
-          })}
+        <div className="block lg:hidden">
+          <SkillsAccordion />
         </div>
 
-        {/* SKILLS GRID */}
-        <div className={styles.skillsGrid}>
-          {SKILLS_DATA.map((skill) => {
-            const skillColor = COLOUR_MAP[skill.category] || "#FFFFFF";
-            const isHighlighted =
-              activeCategory === "All" || activeCategory === skill.category;
+        <div className="hidden lg:block">
+          {/* CATEGORY FILTERS */}
+          <div className={styles.filterContainer}>
+            {SKILL_CATEGORIES.map((category) => {
+              const categoryColor = COLOUR_MAP[category] || "#FFFFFF";
+              const isActive = activeCategory === category;
 
-            return (
-              <div
-                key={skill.name}
-                className={`${styles.skillCard} ${isHighlighted ? styles.glow : styles.dimmed}`}
-                style={{ "--skill-color": skillColor } as React.CSSProperties}
-              >
-                <span className={styles.skillName}>{skill.name}</span>
-              </div>
-            );
-          })}
+              return (
+                <button
+                  key={category}
+                  onClick={() => setActiveCategory(category)}
+                  className={`${styles.filterBtn} ${isActive ? styles.active : ""}`}
+                  style={
+                    { "--accent-color": categoryColor } as React.CSSProperties
+                  }
+                >
+                  {category}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* SKILLS GRID */}
+          <div className={styles.skillsGrid}>
+            {SKILLS_DATA.map((skill) => {
+              const skillColor = COLOUR_MAP[skill.category] || "#FFFFFF";
+              const isHighlighted =
+                activeCategory === "All" || activeCategory === skill.category;
+
+              return (
+                <div
+                  key={skill.name}
+                  className={`${styles.skillCard} ${isHighlighted ? styles.glow : styles.dimmed}`}
+                  style={{ "--skill-color": skillColor } as React.CSSProperties}
+                >
+                  <span className={styles.skillName}>{skill.name}</span>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

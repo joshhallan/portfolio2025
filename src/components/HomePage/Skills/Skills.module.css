@@ -82,3 +82,98 @@
   border-color: rgba(255, 255, 255, 0.1);
   box-shadow: none;
 }
+
+/* --- Skills Accordion --- */
+
+.accordionContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.accordionItem {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.accordionItem:first-child {
+  border-top: none;
+}
+
+.accordionToggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.accordionToggle:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.categoryTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: var(--font-geist-mono);
+  transition: opacity 0.2s ease;
+}
+
+.accordionToggle:hover .categoryTitle {
+  opacity: 0.8;
+}
+
+.chevron {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 0.8rem;
+  margin-left: 1rem;
+  transition: color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.accordionToggle:hover .chevron {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* --- Collapsible Content --- */
+
+.collapsibleContent {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.collapsibleContent.open {
+  max-height: 2000px;
+  opacity: 1;
+  padding-bottom: 1.5rem;
+}
+
+.pillContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.skillPill {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 4px;
+  border: 1px solid color-mix(in srgb, var(--pill-color), transparent 70%);
+  background: color-mix(in srgb, var(--pill-color), transparent 90%);
+  color: var(--pill-color);
+  transition: var(--transition-base);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: var(--font-geist-mono);
+}
