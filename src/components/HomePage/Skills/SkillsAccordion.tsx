@@ -6,9 +6,9 @@ import { SKILLS_DATA, SKILL_CATEGORIES } from "@/data/skills";
 import styles from "./Skills.module.css";
 
 const COLOUR_MAP: { [key: string]: string } = {
-  "Languages & Markup": "var(--color-primary)",
+  Languages: "var(--color-primary)",
   "Frameworks & Libraries": "var(--color-secondary)",
-  "Tools & Version Control": "var(--color-accent)",
+  Tools: "var(--color-accent)",
   Testing: "#FFD700",
   "Cloud & Infrastructure": "#FF9900",
   Databases: "#00FFD1",

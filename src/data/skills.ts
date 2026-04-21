@@ -2,24 +2,22 @@ export const SKILLS_DATA = [
   // Frameworks & Libraries
   { name: "React", category: "Frameworks & Libraries" },
   { name: "Angular", category: "Frameworks & Libraries" },
-  { name: "AngularJS", category: "Frameworks & Libraries" },
-  { name: "jQuery", category: "Frameworks & Libraries" },
+  { name: "Next.js", category: "Frameworks & Libraries" },
   { name: "Bootstrap", category: "Frameworks & Libraries" },
   { name: "Foundation", category: "Frameworks & Libraries" },
 
-  // Languages & Markup
-  { name: "HTML", category: "Languages & Markup" },
-  { name: "CSS / SCSS", category: "Languages & Markup" },
-  { name: "JavaScript (ES5/ES6)", category: "Languages & Markup" },
-  { name: "Typescript", category: "Languages & Markup" },
+  // Languages
+  { name: "JavaScript (ES5/ES6)", category: "Languages" },
+  { name: "TypeScript", category: "Languages" },
 
-  // Tools & Version Control
-  { name: "Git", category: "Tools & Version Control" },
-  { name: "SVN", category: "Tools & Version Control" },
+  // Tools
+  { name: "Git", category: "Tools" },
+  { name: "SVN", category: "Tools" },
+  { name: "Storybook", category: "Tools" },
 
   // Cloud and Infrastructure
   { name: "AWS", category: "Cloud & Infrastructure" },
-  { name: "Firebase", category: "Cloud & Infrastructure" },
+  { name: "Firebase Hosting", category: "Cloud & Infrastructure" },
 
   // Testing
   { name: "Unit Testing", category: "Testing" },
@@ -28,6 +26,7 @@ export const SKILLS_DATA = [
 
   // Databases
   { name: "MongoDB", category: "Databases" },
+  { name: "Firebase", category: "Databases" },
 ];
 
 // Automatically generates the categories, including 'All'
