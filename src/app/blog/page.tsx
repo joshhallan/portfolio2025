@@ -1,8 +1,18 @@
-import React from "react";
-import Parser from "rss-parser";
-import Card from "@/components/Global/Card/Card";
+"use client";
+
+import React, { useState, useEffect } from "react";
+import {
+  Badge,
+  Card,
+  Cell,
+  Container,
+  GridX,
+  Section,
+  Skeleton,
+} from "fj-elements";
 import styles from "./Blog.module.css";
-import { Metadata } from "next";
+import SectionTitle from "../components/Global/SectionTitle/SectionTitle";
+import ViewAllLink from "../components/Global/ViewAllLink/ViewAllLink";
 
 type MediumPost = {
   title: string;
@@ -12,107 +22,145 @@ type MediumPost = {
   categories: string[];
 };
 
-type MediumItem = Parser.Item & {
-  "content:encodedSnippet"?: string;
-};
-
-async function getMediumPosts() {
-  const parser: Parser<string, MediumItem> = new Parser();
-  const feed = await parser.parseURL("https://medium.com/feed/@joshhallan");
-
-  return feed.items.map((item: MediumItem) => {
-    const rawSnippet =
-      item["content:encodedSnippet"] || item.contentSnippet || "";
-    const truncatedSnippet =
-      rawSnippet.length > 250
-        ? rawSnippet.substring(0, 250).trim() + "..."
-        : rawSnippet;
-
-    return {
-      title: item.title || "",
-      link: item.link || "",
-      pubDate: item.pubDate || "",
-      snippet: truncatedSnippet,
-      categories: item.categories || [],
-    };
-  }) as MediumPost[];
+interface RSS2JsonItem {
+  title: string;
+  link: string;
+  pubDate: string;
+  description: string;
+  categories: string[];
+  [key: string]: unknown;
 }
 
-export default async function BlogPage() {
-  const allPosts = await getMediumPosts();
+interface RSS2JsonResponse {
+  status: string;
+  items?: RSS2JsonItem[];
+  feed?: Record<string, unknown>;
+}
 
-  const posts = [...allPosts].sort(
-    (a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime(),
-  );
+export default function BlogPage() {
+  const [posts, setPosts] = useState<MediumPost[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch(
+      "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@joshhallan",
+    )
+      .then((res) => {
+        if (!res.ok) throw new Error("Network response was not ok");
+        return res.json() as Promise<RSS2JsonResponse>; // Explicitly cast the JSON promise response shape
+      })
+      .then((data) => {
+        if (data.status === "ok" && Array.isArray(data.items)) {
+          const mappedPosts: MediumPost[] = data.items.map(
+            (item: RSS2JsonItem) => {
+              const cleanSnippet = item.description
+                ? item.description
+                    .replace(/<[^>]*>/g, "")
+                    .substring(0, 250)
+                    .trim() + "..."
+                : "";
+
+              return {
+                title: item.title || "",
+                link: item.link || "",
+                pubDate: item.pubDate || "",
+                snippet: cleanSnippet,
+                categories: item.categories || [],
+              };
+            },
+          );
+
+          const sorted = mappedPosts.sort(
+            (a, b) =>
+              new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime(),
+          );
+
+          setPosts(sorted);
+        }
+      })
+      .catch((err: unknown) => {
+        // Enforce safe type validation on the caught error
+        if (err instanceof Error) {
+          console.error("Error loading blog posts:", err.message);
+        } else {
+          console.error("An unexpected error occurred:", err);
+        }
+      })
+      .finally(() => setLoading(false));
+  }, []);
+
+  if (loading) {
+    return (
+      <main>
+        <Section>
+          <Container>
+            <Skeleton height={"20%"} width={"100%"} />
+            <Skeleton height={"20%"} width={"100%"} />
+            <Skeleton height={"20%"} width={"100%"} />
+          </Container>
+        </Section>
+      </main>
+    );
+  }
 
   return (
-    <main className="page-wrapper bg-mesh">
-      <div className="container">
-        <header className="mb-16">
-          <h2 className="section-title--underline">Blog Posts</h2>
-        </header>
+    <main>
+      <Section>
+        <Container>
+          <GridX gap="md">
+            <Cell small={12} gap="md">
+              <SectionTitle color="white" underline={true}>
+                Blog
+              </SectionTitle>
+            </Cell>
 
-        <div className="grid grid-cols-1 gap-12 max-w-5xl mx-auto">
-          {posts.map((post, index) => {
-            const variant = index % 2 === 0 ? "cyan" : "pink";
+            {posts.map((post, index) => {
+              const variant = index % 2 === 0 ? "cyan" : "pink";
 
-            return (
-              <Card
-                key={post.link}
-                variant={variant}
-                className={styles.summaryCard}
-              >
-                <Card.Header>
-                  <div className={styles.headerFlex}>
-                    <h3 className={styles.postTitle}>{post.title}</h3>
-                    {index === 0 && <span className={styles.pulseIndicator} />}
-                  </div>
-                </Card.Header>
+              return (
+                <Cell key={post.link} small={12} gap="md">
+                  <Card variant={variant} className={styles.summaryCard}>
+                    <Card.Header>
+                      <div className={styles.headerFlex}>
+                        <h3 className={styles.postTitle}>{post.title}</h3>
+                        {index === 0 && (
+                          <span className={styles.pulseIndicator} />
+                        )}
+                      </div>
+                    </Card.Header>
 
-                <Card.Body className={styles.cardBody}>
-                  <p className={styles.date}>
-                    {new Date(post.pubDate).toLocaleDateString("en-GB", {
-                      day: "numeric",
-                      month: "long",
-                      year: "numeric",
-                    })}
-                  </p>
+                    <Card.Body className={styles.cardBody}>
+                      <p className={styles.date}>
+                        {new Date(post.pubDate).toLocaleDateString("en-GB", {
+                          day: "numeric",
+                          month: "long",
+                          year: "numeric",
+                        })}
+                      </p>
 
-                  <p className={styles.postCopy}>{post.snippet}</p>
-                </Card.Body>
+                      <p className={styles.postCopy}>{post.snippet}</p>
+                    </Card.Body>
 
-                <Card.Footer
-                  className={`${styles.cardFooter} mt-8 pt-6 border-t border-white/5`}
-                >
-                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center w-full gap-6">
-                    <div className={`${styles.techPills} w-full sm:w-auto`}>
-                      {post.categories.map((tag, i) => (
-                        <span key={i} className={styles.techPill}>
-                          #{tag}
-                        </span>
-                      ))}
-                    </div>
+                    <Card.Footer>
+                      <div className="">
+                        <div className={`${styles.techPills} w-full sm:w-auto`}>
+                          {post.categories.map((tag, i) => (
+                            <Badge key={i}>#{tag}</Badge>
+                          ))}
+                        </div>
 
-                    <a
-                      href={post.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`${styles.viewAllLink} w-full sm:w-auto justify-center sm:justify-start`}
-                    >
-                      <span>Read Article</span>
-                      <span className="arrow">→</span>
-                    </a>
-                  </div>
-                </Card.Footer>
-              </Card>
-            );
-          })}
-        </div>
-      </div>
+                        <ViewAllLink href={post.link} target="_blank">
+                          Read Article
+                        </ViewAllLink>
+                      </div>
+                    </Card.Footer>
+                  </Card>
+                </Cell>
+              );
+            })}
+          </GridX>
+        </Container>
+      </Section>
     </main>
   );
 }
-
-export const metadata: Metadata = {
-  title: "Blog",
-};

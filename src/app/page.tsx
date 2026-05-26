@@ -1,24 +1,25 @@
-import Featured from "@/components/HomePage/Featured/Featured";
-import Hero from "@/components/HomePage/Hero/Hero";
-import SkillsSection from "@/components/HomePage/Skills/Skills";
-import About from "@/components/HomePage/About/About";
-import ExperienceSummary from "@/components/HomePage/Experience/Experience";
-import Analytics from "@/components/Global/Analytics/Analytics";
-import Divider from "@/components/Global/Divider/Divider";
+"use client";
+import { Container, Divider } from "fj-elements";
+import Hero from "./components/HomePage/Hero/Hero";
+import AboutMe from "./components/HomePage/AboutMe/AboutMe";
+import Skills from "./components/HomePage/Skills/Skills";
+import Projects from "./components/HomePage/Projects/Projects";
+import Experience from "./components/HomePage/Experience/Experience";
 
 export default function Home() {
   return (
     <>
-      {/* <Analytics /> */}
       <Hero />
-      <Divider variant="accent" />
-      <About />
-      <Divider variant="accent" />
-      <SkillsSection />
-      <Divider variant="accent" />
-      <Featured />
-      <Divider variant="accent" />
-      <ExperienceSummary />
+      <Container>
+        <Divider />
+        <AboutMe />
+        <Divider />
+        <Skills />
+        <Divider />
+        <Projects />
+        <Divider />
+        <Experience />
+      </Container>
     </>
   );
 }

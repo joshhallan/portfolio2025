@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import "fj-elements/dist/fj-elements.css";
 import "./globals.css";
-import NavBar from "@/components/Global/NavBar/NavBar";
-import Footer from "@/components/Global/Footer/Footer";
+import NavWrapper from "./components/Global/NavWrapper/NavWrapper";
+import Footer from "./components/Global/Footer/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -44,7 +45,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${geistSans.variable} ${geistMono.variable} bg-mesh`}>
-        <NavBar />
+        <NavWrapper />
         <main className="main-content">{children}</main>
         <Footer />
       </body>
