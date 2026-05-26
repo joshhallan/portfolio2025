@@ -1,0 +1,27 @@
+.actionWrapper {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.viewAllLink {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-secondary);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition-base);
+  text-decoration: none;
+}
+
+.viewAllLink:hover {
+  filter: brightness(1.25);
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+.viewAllLink:hover .arrow {
+  transform: translateX(4px);
+}

@@ -1,27 +1,38 @@
+"use client";
 import React from "react";
 import { PROJECTS_DATA } from "@/data/projects";
-import ProjectCard from "@/components/Global/ProjectCard/ProjectCard";
-import styles from "./Projects.module.css";
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Projects",
-};
+import { Cell, Container, GridX, ProjectCard, Section } from "fj-elements";
+import Link from "next/link";
+import SectionTitle from "../components/Global/SectionTitle/SectionTitle";
 
 export default function ProjectsPage() {
   return (
     <main className="page-wrapper">
-      <section id="all-projects" className="container">
-        <header className={styles.pageHeader}>
-          <h2 className="section-title--underline">All Projects</h2>
-        </header>
+      <Section id="all-projects">
+        <Container>
+          <GridX gap="lg">
+            <Cell small={12}>
+              <SectionTitle underline={true} color={"white"}>
+                All Projects
+              </SectionTitle>
+            </Cell>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-          {PROJECTS_DATA.map((project) => (
-            <ProjectCard key={project.id} project={project} style="long" />
-          ))}
-        </div>
-      </section>
+            {PROJECTS_DATA.map((project) => (
+              <Cell key={project.id} small={12} large={6}>
+                <ProjectCard
+                  project={project}
+                  style="short"
+                  renderLink={({ href }, className, children) => (
+                    <Link href={href} className={className}>
+                      {children}
+                    </Link>
+                  )}
+                />
+              </Cell>
+            ))}
+          </GridX>
+        </Container>
+      </Section>
     </main>
   );
 }

@@ -1,9 +1,19 @@
+"use client";
 import React from "react";
 import { EXPERIENCE_DATA, Job } from "@/data/experience";
+import {
+  Cell,
+  Container,
+  GridX,
+  Section,
+  Accordion,
+  Card,
+  Typography,
+  Badge,
+} from "fj-elements";
+import SectionTitle from "../components/Global/SectionTitle/SectionTitle";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import styles from "./Career.module.css";
-import { Metadata } from "next";
-import { RoleAccordion } from "./RoleAccordion";
 
 const CompanySection = ({
   company,
@@ -15,31 +25,46 @@ const CompanySection = ({
   isFirstCompany: boolean;
 }) => {
   const latestRole = roles[0];
-
   return (
-    <div className={styles.companyCard}>
-      <div className={styles.companyHeader}>
-        <h3 className="section-title">{company}</h3>
+    <Card>
+      <Card.Header>
+        <Typography as={"h3"} style={{ textAlign: "center", color: "white" }}>
+          {company}
+        </Typography>
         <div className={styles.locationWrapper}>
           <FaMapMarkerAlt />
-          <span>{latestRole.location}</span>
+          <Typography as={"span"}>{latestRole.location}</Typography>
         </div>
-      </div>
-
-      <div className={styles.rolesList}>
+      </Card.Header>
+      <Card.Body>
         {roles.map((role, index) => (
-          <RoleAccordion
+          <Accordion
             key={role.id}
-            role={role}
-            isDefaultOpen={isFirstCompany && index === 0}
-          />
+            title={role.title}
+            subtitle={role.duration}
+            defaultOpen={isFirstCompany && index === 0 ? true : false}
+          >
+            <ul className={styles.responsibilityList}>
+              {role.responsibilities.map((res, index) => (
+                <li key={index} className={styles.responsibilityItem}>
+                  <span className={styles.bullet}></span>
+                  {res}
+                </li>
+              ))}
+            </ul>
+            <div className={styles.techStack}>
+              {role.technologies.map((tech, index) => (
+                <Badge key={index}>{tech}</Badge>
+              ))}
+            </div>
+          </Accordion>
         ))}
-      </div>
-    </div>
+      </Card.Body>
+    </Card>
   );
 };
 
-export default function FullCareerTimeline() {
+export default function CareerTimeLine() {
   const groupedExperience = EXPERIENCE_DATA.reduce<Record<string, Job[]>>(
     (acc, job) => {
       if (!acc[job.company]) acc[job.company] = [];
@@ -49,28 +74,33 @@ export default function FullCareerTimeline() {
     {},
   );
 
+  console.log(groupedExperience);
+
   return (
     <main className="page-wrapper">
-      <section className="container">
-        <header className={styles.pageHeader}>
-          <h2 className="section-title--underline">Career History</h2>
-        </header>
+      <Section id="all-jobs">
+        <Container>
+          <GridX gap="lg">
+            <Cell small={12}>
+              <SectionTitle underline={true} color={"white"}>
+                Career History
+              </SectionTitle>
+            </Cell>
 
-        <div className={styles.timelineContainer}>
-          {Object.entries(groupedExperience).map(([company, roles], index) => (
-            <CompanySection
-              key={company}
-              company={company}
-              roles={roles}
-              isFirstCompany={index === 0}
-            />
-          ))}
-        </div>
-      </section>
+            {Object.entries(groupedExperience).map(
+              ([company, roles], index) => (
+                <Cell key={company} small={12}>
+                  <CompanySection
+                    company={company}
+                    roles={roles}
+                    isFirstCompany={index === 0}
+                  />
+                </Cell>
+              ),
+            )}
+          </GridX>
+        </Container>
+      </Section>
     </main>
   );
 }
-
-export const metadata: Metadata = {
-  title: "Career History",
-};
