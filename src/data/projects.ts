@@ -64,4 +64,25 @@ export const PROJECTS_DATA = [
     name: "shopping-list",
     status: "WIP",
   },
+  {
+    id: 5,
+    name: "tnn-coaching",
+    title: "TNN Coaching Platform",
+    category: "Technical Consulting & Architecture",
+    status: "Staged",
+    description:
+      "Engineered an elite, production-ready brand platform for a personal training business under a strict zero-cost monthly operational mandate.",
+    fullDescription:
+      "Acting as a technical consultant, I designed and architected this platform to deliver sub-second performance with zero recurring infrastructure overhead. The frontend relies on Next.js configured for strict static site generation (SSG), serving compiled assets via Google's global CDN on the Firebase Spark Plan. Features a deep-integrated calendar scheduling system, custom styling tokens via Tailwind CSS, and a fully automated continuous deployment pipeline from GitHub directly into a live staging loop.",
+    tech: [
+      "Next.js",
+      "Tailwind CSS",
+      "TypeScript",
+      "Firebase Hosting",
+      "GitHub Actions",
+    ],
+    image: "/images/projects/tnn-coaching.png",
+    link: "https://tnn-coaching.web.app/",
+    githubUrl: "https://github.com/joshhallan/tnn-coaching",
+  },
 ];
