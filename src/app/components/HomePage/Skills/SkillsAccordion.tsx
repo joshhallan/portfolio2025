@@ -38,7 +38,7 @@ export const SkillsAccordion = () => {
               <Typography
                 as="span"
                 className={styles.categoryTitle}
-                style={{ color: categoryColor }}
+                style={{ color: categoryColor, textAlign: "left" }}
               >
                 {category}
               </Typography>

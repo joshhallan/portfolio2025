@@ -43,7 +43,10 @@ export default function Skills() {
                     onClick={() => setActiveCategory(category)}
                     className={`${styles.filterBtn} ${isActive ? styles.active : ""}`}
                     style={
-                      { "--accent-color": categoryColor } as React.CSSProperties
+                      {
+                        "--accent-color": categoryColor,
+                        textAlign: "left",
+                      } as React.CSSProperties
                     }
                   >
                     {category}
@@ -71,7 +74,7 @@ export default function Skills() {
                         { "--skill-color": skillColor } as React.CSSProperties
                       }
                     >
-                      {/* Visual Card Content Container handles your internal card styling */}
+                      {/* Visual Card Content Container handles internal card styling */}
                       <div className={styles.skillCardInner}>
                         <Typography as="span" className={styles.skillName}>
                           {skill.name}
