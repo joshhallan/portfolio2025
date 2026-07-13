@@ -29,20 +29,21 @@ export const QUALIFICATIONS_DATA = [
     status: "Active",
     logo: "images/certificates/PTA.png",
   },
-  {
-    id: 4,
-    title: "AWS Solutions Architect - Associate",
-    institution: "Amazon Web Services",
-    shortName: "AWS",
-    classification: "Certification",
-    grade: "N/A",
-    status: "In progress",
-    logo: "images/certificates/SAA.png",
-  },
+  // {
+  //   id: 4,
+  //   title: "AWS Solutions Architect - Associate",
+  //   institution: "Amazon Web Services",
+  //   shortName: "AWS",
+  //   classification: "Certification",
+  //   grade: "N/A",
+  //   status: "In progress",
+  //   logo: "images/certificates/SAA.png",
+  // },
   {
     id: 5,
     title: "A11Y Fundamentals Knowledge Badge",
-    institution: "International Association of Accessibility Professionals (IAAP)",
+    institution:
+      "International Association of Accessibility Professionals (IAAP)",
     shortName: "IAAP",
     classification: "Certification",
     grade: "Passed",
@@ -52,7 +53,8 @@ export const QUALIFICATIONS_DATA = [
   {
     id: 6,
     title: "Accessible Development Knowledge Badge",
-    institution: "International Association of Accessibility Professionals (IAAP)",
+    institution:
+      "International Association of Accessibility Professionals (IAAP)",
     shortName: "IAAP",
     classification: "Certification",
     grade: "Passed",
