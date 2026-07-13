@@ -117,7 +117,7 @@ export default function AboutMe() {
                   />
                   <FactItem
                     label="Current learning focus"
-                    value="AWS Solutions Architect (SAA-C03)"
+                    value="AWS Developer Associate"
                   />
                   <FactItem
                     label="Leadership Style"
