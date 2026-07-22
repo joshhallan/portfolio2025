@@ -13,8 +13,8 @@
   display: block;
   height: 4px;
   width: 5rem;
-  background: var(--color-secondary);
+  background: var(--color-action-secondary);
   margin: 1rem auto 0;
   border-radius: 999px;
-  box-shadow: 0 0 12px var(--color-secondary);
+  box-shadow: 0 0 12px var(--color-action-secondary);
 }

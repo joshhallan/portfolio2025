@@ -1,8 +1,18 @@
 .footer {
-  background-color: rgba(0, 0, 0, 0.2);
-  margin-top: 5rem;
-  padding: 4rem 0 2rem 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  padding-inline: var(--layout-container-padding);
+  padding-block: var(--spacing-xl);
+
+  border-top: 1px solid transparent;
+  border-image: linear-gradient(
+      to right,
+      var(--color-action-primary),
+      var(--color-action-secondary)
+    )
+    1;
+}
+
+.inner {
   width: 100%;
 }
 
@@ -28,7 +38,7 @@
 }
 
 .headingConnect {
-  color: var(--color-secondary);
+  color: var(--color-action-secondary);
   font-family: var(--font-geist-mono);
   font-size: 1.25rem;
   margin-bottom: 1rem;
@@ -37,7 +47,7 @@
 }
 
 .headingTouch {
-  color: var(--color-primary);
+  color: var(--color-action-primary);
   font-family: var(--font-geist-mono);
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
@@ -53,9 +63,9 @@
 }
 
 .socialIcon:hover {
-  color: var(--color-secondary);
+  color: var(--color-action-secondary);
   opacity: 1;
-  filter: drop-shadow(0 0 8px var(--color-secondary));
+  filter: drop-shadow(0 0 8px var(--color-action-secondary));
 }
 
 .emailLink {
@@ -67,9 +77,9 @@
 }
 
 .emailLink:hover {
-  color: var(--color-primary);
+  color: var(--color-action-primary);
   text-shadow: var(--glow-pink);
-  filter: drop-shadow(0 0 8px var(--color-primary));
+  filter: drop-shadow(0 0 8px var(--color-action-primary));
 }
 
 .bottomBar {
@@ -97,7 +107,11 @@
 }
 
 .techStackNote:hover {
-  color: var(--color-primary);
+  color: var(--color-action-primary);
   text-shadow: var(--glow-pink);
   cursor: default;
+}
+
+.inner {
+  padding-inline: var(--layout-container-padding);
 }

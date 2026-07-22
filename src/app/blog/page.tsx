@@ -1,15 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import {
-  Badge,
-  Card,
-  Cell,
-  Container,
-  GridX,
-  Section,
-  Skeleton,
-} from "fj-elements";
+import { Badge, Card, Cell, Grid, Section, Skeleton } from "fj-elements";
 import styles from "./Blog.module.css";
 import SectionTitle from "../components/Global/SectionTitle/SectionTitle";
 import ViewAllLink from "../components/Global/ViewAllLink/ViewAllLink";
@@ -93,11 +85,11 @@ export default function BlogPage() {
     return (
       <main>
         <Section>
-          <Container>
+          <Section>
             <Skeleton height={"20%"} width={"100%"} />
             <Skeleton height={"20%"} width={"100%"} />
             <Skeleton height={"20%"} width={"100%"} />
-          </Container>
+          </Section>
         </Section>
       </main>
     );
@@ -106,9 +98,9 @@ export default function BlogPage() {
   return (
     <main>
       <Section>
-        <Container>
-          <GridX gap="md">
-            <Cell small={12} gap="md">
+        <Section>
+          <Grid gap="md">
+            <Cell small={12}>
               <SectionTitle color="white" underline={true}>
                 Blog
               </SectionTitle>
@@ -118,7 +110,7 @@ export default function BlogPage() {
               const variant = index % 2 === 0 ? "cyan" : "pink";
 
               return (
-                <Cell key={post.link} small={12} gap="md">
+                <Cell key={post.link} small={12}>
                   <Card variant={variant} className={styles.summaryCard}>
                     <Card.Header>
                       <div className={styles.headerFlex}>
@@ -158,8 +150,8 @@ export default function BlogPage() {
                 </Cell>
               );
             })}
-          </GridX>
-        </Container>
+          </Grid>
+        </Section>
       </Section>
     </main>
   );

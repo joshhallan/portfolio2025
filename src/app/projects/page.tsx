@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { PROJECTS_DATA } from "@/data/projects";
-import { Cell, Container, GridX, ProjectCard, Section } from "fj-elements";
+import { Cell, Grid, ProjectCard, Section } from "fj-elements";
 import Link from "next/link";
 import SectionTitle from "../components/Global/SectionTitle/SectionTitle";
 
@@ -9,8 +9,8 @@ export default function ProjectsPage() {
   return (
     <main className="page-wrapper">
       <Section id="all-projects">
-        <Container>
-          <GridX gap="lg">
+        <Section>
+          <Grid gap="lg">
             <Cell small={12}>
               <SectionTitle underline={true} color={"white"}>
                 All Projects
@@ -21,7 +21,7 @@ export default function ProjectsPage() {
               <Cell key={project.id} small={12} large={6}>
                 <ProjectCard
                   project={project}
-                  style="short"
+                  variant="long"
                   renderLink={({ href }, className, children) => (
                     <Link href={href} className={className}>
                       {children}
@@ -30,8 +30,8 @@ export default function ProjectsPage() {
                 />
               </Cell>
             ))}
-          </GridX>
-        </Container>
+          </Grid>
+        </Section>
       </Section>
     </main>
   );

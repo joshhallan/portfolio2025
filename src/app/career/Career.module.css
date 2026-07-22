@@ -11,7 +11,7 @@
 }
 
 .locationWrapper svg {
-  color: var(--color-secondary);
+  color: var(--color-action-secondary);
 }
 
 .responsibilityList {
@@ -35,8 +35,8 @@
   width: 12px;
   flex-shrink: 0;
   border-radius: 999px;
-  background: var(--color-secondary);
-  box-shadow: 0 0 8px var(--color-secondary);
+  background: var(--color-action-secondary);
+  box-shadow: 0 0 8px var(--color-action-secondary);
 }
 
 .techStack {

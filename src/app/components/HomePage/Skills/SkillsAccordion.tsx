@@ -7,12 +7,12 @@ import styles from "./Skills.module.css";
 import { Typography } from "fj-elements";
 
 const COLOUR_MAP: { [key: string]: string } = {
-  Languages: "var(--color-primary)",
-  "Frameworks & Libraries": "var(--color-secondary)",
-  Tools: "var(--color-accent)",
+  Languages: "var(--pink-500)",
+  "Frameworks & Libraries": "var(--cyan-500)",
+  Tools: "var(--coral-500)",
   Testing: "#FFD700",
   "Cloud & Infrastructure": "#FF9900",
-  Databases: "#00FFD1",
+  Databases: "var(--green-500)",
 };
 
 export const SkillsAccordion = () => {

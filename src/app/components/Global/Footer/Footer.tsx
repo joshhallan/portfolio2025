@@ -1,8 +1,8 @@
 "use client";
-import Link from "next/link";
+
 import { FaGithub, FaLinkedin, FaMedium } from "react-icons/fa";
 import styles from "./Footer.module.css";
-import { Cell, Container, GridX, IconButton, Typography } from "fj-elements";
+import { Cell, Grid, IconLink, Typography } from "fj-elements";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -26,42 +26,41 @@ export default function Footer() {
 
   return (
     <footer className={styles.footer}>
-      <Container>
-        <GridX align="start">
+      <div className={styles.inner}>
+        <Grid>
           <Cell small={12} medium={6}>
-            {/* Connect Section */}
             <div className={styles.sectionConnect}>
               <Typography as="h3" className={styles.headingConnect}>
                 Connect
               </Typography>
+
               <div className="flex space-x-6">
-                {socialLinks.map((link) => (
-                  <Link
-                    key={link.name}
-                    href={link.href}
+                {socialLinks.map(({ name, href, Icon }) => (
+                  <IconLink
+                    key={name}
+                    href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={styles.socialIcon}
-                    aria-label={`Visit my ${link.name}`}
-                  >
-                    <IconButton
-                      icon={<link.Icon />}
-                      label={link.name}
-                      variant="ghost"
-                    />
-                  </Link>
+                    label={`Visit my ${name}`}
+                    icon={<Icon aria-hidden="true" />}
+                  />
                 ))}
               </div>
             </div>
           </Cell>
+
           <Cell small={12} medium={6}>
             <div className={styles.sectionContact}>
-              <h3 className={styles.headingTouch}>Get In Touch</h3>
+              <Typography as="h3" className={styles.headingTouch}>
+                Get In Touch
+              </Typography>
+
               <a href={mailtoHref} className={styles.emailLink}>
                 {emailAddress}
               </a>
             </div>
           </Cell>
+
           <Cell small={12}>
             <div className={styles.bottomBar}>
               <p className={styles.techStackNote}>Built with &lt;3</p>
@@ -70,8 +69,8 @@ export default function Footer() {
               </p>
             </div>
           </Cell>
-        </GridX>
-      </Container>
+        </Grid>
+      </div>
     </footer>
   );
 }

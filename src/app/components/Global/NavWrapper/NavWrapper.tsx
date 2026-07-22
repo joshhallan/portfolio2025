@@ -6,15 +6,19 @@ import { Nav, Typography } from "fj-elements";
 export default function NavWrapper() {
   return (
     <Nav
-      brand={
-        <Typography as="span" style={{ fontSize: 24 }}>
-          FIND
-          <Typography as="span" gradient>
-            JOSH
-          </Typography>
-        </Typography>
-      }
       links={[
+        {
+          href: "/",
+          label: (
+            <Typography as="span" style={{ fontSize: 24 }}>
+              FIND
+              <Typography as="span" gradient>
+                JOSH
+              </Typography>
+            </Typography>
+          ),
+          ariaLabel: "Home",
+        },
         { href: "/projects", label: "Projects" },
         { href: "/career", label: "Career" },
         { href: "/blog", label: "Blog" },
@@ -34,17 +38,20 @@ export default function NavWrapper() {
               className={className}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={link.ariaLabel}
             >
               {link.label}
             </a>
           );
         }
+
         return (
           <Link
             key={link.href}
             href={link.href}
             className={className}
             onClick={onClick}
+            aria-label={link.ariaLabel}
           >
             {link.label}
           </Link>

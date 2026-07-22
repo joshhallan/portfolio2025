@@ -6,7 +6,7 @@
 .viewAllLink {
   font-size: 1.125rem;
   font-weight: 700;
-  color: var(--color-secondary);
+  color: var(--color-action-secondary);
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;

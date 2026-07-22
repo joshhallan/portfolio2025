@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "fj-elements/dist/fj-elements.css";
+import "fj-elements/styles.css";
 import "./globals.css";
 import NavWrapper from "./components/Global/NavWrapper/NavWrapper";
 import Footer from "./components/Global/Footer/Footer";
