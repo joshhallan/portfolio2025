@@ -41,13 +41,25 @@
 }
 
 :global(.card--cyan) .techPill {
-  color: var(--color-secondary);
-  border-color: color-mix(in srgb, var(--color-secondary), transparent 70%);
-  background: color-mix(in srgb, var(--color-secondary), transparent 90%);
+  color: var(--color-action-secondary);
+  border-color: color-mix(
+    in srgb,
+    var(--color-action-secondary),
+    transparent 70%
+  );
+  background: color-mix(
+    in srgb,
+    var(--color-action-secondary),
+    transparent 90%
+  );
 }
 
 :global(.card--pink) .techPill {
-  color: var(--color-primary);
-  border-color: color-mix(in srgb, var(--color-primary), transparent 70%);
-  background: color-mix(in srgb, var(--color-primary), transparent 90%);
+  color: var(--color-action-primary);
+  border-color: color-mix(
+    in srgb,
+    var(--color-action-primary),
+    transparent 70%
+  );
+  background: color-mix(in srgb, var(--color-action-primary), transparent 90%);
 }

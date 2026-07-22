@@ -3,9 +3,8 @@ import React from "react";
 import { EXPERIENCE_DATA, Job } from "@/data/experience";
 import {
   Cell,
-  Container,
-  GridX,
   Section,
+  Grid,
   Accordion,
   Card,
   Typography,
@@ -79,8 +78,8 @@ export default function CareerTimeLine() {
   return (
     <main className="page-wrapper">
       <Section id="all-jobs">
-        <Container>
-          <GridX gap="lg">
+        <Section>
+          <Grid gap="lg">
             <Cell small={12}>
               <SectionTitle underline={true} color={"white"}>
                 Career History
@@ -98,8 +97,8 @@ export default function CareerTimeLine() {
                 </Cell>
               ),
             )}
-          </GridX>
-        </Container>
+          </Grid>
+        </Section>
       </Section>
     </main>
   );

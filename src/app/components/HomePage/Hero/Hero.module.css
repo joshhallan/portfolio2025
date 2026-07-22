@@ -8,7 +8,7 @@
   height: 10rem;
   border-radius: 50%;
   overflow: hidden;
-  border: 2px solid var(--color-secondary);
+  border: 2px solid var(--color-action-secondary);
   box-shadow: var(--glow-cyan);
   transition: transform 0.3s ease;
   margin: 0 auto;
@@ -30,8 +30,6 @@
   justify-content: center;
 }
 
-@media (min-width: 768px) {
-  .buttonGroup {
-    justify-content: flex-start;
-  }
+.icon {
+  margin-left: 0.5rem;
 }
