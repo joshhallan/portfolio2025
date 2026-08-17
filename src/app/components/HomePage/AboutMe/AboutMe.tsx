@@ -36,51 +36,65 @@ export default function AboutMe() {
           <Typography as="p" className={styles.AboutCopy}>
             I&apos;m a{" "}
             <Typography as="span" gradient>
-              Lead Frontend Engineer
+              Frontend Technical Lead
             </Typography>{" "}
-            with over 10 years of experience - and honestly, what keeps me here
-            is the{" "}
+            with{" "}
             <Typography as="span" gradient>
-              artistry
-            </Typography>{" "}
-            of it. Bringing together components, code, and creativity to build
-            something that looks genuinely great and that I&apos;m proud to show
-            off.
-          </Typography>
-
-          <Typography as="p" className={styles.AboutCopy}>
-            Day to day, I sit between the people who want things done and the
-            people can do those things. I communicate with{" "}
-            <Typography as="span" gradient>
-              design on technical feasibility
+              12+ years of experience building web applications
             </Typography>
-            ; I talk to{" "}
-            <Typography as="span" gradient>
-              product owners and business analysts
-            </Typography>{" "}
-            on how to shape the backlog for upcoming sprints; I mentor
-            developers and make sure that the team ships work they&apos;re
-            actually proud of - including features that generated{" "}
-            <Typography as="span" gradient>
-              over £500k in revenue
-            </Typography>{" "}
-            within the first month of launch.
+            , with a particular focus on accessible React applications, frontend
+            architecture and design systems.
           </Typography>
 
           <Typography as="p" className={styles.AboutCopy}>
-            Outside of building interfaces, I&apos;m currently deep in{" "}
+            What keeps me interested in frontend is the combination of{" "}
             <Typography as="span" gradient>
-              AWS cloud architecture
-            </Typography>{" "}
-            - working toward my Solutions Architect certification to become a
-            more rounded engineer, even if my heart will always be in the
-            frontend.
+              engineering and creativity
+            </Typography>
+            . I enjoy taking a complicated problem, breaking it down into
+            reusable components and turning it into something that feels simple
+            and intuitive for the person using it.
           </Typography>
 
           <Typography as="p" className={styles.AboutCopy}>
-            When I&apos;m not coding, I&apos;m with my wife and our two boys. Me
-            and my wife love playing video games together, whether that&apos;s
-            trying to get best lap times on{" "}
+            Day to day, I sit somewhere between{" "}
+            <Typography as="span" gradient>
+              technical delivery, architecture and people
+            </Typography>
+            . I work closely with designers on technical feasibility and
+            accessible implementation, collaborate with product owners and
+            business analysts to shape upcoming work, and mentor developers as
+            we build and maintain frontend systems that teams can be proud of.
+          </Typography>
+
+          <Typography as="p" className={styles.AboutCopy}>
+            I&apos;ve worked extensively with{" "}
+            <Typography as="span" gradient>
+              HTML, CSS, JavaScript and React
+            </Typography>
+            , with accessibility being a particular area of interest throughout
+            my career. I&apos;m especially interested in building{" "}
+            <Typography as="span" gradient>
+              accessible component libraries and design systems
+            </Typography>{" "}
+            that make doing the right thing easier for the developers using
+            them.
+          </Typography>
+
+          <Typography as="p" className={styles.AboutCopy}>
+            I&apos;m also currently working on expanding my accessibility
+            knowledge through the{" "}
+            <Typography as="span" gradient>
+              IAAP CPACC and WAS certifications
+            </Typography>
+            , alongside continuing to develop my understanding of frontend
+            architecture and the wider technology landscape.
+          </Typography>
+
+          <Typography as="p" className={styles.AboutCopy}>
+            Outside of work, I&apos;m usually with my wife and our two boys. My
+            wife and I love playing video games together, whether that&apos;s
+            trying to get the best lap times on{" "}
             <Typography as="span" gradient>
               Mario Kart
             </Typography>{" "}
@@ -88,12 +102,12 @@ export default function AboutMe() {
             <Typography as="span" gradient>
               Fortnite
             </Typography>
-            . Once a month I sit down with old school friends for some{" "}
+            . Once a month I sit down with some old school friends for{" "}
             <Typography as="span" gradient>
-              Dungeons and Dragons
+              Dungeons & Dragons
             </Typography>{" "}
-            - which can be great managerial practice, as playing with them is
-            like trying to herd cats.
+            — which can be great managerial practice, as playing with them is
+            basically trying to herd cats.
           </Typography>
         </Cell>
         {/* Fun Facts */}
@@ -109,18 +123,18 @@ export default function AboutMe() {
             </Card.Header>
             <Card.Body>
               <div className={styles.factList}>
-                <FactItem label="Location" value="Sunderland, UK" />
+                <FactItem label="Experience" value="12+ Years" />
                 <FactItem
                   label="Primary Stack"
                   value="TypeScript, React, Next.js"
                 />
                 <FactItem
-                  label="Current learning focus"
-                  value="AWS Developer Associate"
+                  label="Specialism"
+                  value="Accessibility & Design Systems"
                 />
                 <FactItem
                   label="Leadership Style"
-                  value="Architectural Strategy & Mentorship"
+                  value="Architecture & Mentorship"
                 />
                 <FactItem label="D&D Alignment" value="Forever DM" />
               </div>

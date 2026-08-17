@@ -19,6 +19,29 @@
   margin-top: 0.25rem;
 }
 
+.pulseIndicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cyan-500);
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--cyan-500), transparent 50%);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--cyan-500), transparent 50%);
+  }
+
+  70% {
+    box-shadow: 0 0 0 7px transparent;
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
 .postCopy {
   color: white;
   margin-top: 16px;
