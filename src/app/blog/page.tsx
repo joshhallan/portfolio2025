@@ -32,6 +32,7 @@ interface RSS2JsonResponse {
 export default function BlogPage() {
   const [posts, setPosts] = useState<MediumPost[]>([]);
   const [loading, setLoading] = useState(true);
+  console.log(posts);
 
   useEffect(() => {
     fetch(
@@ -98,60 +99,58 @@ export default function BlogPage() {
   return (
     <main>
       <Section>
-        <Section>
-          <Grid gap="md">
-            <Cell small={12}>
-              <SectionTitle color="white" underline={true}>
-                Blog
-              </SectionTitle>
-            </Cell>
+        <Grid gap="md">
+          <Cell small={12}>
+            <SectionTitle color="white" underline={true}>
+              Blog
+            </SectionTitle>
+          </Cell>
 
-            {posts.map((post, index) => {
-              const variant = index % 2 === 0 ? "cyan" : "pink";
+          {posts.map((post, index) => {
+            const variant = index % 2 === 0 ? "cyan" : "pink";
 
-              return (
-                <Cell key={post.link} small={12}>
-                  <Card variant={variant} className={styles.summaryCard}>
-                    <Card.Header>
-                      <div className={styles.headerFlex}>
-                        <h3 className={styles.postTitle}>{post.title}</h3>
-                        {index === 0 && (
-                          <span className={styles.pulseIndicator} />
-                        )}
+            return (
+              <Cell key={post.link} small={12} large={6}>
+                <Card variant={variant} className={styles.summaryCard}>
+                  <Card.Header>
+                    <div className={styles.headerFlex}>
+                      <h3 className={styles.postTitle}>{post.title}</h3>
+                      {index === 0 && (
+                        <span className={styles.pulseIndicator} />
+                      )}
+                    </div>
+                  </Card.Header>
+
+                  <Card.Body className={styles.cardBody}>
+                    <p className={styles.date}>
+                      {new Date(post.pubDate).toLocaleDateString("en-GB", {
+                        day: "numeric",
+                        month: "long",
+                        year: "numeric",
+                      })}
+                    </p>
+
+                    <p className={styles.postCopy}>{post.snippet}</p>
+                  </Card.Body>
+
+                  <Card.Footer>
+                    <div className="">
+                      <div className={`${styles.techPills} w-full sm:w-auto`}>
+                        {post.categories.map((tag, i) => (
+                          <Badge key={i}>#{tag}</Badge>
+                        ))}
                       </div>
-                    </Card.Header>
 
-                    <Card.Body className={styles.cardBody}>
-                      <p className={styles.date}>
-                        {new Date(post.pubDate).toLocaleDateString("en-GB", {
-                          day: "numeric",
-                          month: "long",
-                          year: "numeric",
-                        })}
-                      </p>
-
-                      <p className={styles.postCopy}>{post.snippet}</p>
-                    </Card.Body>
-
-                    <Card.Footer>
-                      <div className="">
-                        <div className={`${styles.techPills} w-full sm:w-auto`}>
-                          {post.categories.map((tag, i) => (
-                            <Badge key={i}>#{tag}</Badge>
-                          ))}
-                        </div>
-
-                        <ViewAllLink href={post.link} target="_blank">
-                          Read Article
-                        </ViewAllLink>
-                      </div>
-                    </Card.Footer>
-                  </Card>
-                </Cell>
-              );
-            })}
-          </Grid>
-        </Section>
+                      <ViewAllLink href={post.link} target="_blank">
+                        Read Article
+                      </ViewAllLink>
+                    </div>
+                  </Card.Footer>
+                </Card>
+              </Cell>
+            );
+          })}
+        </Grid>
       </Section>
     </main>
   );
