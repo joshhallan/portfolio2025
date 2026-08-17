@@ -99,58 +99,60 @@ export default function BlogPage() {
   return (
     <main>
       <Section>
-        <Grid gap="md">
-          <Cell small={12}>
-            <SectionTitle color="white" underline={true}>
-              Blog
-            </SectionTitle>
-          </Cell>
+        <Section>
+          <Grid gap="md">
+            <Cell small={12}>
+              <SectionTitle color="white" underline={true}>
+                Blog
+              </SectionTitle>
+            </Cell>
 
-          {posts.map((post, index) => {
-            const variant = index % 2 === 0 ? "cyan" : "pink";
+            {posts.map((post, index) => {
+              const variant = index % 2 === 0 ? "cyan" : "pink";
 
-            return (
-              <Cell key={post.link} small={12} large={6}>
-                <Card variant={variant} className={styles.summaryCard}>
-                  <Card.Header>
-                    <div className={styles.headerFlex}>
-                      <h3 className={styles.postTitle}>{post.title}</h3>
-                      {index === 0 && (
-                        <span className={styles.pulseIndicator} />
-                      )}
-                    </div>
-                  </Card.Header>
-
-                  <Card.Body className={styles.cardBody}>
-                    <p className={styles.date}>
-                      {new Date(post.pubDate).toLocaleDateString("en-GB", {
-                        day: "numeric",
-                        month: "long",
-                        year: "numeric",
-                      })}
-                    </p>
-
-                    <p className={styles.postCopy}>{post.snippet}</p>
-                  </Card.Body>
-
-                  <Card.Footer>
-                    <div className="">
-                      <div className={`${styles.techPills} w-full sm:w-auto`}>
-                        {post.categories.map((tag, i) => (
-                          <Badge key={i}>#{tag}</Badge>
-                        ))}
+              return (
+                <Cell key={post.link} small={12} large={6}>
+                  <Card variant={variant} className={styles.summaryCard}>
+                    <Card.Header>
+                      <div className={styles.headerFlex}>
+                        <h3 className={styles.postTitle}>{post.title}</h3>
+                        {index === 0 && (
+                          <span className={styles.pulseIndicator} />
+                        )}
                       </div>
+                    </Card.Header>
 
-                      <ViewAllLink href={post.link} target="_blank">
-                        Read Article
-                      </ViewAllLink>
-                    </div>
-                  </Card.Footer>
-                </Card>
-              </Cell>
-            );
-          })}
-        </Grid>
+                    <Card.Body className={styles.cardBody}>
+                      <p className={styles.date}>
+                        {new Date(post.pubDate).toLocaleDateString("en-GB", {
+                          day: "numeric",
+                          month: "long",
+                          year: "numeric",
+                        })}
+                      </p>
+
+                      <p className={styles.postCopy}>{post.snippet}</p>
+                    </Card.Body>
+
+                    <Card.Footer>
+                      <div className="">
+                        <div className={`${styles.techPills} w-full sm:w-auto`}>
+                          {post.categories.map((tag, i) => (
+                            <Badge key={i}>#{tag}</Badge>
+                          ))}
+                        </div>
+
+                        <ViewAllLink href={post.link} target="_blank">
+                          Read Article
+                        </ViewAllLink>
+                      </div>
+                    </Card.Footer>
+                  </Card>
+                </Cell>
+              );
+            })}
+          </Grid>
+        </Section>
       </Section>
     </main>
   );
