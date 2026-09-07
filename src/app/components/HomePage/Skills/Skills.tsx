@@ -7,12 +7,12 @@ import styles from "./Skills.module.css";
 import SectionTitle from "../../Global/SectionTitle/SectionTitle";
 
 const COLOUR_MAP: { [key: string]: string } = {
-  Languages: "var(--pink-500)",
-  "Frameworks & Libraries": "var(--cyan-500)",
-  Tools: "var(--coral-500)",
-  Testing: "#FFD700",
-  "Cloud & Infrastructure": "#FF9900",
-  Databases: "var(--green-500)",
+  "Frontend Engineering": "var(--pink-500)",
+  "Architecture & UI": "var(--cyan-500)",
+  Accessibility: "var(--coral-500)",
+  "Frameworks & Libraries": "#FFD700",
+  "Testing & Tooling": "#FF9900",
+  "Additional Technologies": "var(--green-500)",
 };
 
 export default function Skills() {

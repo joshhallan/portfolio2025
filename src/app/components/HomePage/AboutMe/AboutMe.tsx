@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Card, Cell, Section, Grid, Typography } from "fj-elements";
 import { QUALIFICATIONS_DATA } from "@/data/qualifications";
 import styles from "./AboutMe.module.css";
@@ -36,14 +37,15 @@ export default function AboutMe() {
           <Typography as="p" className={styles.AboutCopy}>
             I&apos;m a{" "}
             <Typography as="span" gradient>
-              Frontend Technical Lead
+              Lead Frontend Engineer
             </Typography>{" "}
             with{" "}
             <Typography as="span" gradient>
               12+ years of experience building web applications
             </Typography>
-            , with a particular focus on accessible React applications, frontend
-            architecture and design systems.
+            . My focus is accessible frontend engineering: React and Next.js
+            applications, component libraries, and design systems that make the
+            accessible path the default one.
           </Typography>
 
           <Typography as="p" className={styles.AboutCopy}>
@@ -51,9 +53,10 @@ export default function AboutMe() {
             <Typography as="span" gradient>
               engineering and creativity
             </Typography>
-            . I enjoy taking a complicated problem, breaking it down into
-            reusable components and turning it into something that feels simple
-            and intuitive for the person using it.
+            . I enjoy taking a complicated interaction, breaking it down into
+            reusable components, and turning it into something that feels simple
+            for the person using it — including people using a keyboard, a
+            screen reader, or assistive technology.
           </Typography>
 
           <Typography as="p" className={styles.AboutCopy}>
@@ -64,7 +67,7 @@ export default function AboutMe() {
             . I work closely with designers on technical feasibility and
             accessible implementation, collaborate with product owners and
             business analysts to shape upcoming work, and mentor developers as
-            we build and maintain frontend systems that teams can be proud of.
+            we build frontend systems teams can be proud of.
           </Typography>
 
           <Typography as="p" className={styles.AboutCopy}>
@@ -72,23 +75,28 @@ export default function AboutMe() {
             <Typography as="span" gradient>
               HTML, CSS, JavaScript and React
             </Typography>
-            , with accessibility being a particular area of interest throughout
-            my career. I&apos;m especially interested in building{" "}
+            , and I care a lot about getting the native platform right before
+            reaching for ARIA. I write about that in my{" "}
             <Typography as="span" gradient>
-              accessible component libraries and design systems
+              Accessibility by Default
             </Typography>{" "}
-            that make doing the right thing easier for the developers using
-            them.
+            series, covering the practical patterns behind buttons, forms,
+            dialogs, tabs, comboboxes and other components we all keep
+            rebuilding. You can find those articles on my{" "}
+            <Link href="/blog" className={styles.inlineLink}>
+              blog
+            </Link>
+            .
           </Typography>
 
           <Typography as="p" className={styles.AboutCopy}>
-            I&apos;m also currently working on expanding my accessibility
-            knowledge through the{" "}
+            I&apos;m currently deepening that work through the{" "}
             <Typography as="span" gradient>
               IAAP CPACC and WAS certifications
             </Typography>
-            , alongside continuing to develop my understanding of frontend
-            architecture and the wider technology landscape.
+            , alongside building accessible component libraries — including my
+            own design system, FJ-Elements — that make doing the right thing
+            easier for the developers using them.
           </Typography>
 
           <Typography as="p" className={styles.AboutCopy}>

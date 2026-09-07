@@ -12,7 +12,7 @@ export const PROJECTS_DATA = [
     tech: ["React", "TypeScript", "CSS Modules", "Storybook", "Atomic Design"],
     image: "/images/projects/fj-elements.png",
     link: "https://elements.findjosh.dev",
-    githubUrl: "https://github.com/joshhallan/fj-elements",
+    githubUrl: "https://github.com/joshhallan/FJ-Elements",
   },
   {
     id: 2,

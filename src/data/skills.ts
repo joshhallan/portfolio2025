@@ -1,32 +1,41 @@
 export const SKILLS_DATA = [
+  // Frontend Engineering
+  { name: "React", category: "Frontend Engineering" },
+  { name: "Next.js", category: "Frontend Engineering" },
+  { name: "TypeScript", category: "Frontend Engineering" },
+  { name: "JavaScript", category: "Frontend Engineering" },
+  { name: "HTML", category: "Frontend Engineering" },
+  { name: "CSS", category: "Frontend Engineering" },
+  { name: "SCSS", category: "Frontend Engineering" },
+
+  // Architecture & UI
+  { name: "Frontend Architecture", category: "Architecture & UI" },
+  { name: "Design Systems", category: "Architecture & UI" },
+  { name: "Component Libraries", category: "Architecture & UI" },
+  { name: "UI Engineering", category: "Architecture & UI" },
+
+  // Accessibility
+  { name: "WCAG 2.2", category: "Accessibility" },
+  { name: "WAI-ARIA", category: "Accessibility" },
+  { name: "Accessible Component Design", category: "Accessibility" },
+  { name: "Keyboard Accessibility", category: "Accessibility" },
+
   // Frameworks & Libraries
-  { name: "React", category: "Frameworks & Libraries" },
   { name: "Angular", category: "Frameworks & Libraries" },
-  { name: "Next.js", category: "Frameworks & Libraries" },
+  { name: "AngularJS", category: "Frameworks & Libraries" },
   { name: "Bootstrap", category: "Frameworks & Libraries" },
   { name: "Foundation", category: "Frameworks & Libraries" },
 
-  // Languages
-  { name: "JavaScript (ES5/ES6)", category: "Languages" },
-  { name: "TypeScript", category: "Languages" },
+  // Testing & Tooling
+  { name: "Unit Testing", category: "Testing & Tooling" },
+  { name: "Automated Testing", category: "Testing & Tooling" },
+  { name: "Manual Testing", category: "Testing & Tooling" },
+  { name: "Git", category: "Testing & Tooling" },
+  { name: "SVN", category: "Testing & Tooling" },
 
-  // Tools
-  { name: "Git", category: "Tools" },
-  { name: "SVN", category: "Tools" },
-  { name: "Storybook", category: "Tools" },
-
-  // Cloud and Infrastructure
-  { name: "AWS", category: "Cloud & Infrastructure" },
-  { name: "Firebase Hosting", category: "Cloud & Infrastructure" },
-
-  // Testing
-  { name: "Unit Testing", category: "Testing" },
-  { name: "Automated Testing", category: "Testing" },
-  { name: "Manual Testing", category: "Testing" },
-
-  // Databases
-  { name: "MongoDB", category: "Databases" },
-  { name: "Firebase", category: "Databases" },
+  // Additional Technologies
+  { name: "Firebase", category: "Additional Technologies" },
+  { name: "MongoDB", category: "Additional Technologies" },
 ];
 
 // Automatically generates the categories, including 'All'

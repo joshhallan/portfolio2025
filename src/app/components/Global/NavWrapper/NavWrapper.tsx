@@ -22,10 +22,14 @@ export default function NavWrapper() {
         { href: "/projects", label: "Projects" },
         { href: "/career", label: "Career" },
         { href: "/blog", label: "Blog" },
-        { external: true, href: "https://github.com", label: "Github" },
         {
           external: true,
-          href: "https://linkedin.com",
+          href: "https://github.com/joshhallan",
+          label: "Github",
+        },
+        {
+          external: true,
+          href: "https://www.linkedin.com/in/joshuaallan/",
           label: "LinkedIn",
         },
       ]}

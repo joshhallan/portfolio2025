@@ -6,6 +6,17 @@
   }
 }
 
+.inlineLink {
+  color: var(--color-action-secondary);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  font-weight: 700;
+}
+
+.inlineLink:hover {
+  text-shadow: var(--glow-cyan);
+}
+
 .factList {
   display: flex;
   flex-direction: column;

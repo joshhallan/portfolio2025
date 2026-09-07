@@ -47,7 +47,7 @@ export default function Hero() {
 
           <div className={styles.buttonGroup}>
             <Link
-              href="/documents/Joshua-Allan-CV_2026_2.pdf"
+              href="/documents/Joshua-Allan.pdf"
               download
               variant="secondary"
             >

@@ -16,7 +16,7 @@ export default function Footer() {
     },
     {
       name: "Medium",
-      href: "https://medium.com/@joshuaallan_73828",
+      href: "https://medium.com/@joshhallan",
       Icon: FaMedium,
     },
   ];
