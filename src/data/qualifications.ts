@@ -17,7 +17,7 @@ export const QUALIFICATIONS_DATA = [
     classification: "Certification",
     grade: "Passed",
     status: "Active",
-    logo: "images/certificates/CPA.png",
+    logo: "/images/certificates/CPA.png",
   },
   {
     id: 3,
@@ -27,7 +27,7 @@ export const QUALIFICATIONS_DATA = [
     classification: "Certification",
     grade: "Passed",
     status: "Active",
-    logo: "images/certificates/PTA.png",
+    logo: "/images/certificates/PTA.png",
   },
   // {
   //   id: 4,
@@ -37,7 +37,7 @@ export const QUALIFICATIONS_DATA = [
   //   classification: "Certification",
   //   grade: "N/A",
   //   status: "In progress",
-  //   logo: "images/certificates/SAA.png",
+  //   logo: "/images/certificates/SAA.png",
   // },
   {
     id: 5,
@@ -48,7 +48,7 @@ export const QUALIFICATIONS_DATA = [
     classification: "Certification",
     grade: "Passed",
     status: "Active",
-    logo: "images/certificates/FK.png",
+    logo: "/images/certificates/FK.png",
   },
   {
     id: 6,
@@ -59,7 +59,7 @@ export const QUALIFICATIONS_DATA = [
     classification: "Certification",
     grade: "Passed",
     status: "Active",
-    logo: "images/certificates/DK.png",
+    logo: "/images/certificates/DK.png",
   },
   {
     id: 7,

@@ -73,15 +73,13 @@ export default function CareerTimeLine() {
     {},
   );
 
-  console.log(groupedExperience);
-
   return (
-    <main className="page-wrapper">
+    <div className="page-wrapper">
       <Section id="all-jobs">
         <Section>
           <Grid gap="lg">
             <Cell small={12}>
-              <SectionTitle underline={true} color={"white"}>
+              <SectionTitle as="h1" underline={true} color={"white"}>
                 Career History
               </SectionTitle>
             </Cell>
@@ -100,6 +98,6 @@ export default function CareerTimeLine() {
           </Grid>
         </Section>
       </Section>
-    </main>
+    </div>
   );
 }
