@@ -7,12 +7,12 @@ import SectionTitle from "../components/Global/SectionTitle/SectionTitle";
 
 export default function ProjectsPage() {
   return (
-    <main className="page-wrapper">
+    <div className="page-wrapper">
       <Section id="all-projects">
         <Section>
           <Grid gap="lg">
             <Cell small={12}>
-              <SectionTitle underline={true} color={"white"}>
+              <SectionTitle as="h1" underline={true} color={"white"}>
                 All Projects
               </SectionTitle>
             </Cell>
@@ -33,6 +33,6 @@ export default function ProjectsPage() {
           </Grid>
         </Section>
       </Section>
-    </main>
+    </div>
   );
 }

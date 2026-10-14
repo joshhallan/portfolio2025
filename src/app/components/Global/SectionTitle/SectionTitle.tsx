@@ -7,6 +7,7 @@ interface SectionTitleProps {
   align?: "left" | "center" | "right";
   color?: string;
   underline?: boolean;
+  as?: "h1" | "h2";
 }
 
 export default function SectionTitle({
@@ -14,10 +15,11 @@ export default function SectionTitle({
   align = "center",
   color = "white", // Set a clear baseline default fallback color
   underline = false,
+  as = "h2",
 }: SectionTitleProps) {
   return (
     <Typography
-      as="h2"
+      as={as}
       style={{
         color: color,
         textAlign: align,

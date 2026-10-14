@@ -23,7 +23,7 @@ export default function Hero() {
           </div>
         </Cell>
         <Cell small={12} medium={6}>
-          <Typography as="h2" style={{ color: "white", textAlign: "center" }}>
+          <Typography as="h1" style={{ color: "white", textAlign: "center" }}>
             Hi, I&apos;m{" "}
             <Typography as="span" gradient>
               Josh
@@ -31,7 +31,7 @@ export default function Hero() {
           </Typography>
 
           <Typography
-            as="h3"
+            as="p"
             style={{
               fontSize: "24px",
               color: "white",
@@ -47,7 +47,7 @@ export default function Hero() {
 
           <div className={styles.buttonGroup}>
             <Link
-              href="/documents/Joshua-Allan.pdf"
+              href="/documents/Joshua-Allan-2026.pdf"
               download
               variant="secondary"
             >

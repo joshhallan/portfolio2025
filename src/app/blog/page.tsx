@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Badge, Card, Cell, Grid, Section, Skeleton } from "fj-elements";
+import { Badge, Card, Cell, Grid, Section, Skeleton, Typography } from "fj-elements";
 import styles from "./Blog.module.css";
 import SectionTitle from "../components/Global/SectionTitle/SectionTitle";
 import ViewAllLink from "../components/Global/ViewAllLink/ViewAllLink";
@@ -32,7 +32,7 @@ interface RSS2JsonResponse {
 export default function BlogPage() {
   const [posts, setPosts] = useState<MediumPost[]>([]);
   const [loading, setLoading] = useState(true);
-  console.log(posts);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     fetch(
@@ -40,7 +40,7 @@ export default function BlogPage() {
     )
       .then((res) => {
         if (!res.ok) throw new Error("Network response was not ok");
-        return res.json() as Promise<RSS2JsonResponse>; // Explicitly cast the JSON promise response shape
+        return res.json() as Promise<RSS2JsonResponse>;
       })
       .then((data) => {
         if (data.status === "ok" && Array.isArray(data.items)) {
@@ -69,22 +69,25 @@ export default function BlogPage() {
           );
 
           setPosts(sorted);
+          setError(null);
+        } else {
+          setError("Unable to load blog posts right now.");
         }
       })
       .catch((err: unknown) => {
-        // Enforce safe type validation on the caught error
         if (err instanceof Error) {
           console.error("Error loading blog posts:", err.message);
         } else {
           console.error("An unexpected error occurred:", err);
         }
+        setError("Unable to load blog posts right now.");
       })
       .finally(() => setLoading(false));
   }, []);
 
   if (loading) {
     return (
-      <main>
+      <div className="page-wrapper">
         <Section>
           <Section>
             <Skeleton height={"20%"} width={"100%"} />
@@ -92,68 +95,93 @@ export default function BlogPage() {
             <Skeleton height={"20%"} width={"100%"} />
           </Section>
         </Section>
-      </main>
+      </div>
     );
   }
 
   return (
-    <main>
+    <div className="page-wrapper">
       <Section>
         <Section>
           <Grid gap="md">
             <Cell small={12}>
-              <SectionTitle color="white" underline={true}>
+              <SectionTitle as="h1" color="white" underline={true}>
                 Blog
               </SectionTitle>
             </Cell>
 
-            {posts.map((post, index) => {
-              const variant = index % 2 === 0 ? "cyan" : "pink";
+            {error || posts.length === 0 ? (
+              <Cell small={12}>
+                <div className={styles.emptyState} role="status">
+                  <Typography as="p" className={styles.emptyStateTitle}>
+                    {error
+                      ? "Couldn't load posts"
+                      : "No posts to show yet"}
+                  </Typography>
+                  <Typography as="p" className={styles.emptyStateCopy}>
+                    {error
+                      ? "Please try again later, or read my writing directly on Medium."
+                      : "Check back soon, or browse my articles on Medium."}
+                  </Typography>
+                  <ViewAllLink
+                    href="https://medium.com/@joshhallan"
+                    target="_blank"
+                  >
+                    Visit Medium
+                  </ViewAllLink>
+                </div>
+              </Cell>
+            ) : (
+              posts.map((post, index) => {
+                const variant = index % 2 === 0 ? "cyan" : "pink";
 
-              return (
-                <Cell key={post.link} small={12} large={6}>
-                  <Card variant={variant} className={styles.summaryCard}>
-                    <Card.Header>
-                      <div className={styles.headerFlex}>
-                        <h3 className={styles.postTitle}>{post.title}</h3>
-                        {index === 0 && (
-                          <span className={styles.pulseIndicator} />
-                        )}
-                      </div>
-                    </Card.Header>
-
-                    <Card.Body className={styles.cardBody}>
-                      <p className={styles.date}>
-                        {new Date(post.pubDate).toLocaleDateString("en-GB", {
-                          day: "numeric",
-                          month: "long",
-                          year: "numeric",
-                        })}
-                      </p>
-
-                      <p className={styles.postCopy}>{post.snippet}</p>
-                    </Card.Body>
-
-                    <Card.Footer>
-                      <div className="">
-                        <div className={`${styles.techPills} w-full sm:w-auto`}>
-                          {post.categories.map((tag, i) => (
-                            <Badge key={i}>#{tag}</Badge>
-                          ))}
+                return (
+                  <Cell key={post.link} small={12} large={6}>
+                    <Card variant={variant} className={styles.summaryCard}>
+                      <Card.Header>
+                        <div className={styles.headerFlex}>
+                          <h3 className={styles.postTitle}>{post.title}</h3>
+                          {index === 0 && (
+                            <span className={styles.pulseIndicator} />
+                          )}
                         </div>
+                      </Card.Header>
 
-                        <ViewAllLink href={post.link} target="_blank">
-                          Read Article
-                        </ViewAllLink>
-                      </div>
-                    </Card.Footer>
-                  </Card>
-                </Cell>
-              );
-            })}
+                      <Card.Body className={styles.cardBody}>
+                        <p className={styles.date}>
+                          {new Date(post.pubDate).toLocaleDateString("en-GB", {
+                            day: "numeric",
+                            month: "long",
+                            year: "numeric",
+                          })}
+                        </p>
+
+                        <p className={styles.postCopy}>{post.snippet}</p>
+                      </Card.Body>
+
+                      <Card.Footer>
+                        <div className="">
+                          <div
+                            className={`${styles.techPills} w-full sm:w-auto`}
+                          >
+                            {post.categories.map((tag, i) => (
+                              <Badge key={i}>#{tag}</Badge>
+                            ))}
+                          </div>
+
+                          <ViewAllLink href={post.link} target="_blank">
+                            Read Article
+                          </ViewAllLink>
+                        </div>
+                      </Card.Footer>
+                    </Card>
+                  </Cell>
+                );
+              })
+            )}
           </Grid>
         </Section>
       </Section>
-    </main>
+    </div>
   );
 }
